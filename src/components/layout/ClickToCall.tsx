@@ -6,29 +6,7 @@ import { SITE_CONFIG } from '@/config/site';
 
 export const ClickToCall: React.FC = () => {
   return (
-    <div
-      className="mobile-sticky-action-bar"
-      style={{
-        display: 'none',
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: 9980,
-        backgroundColor: '#FFFFFF',
-        borderTop: '1px solid var(--color-border-gold)',
-        padding: '10px 16px',
-        boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.12)',
-      }}
-    >
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .mobile-sticky-action-bar {
-            display: flex !important;
-            gap: 12px;
-          }
-        }
-      `}</style>
+    <div className="mobile-sticky-action-bar">
 
       <a
         href={`tel:${SITE_CONFIG.contact.phoneRaw}`}

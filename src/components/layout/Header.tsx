@@ -47,91 +47,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
         transition: 'all 0.3s ease',
       }}
     >
-      <div
-        className="container"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: 'var(--header-height)',
-        }}
-      >
-        {/* Brand Logo */}
-        <Link
-          href="/"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            textDecoration: 'none',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span
-              style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                background: 'var(--gradient-gold)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--color-maroon)',
-                fontWeight: 900,
-                fontSize: '1.1rem',
-                fontFamily: 'var(--font-serif)',
-                boxShadow: '0 2px 8px rgba(212, 175, 55, 0.4)',
-              }}
-            >
+      <div className="container header-inner-container">
+        {/* Brand Logo - Fixed non-wrapping layout */}
+        <Link href="/" className="brand-logo-link">
+          <div className="brand-logo-title-row">
+            <span className="brand-logo-badge">
               7
             </span>
-            <span
-              style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '1.65rem',
-                fontWeight: 800,
-                letterSpacing: '1px',
-                color: 'var(--color-maroon)',
-                textTransform: 'uppercase',
-              }}
-            >
+            <span className="brand-logo-text">
               Saat Phere
             </span>
           </div>
-          <span
-            style={{
-              fontSize: '0.68rem',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              color: 'var(--color-gold-dark)',
-              fontWeight: 700,
-              paddingLeft: '40px',
-              marginTop: '-4px',
-            }}
-          >
-            Events & Weddings
+          <span className="brand-logo-subtitle">
+            Events &amp; Weddings
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav
-          style={{
-            display: 'none',
-            alignItems: 'center',
-            gap: '28px',
-          }}
-          className="desktop-nav"
-        >
-          <style jsx>{`
-            @media (min-width: 992px) {
-              .desktop-nav {
-                display: flex !important;
-              }
-              .mobile-toggle {
-                display: none !important;
-              }
-            }
-          `}</style>
-
+        {/* Desktop Navigation - Hidden under 1200px to prevent wrapping */}
+        <nav className="header-desktop-nav">
           {MAIN_NAV.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
 
@@ -145,18 +78,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 >
                   <Link
                     href={item.href}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      fontSize: '0.92rem',
-                      fontWeight: 600,
-                      color: isActive ? 'var(--color-maroon)' : '#374151',
-                      padding: '10px 0',
-                    }}
+                    className={`header-nav-item ${isActive ? 'active' : ''}`}
+                    style={{ padding: '8px 0' }}
                   >
                     {item.label}
-                    <ChevronDown size={15} color="var(--color-gold)" />
+                    <ChevronDown size={14} color="var(--color-gold)" />
                   </Link>
 
                   {/* Mega Dropdown for 9 Services */}
@@ -222,23 +148,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
               <Link
                 key={item.label}
                 href={item.href}
-                style={{
-                  fontSize: '0.92rem',
-                  fontWeight: 600,
-                  color: isActive ? 'var(--color-maroon)' : '#374151',
-                  borderBottom: isActive ? '2px solid var(--color-gold)' : '2px solid transparent',
-                  paddingBottom: '4px',
-                  transition: 'all 0.2s ease',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                }}
+                className={`header-nav-item ${isActive ? 'active' : ''}`}
               >
                 {item.label}
                 {item.label === 'Enterprise OS' && (
                   <span
                     style={{
-                      fontSize: '0.65rem',
+                      fontSize: '0.62rem',
                       fontWeight: 800,
                       backgroundColor: 'rgba(212, 175, 55, 0.2)',
                       color: 'var(--color-maroon)',
@@ -257,58 +173,40 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
         </nav>
 
         {/* Right CTA Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div className="header-actions-group">
           <a
             href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-            style={{
-              display: 'none',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              color: 'var(--color-maroon)',
-              padding: '8px 12px',
-              borderRadius: '4px',
-              border: '1px solid var(--color-border)',
-            }}
-            className="call-header-btn"
+            className="header-phone-cta"
           >
-            <style jsx>{`
-              @media (min-width: 1120px) {
-                .call-header-btn {
-                  display: inline-flex !important;
-                }
-              }
-            `}</style>
-            <Phone size={14} color="var(--color-gold)" />
+            <Phone size={13} color="var(--color-gold)" />
             {SITE_CONFIG.contact.phone}
           </a>
 
           {onOpenConsultation ? (
-            <button onClick={onOpenConsultation} className="btn-primary" style={{ padding: '10px 20px', fontSize: '0.85rem' }}>
+            <button
+              onClick={onOpenConsultation}
+              className="btn-primary header-consultation-btn"
+            >
               <Sparkles size={14} color="var(--color-gold)" />
               Book Consultation
             </button>
           ) : (
-            <Link href="/contact" className="btn-primary" style={{ padding: '10px 20px', fontSize: '0.85rem' }}>
+            <Link
+              href="/contact"
+              className="btn-primary header-consultation-btn"
+            >
               <Sparkles size={14} color="var(--color-gold)" />
               Book Consultation
             </Link>
           )}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Shown under 1200px */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="mobile-toggle"
-            style={{
-              background: 'transparent',
-              border: 'none',
-              padding: '6px',
-              color: 'var(--color-maroon)',
-            }}
+            className="header-mobile-toggle"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>

@@ -144,31 +144,14 @@ export const AiConciergeModal: React.FC = () => {
 
   return (
     <>
-      {/* Floating Launcher Button */}
+      {/* Floating Launcher Button - Coordinated below WhatsApp */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          right: '24px',
-          backgroundColor: '#800020',
-          color: '#FFFFFF',
-          border: '2px solid var(--color-gold)',
-          borderRadius: '50px',
-          padding: '12px 20px',
-          boxShadow: '0 10px 30px rgba(128, 0, 32, 0.4)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          cursor: 'pointer',
-          zIndex: 9990,
-          transition: 'all 0.25s ease',
-        }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-3px)')}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+        className="floating-ai-concierge-pill"
+        aria-label="Open 24/7 AI Concierge"
       >
         <Sparkles size={18} color="var(--color-gold)" />
-        <span style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.5px' }}>
+        <span style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>
           24/7 AI Concierge
         </span>
         <span
@@ -178,6 +161,7 @@ export const AiConciergeModal: React.FC = () => {
             borderRadius: '50%',
             backgroundColor: '#10B981',
             boxShadow: '0 0 6px #10B981',
+            flexShrink: 0,
           }}
         />
       </button>

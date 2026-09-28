@@ -6,7 +6,7 @@ export interface NavItem {
 
 export const MAIN_NAV: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
+  { label: 'About', href: '/about' },
   {
     label: 'Services',
     href: '/services',
@@ -61,7 +61,7 @@ export const MAIN_NAV: NavItem[] = [
   { label: 'Portfolio', href: '/portfolio' },
   { label: '3D Studio', href: '/studio' },
   { label: 'Enterprise OS', href: '/enterprise' },
-  { label: 'Packages & Quote', href: '/packages' },
+  { label: 'Packages', href: '/packages' },
   { label: 'Client Portal', href: '/portal' },
   { label: 'Vendors', href: '/vendors' },
   { label: 'Contact', href: '/contact' },
