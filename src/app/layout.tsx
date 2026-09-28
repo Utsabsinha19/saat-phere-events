@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
 import { ClickToCall } from '@/components/layout/ClickToCall';
+import { AiConciergeModal } from '@/components/concierge/AiConciergeModal';
 import { StructuredData } from '@/components/seo/StructuredData';
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function RootLayout({
         <Footer />
         <FloatingWhatsApp />
         <ClickToCall />
+        <AiConciergeModal />
       </body>
     </html>
   );

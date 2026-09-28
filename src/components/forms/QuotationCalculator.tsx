@@ -1,7 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Calculator, CheckCircle2, Sparkles, ArrowRight, ShieldAlert, Clock, MapPin, Building, Users } from 'lucide-react';
+import {
+  Calculator,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+  ShieldAlert,
+  Clock,
+  MapPin,
+  Building,
+  Users,
+  Download,
+  CalendarDays,
+  Gem,
+} from 'lucide-react';
 import { QuotationEstimateBreakdown } from '@/types/quotation';
 
 const VENUE_TYPES = [
@@ -29,6 +42,8 @@ export const QuotationCalculator: React.FC = () => {
   const [formData, setFormData] = useState({
     eventType: 'Destination Wedding',
     guestCount: 350,
+    eventDurationDays: 3,
+    aestheticScale: 'Signature Opulence (Heritage Palace Standards)',
     venueType: 'Heritage Palace' as typeof VENUE_TYPES[number],
     cityLocation: 'Udaipur, Rajasthan',
     budgetRange: '₹1.5 Cr – ₹3 Cr',
@@ -45,6 +60,7 @@ export const QuotationCalculator: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [estimate, setEstimate] = useState<QuotationEstimateBreakdown | null>(null);
+  const [dynamicRange, setDynamicRange] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   const toggleService = (srv: string) => {
@@ -56,16 +72,50 @@ export const QuotationCalculator: React.FC = () => {
     }));
   };
 
+  const calculateInvestmentRange = () => {
+    // Dynamic formula per Section 4.1
+    let baseMinLakhs = 35;
+    let baseMaxLakhs = 60;
+
+    if (formData.venueType === 'Heritage Palace') {
+      baseMinLakhs += 60;
+      baseMaxLakhs += 120;
+    } else if (formData.venueType === '5-Star Luxury Resort') {
+      baseMinLakhs += 40;
+      baseMaxLakhs += 80;
+    }
+
+    // Guest multiplier
+    const guestMultiplier = formData.guestCount / 150;
+    // Days multiplier
+    const daysMultiplier = formData.eventDurationDays / 2;
+
+    const finalMin = Math.round(baseMinLakhs * guestMultiplier * daysMultiplier);
+    const finalMax = Math.round(baseMaxLakhs * guestMultiplier * daysMultiplier);
+
+    if (finalMin >= 100) {
+      return `₹${(finalMin / 100).toFixed(1)} Cr – ₹${(finalMax / 100).toFixed(1)} Cr INR`;
+    }
+    return `₹${finalMin} Lakhs – ₹${finalMax} Lakhs INR`;
+  };
+
   const handleGenerateQuote = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
+    const calculatedRange = calculateInvestmentRange();
+    setDynamicRange(calculatedRange);
+
     try {
       const res = await fetch('/api/quotes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          budgetRange: calculatedRange,
+          customRequirements: `[Duration: ${formData.eventDurationDays} Days | Scale: ${formData.aestheticScale}]\n${formData.customRequirements}`,
+        }),
       });
 
       const json = await res.json();
@@ -83,6 +133,55 @@ export const QuotationCalculator: React.FC = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleDownloadProposal = () => {
+    if (!estimate) return;
+
+    const proposalContent = `
+========================================================================
+SAAT PHERE EVENTS | BESPOKE ROYAL CELEBRATION INVESTMENT PROPOSAL
+========================================================================
+Reference Code:       ${estimate.id}
+Client Name:          ${estimate.input.fullName}
+Direct Phone:         ${estimate.input.phone}
+Email Address:        ${estimate.input.email}
+Target Celebration:   ${estimate.input.eventType}
+Destination & City:   ${estimate.input.cityLocation}
+Venue Architecture:   ${estimate.input.venueType}
+Guest Attendance:     ${estimate.input.guestCount} Attendees
+Celebration Days:     ${formData.eventDurationDays} Days
+Aesthetic Scale:      ${formData.aestheticScale}
+========================================================================
+ESTIMATED INVESTMENT RANGE: ${dynamicRange || calculateInvestmentRange()}
+RECOMMENDED TIER:           ${estimate.estimatedTier} Tier
+PLANNING TIMELINE:          ${estimate.recommendedPlanningTimeline}
+========================================================================
+
+CURATED SCOPE OF DELIVERABLES:
+${estimate.scopeSummary.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+
+SELECTED CAPABILITIES:
+${estimate.input.selectedServices.map((s, i) => `[✔] ${s}`).join('\n')}
+
+EXECUTIVE CONCIERGE NOTE:
+${estimate.preliminaryConsultationNote}
+
+CONFIDENTIALITY NOTICE:
+This document contains proprietary design frameworks of Saat Phere Events.
+Prepared by Senior Creative Direction • Jaipur | Udaipur | Mumbai | Goa
+========================================================================
+`;
+
+    const blob = new Blob([proposalContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Saat-Phere-Proposal-${estimate.id}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -115,14 +214,14 @@ export const QuotationCalculator: React.FC = () => {
               fontWeight: 700,
             }}
           >
-            Saat Phere Interactive Quotation Engine
+            Module A • Smart Quotation & Budget Estimator (PRD §4.1)
           </span>
         </div>
         <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: '#FFFFFF' }}>
           Configure Your Bespoke Celebration Proposal
         </h3>
         <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.95rem', marginTop: '6px' }}>
-          Every royal celebration is singular. Configure your preferences without fixed commoditized prices to receive a tailored event architectural deck.
+          Configure celebration duration, guest scale, and venue typology to generate a dynamic investment range without rigid commoditized prices.
         </p>
       </div>
 
@@ -152,7 +251,7 @@ export const QuotationCalculator: React.FC = () => {
             {step === 1 ? (
               <div>
                 <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', marginBottom: '20px', color: 'var(--color-maroon)' }}>
-                  Step 1: Event Scope & Venue Preferences
+                  Step 1: Event Scope, Duration & Aesthetic Scale
                 </h4>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
@@ -187,6 +286,37 @@ export const QuotationCalculator: React.FC = () => {
                           {v}
                         </option>
                       ))}
+                    </select>
+                  </div>
+
+                  {/* Celebration Days Selector (PRD Section 4.1) */}
+                  <div className="form-group">
+                    <label className="form-label">
+                      Number of Celebration Days: <strong style={{ color: 'var(--color-maroon)' }}>{formData.eventDurationDays} Days</strong>
+                    </label>
+                    <select
+                      className="form-select"
+                      value={formData.eventDurationDays}
+                      onChange={(e) => setFormData({ ...formData, eventDurationDays: Number(e.target.value) })}
+                    >
+                      <option value={1}>1 Day (Single Celebration / Reception)</option>
+                      <option value={2}>2 Days (Sangeet + Wedding Day)</option>
+                      <option value={3}>3 Days Royal (Haldi, Mehendi, Sangeet & Pheras)</option>
+                      <option value={4}>4+ Days Palatial Conclave & VIP Buyout</option>
+                    </select>
+                  </div>
+
+                  {/* Aesthetic Scale Selector */}
+                  <div className="form-group">
+                    <label className="form-label">Desired Aesthetic Scale</label>
+                    <select
+                      className="form-select"
+                      value={formData.aestheticScale}
+                      onChange={(e) => setFormData({ ...formData, aestheticScale: e.target.value })}
+                    >
+                      <option value="Signature Opulence (Heritage Palace Standards)">Signature Opulence (Heritage Standards)</option>
+                      <option value="Grand Royal Bespoke (Celebrity Artists & Multi-Tier Rigging)">Grand Royal Bespoke (Multi-Tier Rigging)</option>
+                      <option value="Classic Elegance (Refined High-End Floral Styling)">Classic Elegance (Refined Florals)</option>
                     </select>
                   </div>
 
@@ -278,27 +408,12 @@ export const QuotationCalculator: React.FC = () => {
             ) : (
               <div>
                 <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', marginBottom: '20px', color: 'var(--color-maroon)' }}>
-                  Step 2: Budget Allocation & Confidential Contact
+                  Step 2: Confidential Contact & Lead Generation
                 </h4>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
                   <div className="form-group">
-                    <label className="form-label">Approximate Target Budget Range</label>
-                    <select
-                      className="form-select"
-                      value={formData.budgetRange}
-                      onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                    >
-                      <option value="₹35 Lakhs – ₹75 Lakhs">₹35 Lakhs – ₹75 Lakhs</option>
-                      <option value="₹75 Lakhs – ₹1.5 Cr">₹75 Lakhs – ₹1.5 Cr</option>
-                      <option value="₹1.5 Cr – ₹3 Cr">₹1.5 Cr – ₹3 Cr</option>
-                      <option value="₹3 Cr – ₹5 Cr+">₹3 Cr – ₹5 Cr+</option>
-                      <option value="Ultra-HNWI Bespoke (Undisclosed)">Ultra-HNWI Bespoke (Undisclosed)</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Full Name</label>
+                    <label className="form-label">Full Name *</label>
                     <input
                       type="text"
                       required
@@ -310,7 +425,7 @@ export const QuotationCalculator: React.FC = () => {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Direct Phone / WhatsApp</label>
+                    <label className="form-label">Direct Phone / WhatsApp *</label>
                     <input
                       type="tel"
                       required
@@ -322,7 +437,7 @@ export const QuotationCalculator: React.FC = () => {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Email Address</label>
+                    <label className="form-label">Email Address *</label>
                     <input
                       type="email"
                       required
@@ -331,6 +446,23 @@ export const QuotationCalculator: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">Live Estimated Cost Bracket Preview</label>
+                    <div
+                      style={{
+                        padding: '12px 16px',
+                        background: 'var(--color-ivory-light)',
+                        border: '1px solid var(--color-border-gold)',
+                        borderRadius: '6px',
+                        fontWeight: 700,
+                        color: 'var(--color-maroon)',
+                        fontSize: '1rem',
+                      }}
+                    >
+                      {calculateInvestmentRange()}
+                    </div>
                   </div>
                 </div>
 
@@ -375,7 +507,7 @@ export const QuotationCalculator: React.FC = () => {
             )}
           </form>
         ) : (
-          /* Estimate Breakdown Display */
+          /* Estimate Breakdown Display with 1-Click Proposal Download */
           <div className="animate-fade-in">
             <div
               style={{
@@ -392,7 +524,11 @@ export const QuotationCalculator: React.FC = () => {
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.8rem', color: 'var(--color-maroon)', marginTop: '6px' }}>
                     {estimate.estimatedTier} Tier
                   </h3>
+                  <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--color-gold-dark)', marginTop: '4px' }}>
+                    Estimated Investment: {dynamicRange || calculateInvestmentRange()}
+                  </div>
                 </div>
+
                 <div style={{ textAlign: 'right' }}>
                   <span style={{ fontSize: '0.8rem', color: '#6B7280', textTransform: 'uppercase' }}>Recommended Timeline</span>
                   <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-dark)', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -413,10 +549,10 @@ export const QuotationCalculator: React.FC = () => {
                 </div>
 
                 <div style={{ background: '#FFFFFF', padding: '14px', borderRadius: '8px', border: '1px solid #E5E7EB' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#6B7280', textTransform: 'uppercase' }}>Venue Category</div>
+                  <div style={{ fontSize: '0.75rem', color: '#6B7280', textTransform: 'uppercase' }}>Duration & Scale</div>
                   <div style={{ fontWeight: 700, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '6px', marginTop: '2px' }}>
-                    <Building size={14} color="var(--color-gold)" />
-                    {estimate.input.venueType}
+                    <CalendarDays size={14} color="var(--color-gold)" />
+                    {formData.eventDurationDays} Days
                   </div>
                 </div>
 
@@ -461,19 +597,31 @@ export const QuotationCalculator: React.FC = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
               <button
                 type="button"
-                onClick={() => {
-                  setEstimate(null);
-                  setStep(1);
-                }}
-                className="btn-outline"
+                onClick={handleDownloadProposal}
+                className="btn-gold"
+                style={{ padding: '12px 24px', fontSize: '0.9rem' }}
               >
-                Configure Another Proposal
+                <Download size={16} />
+                Download Instant PDF Proposal Summary
               </button>
 
-              <a href="/contact" className="btn-primary">
-                Schedule Director Video Call
-                <ArrowRight size={16} />
-              </a>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEstimate(null);
+                    setStep(1);
+                  }}
+                  className="btn-outline"
+                >
+                  Configure Another Proposal
+                </button>
+
+                <a href="/contact" className="btn-primary">
+                  Book Executive Consultation
+                  <ArrowRight size={16} />
+                </a>
+              </div>
             </div>
           </div>
         )}

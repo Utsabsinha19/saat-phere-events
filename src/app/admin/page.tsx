@@ -116,6 +116,88 @@ export default async function AdminDashboardPage() {
           </div>
         </div>
 
+        {/* Enterprise Operations Quick Hub */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '16px',
+            marginBottom: '28px',
+          }}
+        >
+          <Link
+            href="/admin/vendors"
+            style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '8px',
+              border: '1px solid #E5E7EB',
+              padding: '18px 20px',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              display: 'block',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span className="badge-gold" style={{ fontSize: '0.72rem' }}>Procurement & Escrow</span>
+              <ArrowRight size={15} color="var(--color-gold-dark)" />
+            </div>
+            <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-maroon)', marginTop: '8px' }}>
+              Vendor & Artisan Guild
+            </h4>
+            <p style={{ fontSize: '0.8rem', color: '#6B7280', marginTop: '2px' }}>
+              12 Vetted contractors, RFP tenders, and tri-party escrow milestone releases.
+            </p>
+          </Link>
+
+          <Link
+            href="/admin/branches"
+            style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '8px',
+              border: '1px solid #E5E7EB',
+              padding: '18px 20px',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              display: 'block',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span className="badge-gold" style={{ fontSize: '0.72rem' }}>5 Regional Hubs</span>
+              <ArrowRight size={15} color="var(--color-gold-dark)" />
+            </div>
+            <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-maroon)', marginTop: '8px' }}>
+              Pan-India Branch Command
+            </h4>
+            <p style={{ fontSize: '0.8rem', color: '#6B7280', marginTop: '2px' }}>
+              Jaipur, Udaipur, Delhi, Mumbai, Goa telemetry & equipment depot transfer.
+            </p>
+          </Link>
+
+          <Link
+            href="/admin/crm"
+            style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '8px',
+              border: '1px solid #E5E7EB',
+              padding: '18px 20px',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+              display: 'block',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span className="badge-gold" style={{ fontSize: '0.72rem' }}>Meta WABA Engine</span>
+              <ArrowRight size={15} color="var(--color-gold-dark)" />
+            </div>
+            <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-maroon)', marginTop: '8px' }}>
+              WhatsApp CRM & Concierge
+            </h4>
+            <p style={{ fontSize: '0.8rem', color: '#6B7280', marginTop: '2px' }}>
+              Automated brochure dispatch, RSVP sync, and 98.6% delivery rate telemetry.
+            </p>
+          </Link>
+        </div>
+
         {/* Recent Inquiries Table */}
         <div className="admin-table-container">
           <div className="admin-table-toolbar">

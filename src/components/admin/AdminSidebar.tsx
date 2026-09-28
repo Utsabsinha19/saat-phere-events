@@ -12,6 +12,9 @@ import {
   Settings,
   ExternalLink,
   Crown,
+  Briefcase,
+  Building2,
+  Smartphone,
 } from 'lucide-react';
 
 export const AdminSidebar: React.FC = () => {
@@ -20,6 +23,9 @@ export const AdminSidebar: React.FC = () => {
   const navItems = [
     { label: 'Executive Dashboard', href: '/admin', icon: LayoutDashboard },
     { label: 'Inquiry Leads Manager', href: '/admin/inquiries', icon: Users },
+    { label: 'Vendors & RFPs', href: '/admin/vendors', icon: Briefcase },
+    { label: 'Regional Branches', href: '/admin/branches', icon: Building2 },
+    { label: 'WhatsApp CRM', href: '/admin/crm', icon: Smartphone },
     { label: 'Gallery & Portfolio', href: '/admin/gallery', icon: ImageIcon },
     { label: 'Client Testimonials', href: '/admin/testimonials', icon: MessageSquare },
     { label: 'Services & Content', href: '/admin/services', icon: Sparkles },

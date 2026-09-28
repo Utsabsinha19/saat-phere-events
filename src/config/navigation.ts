@@ -59,7 +59,10 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   { label: 'Portfolio', href: '/portfolio' },
+  { label: '3D Studio', href: '/studio' },
   { label: 'Packages & Quote', href: '/packages' },
+  { label: 'Client Portal', href: '/portal' },
+  { label: 'Vendors', href: '/vendors' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -69,16 +72,16 @@ export const FOOTER_LINKS = {
     { label: 'Destination Weddings', href: '/services/destination-weddings' },
     { label: 'Haldi, Mehendi & Sangeet', href: '/services/haldi-mehendi-and-sangeet' },
     { label: 'Reception & Mandap Decor', href: '/services/reception-and-wedding-decor' },
-    { label: 'Corporate Galas', href: '/services/corporate-events-and-private-parties' },
+    { label: '3D WebXR Decor Studio', href: '/studio' },
     { label: 'Custom Quote Calculator', href: '/packages' },
   ],
   company: [
     { label: 'Our Brand Story', href: '/about' },
     { label: 'Portfolio Gallery', href: '/portfolio' },
-    { label: 'Client Testimonials', href: '/#testimonials' },
-    { label: 'Schedule Consultation', href: '/contact' },
+    { label: 'Artisan & Vendor Guild', href: '/vendors' },
     { label: 'Client Account Portal', href: '/portal' },
-    { label: 'Admin Dashboard', href: '/admin' },
+    { label: 'Schedule Consultation', href: '/contact' },
+    { label: 'Admin ERP Console', href: '/admin' },
   ],
   destinations: [
     { label: 'Jaipur Heritage Weddings', href: '/services/destination-weddings' },

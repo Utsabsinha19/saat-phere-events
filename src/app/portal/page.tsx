@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { GoldDivider } from '@/components/common/GoldDivider';
+import { RsvpManager } from '@/components/portal/RsvpManager';
+import { BudgetTracker } from '@/components/portal/BudgetTracker';
+import { DigitalContractSigner } from '@/components/portal/DigitalContractSigner';
+import { DecorMoodboardCanvas } from '@/components/portal/DecorMoodboardCanvas';
 import {
   Calendar,
   CheckCircle2,
@@ -14,17 +18,18 @@ import {
   Shield,
   Sparkles,
   Users,
+  DollarSign,
+  Palette,
 } from 'lucide-react';
 
 export default function ClientPortalPage() {
-  const [activeTab, setActiveTab] = useState<'milestones' | 'moodboards' | 'contracts'>('milestones');
-  const [moodboardApproved, setMoodboardApproved] = useState(false);
+  const [activeTab, setActiveTab] = useState<'milestones' | 'budget' | 'guests' | 'moodboards' | 'contracts'>('milestones');
 
   const clientEvent = {
     coupleNames: 'Ananya & Siddharth Singhania',
     eventType: '3-Day Palatial Destination Wedding',
     venue: 'Jagmandir Island Palace, Udaipur',
-    eventDate: 'December 18, 2026',
+    eventDate: 'December 18 - 20, 2026',
     daysRemaining: 80,
     director: 'Vikramaditya Rathore (Senior Managing Director)',
   };
@@ -38,14 +43,14 @@ export default function ClientPortalPage() {
     },
     {
       title: '3D Mandap & Scenography Moodboard Approved',
-      date: 'Current Stage • Sep 2026',
-      status: moodboardApproved ? 'done' : 'active',
+      date: 'Completed • Sep 2026',
+      status: 'done',
       desc: 'Reviewing lakeside floral lotus pavilion and crystal chandelier aisle rendering.',
     },
     {
       title: 'Celebrity Sufi & Sangeet Artist Contracting',
-      date: 'Upcoming • Oct 2026',
-      status: 'pending',
+      date: 'Current Stage • Oct 2026',
+      status: 'active',
       desc: 'Securing headline vocalists and concert-grade line-array sound engineers.',
     },
     {
@@ -74,10 +79,10 @@ export default function ClientPortalPage() {
           padding: '80px 20px 60px 20px',
         }}
       >
-        <div className="container" style={{ maxWidth: '1020px' }}>
+        <div className="container" style={{ maxWidth: '1100px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
             <span className="badge-gold" style={{ background: 'rgba(212, 175, 55, 0.25)', color: 'var(--color-gold-light)' }}>
-              Phase 2 Enterprise Portal • Client Console
+              Client Command Console • Saat Phere Privé
             </span>
           </div>
 
@@ -114,15 +119,15 @@ export default function ClientPortalPage() {
       </section>
 
       {/* Main Portal View */}
-      <div className="container" style={{ maxWidth: '1020px', marginTop: '36px' }}>
+      <div className="container" style={{ maxWidth: '1100px', marginTop: '36px' }}>
         {/* Navigation Tabs */}
-        <div style={{ display: 'flex', gap: '12px', borderBottom: '1px solid #E5E7EB', paddingBottom: '16px', marginBottom: '32px' }}>
+        <div style={{ display: 'flex', gap: '10px', borderBottom: '1px solid #E5E7EB', paddingBottom: '16px', marginBottom: '32px', overflowX: 'auto' }}>
           <button
             onClick={() => setActiveTab('milestones')}
             style={{
-              padding: '10px 20px',
+              padding: '10px 18px',
               borderRadius: '8px',
-              fontSize: '0.9rem',
+              fontSize: '0.88rem',
               fontWeight: 600,
               backgroundColor: activeTab === 'milestones' ? 'var(--color-maroon)' : '#F3F4F6',
               color: activeTab === 'milestones' ? '#FFFFFF' : '#374151',
@@ -131,18 +136,61 @@ export default function ClientPortalPage() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
+              whiteSpace: 'nowrap',
             }}
           >
             <Clock size={16} />
-            Event Preparation Milestones
+            Master Milestones
+          </button>
+
+          <button
+            onClick={() => setActiveTab('budget')}
+            style={{
+              padding: '10px 18px',
+              borderRadius: '8px',
+              fontSize: '0.88rem',
+              fontWeight: 600,
+              backgroundColor: activeTab === 'budget' ? 'var(--color-maroon)' : '#F3F4F6',
+              color: activeTab === 'budget' ? '#FFFFFF' : '#374151',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <DollarSign size={16} />
+            Budget & Invoices
+          </button>
+
+          <button
+            onClick={() => setActiveTab('guests')}
+            style={{
+              padding: '10px 18px',
+              borderRadius: '8px',
+              fontSize: '0.88rem',
+              fontWeight: 600,
+              backgroundColor: activeTab === 'guests' ? 'var(--color-maroon)' : '#F3F4F6',
+              color: activeTab === 'guests' ? '#FFFFFF' : '#374151',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <Users size={16} />
+            RSVPs & Guest Directory
           </button>
 
           <button
             onClick={() => setActiveTab('moodboards')}
             style={{
-              padding: '10px 20px',
+              padding: '10px 18px',
               borderRadius: '8px',
-              fontSize: '0.9rem',
+              fontSize: '0.88rem',
               fontWeight: 600,
               backgroundColor: activeTab === 'moodboards' ? 'var(--color-maroon)' : '#F3F4F6',
               color: activeTab === 'moodboards' ? '#FFFFFF' : '#374151',
@@ -151,18 +199,19 @@ export default function ClientPortalPage() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
+              whiteSpace: 'nowrap',
             }}
           >
-            <ImageIcon size={16} />
-            3D Decor Moodboards
+            <Palette size={16} />
+            3D Decor & Moodboards
           </button>
 
           <button
             onClick={() => setActiveTab('contracts')}
             style={{
-              padding: '10px 20px',
+              padding: '10px 18px',
               borderRadius: '8px',
-              fontSize: '0.9rem',
+              fontSize: '0.88rem',
               fontWeight: 600,
               backgroundColor: activeTab === 'contracts' ? 'var(--color-maroon)' : '#F3F4F6',
               color: activeTab === 'contracts' ? '#FFFFFF' : '#374151',
@@ -171,10 +220,11 @@ export default function ClientPortalPage() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
+              whiteSpace: 'nowrap',
             }}
           >
             <FileCheck size={16} />
-            Vendor Contracts & Invoices
+            Digital E-Contracts
           </button>
         </div>
 
@@ -240,82 +290,17 @@ export default function ClientPortalPage() {
           </div>
         )}
 
-        {/* Tab 2: 3D Moodboards */}
-        {activeTab === 'moodboards' && (
-          <div className="luxury-card" style={{ padding: '36px', backgroundColor: '#FFFFFF' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
-              <div>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', color: 'var(--color-maroon)' }}>
-                  Lakeside Lotus Mandap 3D Render
-                </h3>
-                <p style={{ fontSize: '0.85rem', color: '#6B7280' }}>
-                  Design Version 2.4 • Jagmandir Courtyard
-                </p>
-              </div>
+        {/* Tab 2: Budget & Invoices */}
+        {activeTab === 'budget' && <BudgetTracker />}
 
-              {moodboardApproved ? (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#059669', fontWeight: 700, background: '#ECFDF5', padding: '8px 16px', borderRadius: '6px' }}>
-                  <CheckCircle2 size={18} />
-                  Concept Approved by Couple
-                </div>
-              ) : (
-                <button
-                  onClick={() => setMoodboardApproved(true)}
-                  className="btn-gold"
-                  style={{ padding: '10px 20px', fontSize: '0.85rem' }}
-                >
-                  <Sparkles size={16} />
-                  Approve This Moodboard Design
-                </button>
-              )}
-            </div>
+        {/* Tab 3: RSVPs & Guest Directory */}
+        {activeTab === 'guests' && <RsvpManager />}
 
-            <div style={{ borderRadius: '10px', overflow: 'hidden', height: '420px', marginBottom: '20px' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85"
-                alt="3D Lotus Mandap Render"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-            <p style={{ fontSize: '0.9rem', color: '#4B5563', lineHeight: 1.6 }}>
-              This setup features 20,000 cold-chain Dutch white carnations, floating glass pedestals, and concealed Amber 2700K ambient spotlights engineered to eliminate camera glare during sacred Vedic rituals.
-            </p>
-          </div>
-        )}
+        {/* Tab 4: 3D Decor & Moodboard */}
+        {activeTab === 'moodboards' && <DecorMoodboardCanvas />}
 
-        {/* Tab 3: Contracts & Invoices */}
-        {activeTab === 'contracts' && (
-          <div className="luxury-card" style={{ padding: '36px', backgroundColor: '#FFFFFF' }}>
-            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem', color: 'var(--color-maroon)', marginBottom: '16px' }}>
-              Contracts, Token Deposits & GST Invoices
-            </h3>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px', background: '#F9FAFB', borderRadius: '8px', border: '1px solid #E5E7EB' }}>
-                <div>
-                  <div style={{ fontWeight: 700, color: '#111827' }}>Master Planning & Palatial Management Contract</div>
-                  <div style={{ fontSize: '0.78rem', color: '#6B7280' }}>Signed on Aug 14, 2026 • DocuSign ID: #SPE-DS-9821</div>
-                </div>
-                <button className="btn-outline" style={{ padding: '6px 12px', fontSize: '0.8rem' }}>
-                  <Download size={14} />
-                  Download PDF
-                </button>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px', background: '#F9FAFB', borderRadius: '8px', border: '1px solid #E5E7EB' }}>
-                <div>
-                  <div style={{ fontWeight: 700, color: '#111827' }}>Deposit Invoice: SPE-INV-2026-8812 (Token Advance)</div>
-                  <div style={{ fontSize: '0.78rem', color: '#6B7280' }}>GST SAC: 998596 • Razorpay Authorized • Verified Paid</div>
-                </div>
-                <button className="btn-outline" style={{ padding: '6px 12px', fontSize: '0.8rem' }}>
-                  <Download size={14} />
-                  Download GST Invoice
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Tab 5: Digital E-Contracts */}
+        {activeTab === 'contracts' && <DigitalContractSigner />}
       </div>
     </div>
   );

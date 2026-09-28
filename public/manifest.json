@@ -1,0 +1,17 @@
+{
+  "name": "Saat Phere Events | Luxury Wedding Planners",
+  "short_name": "Saat Phere",
+  "description": "Premier luxury wedding planning and bespoke event management in India. Royal destination weddings, mandap decors, and client portal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#800020",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
