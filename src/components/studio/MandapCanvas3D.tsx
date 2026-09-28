@@ -13,6 +13,10 @@ import {
   Download,
   CheckCircle2,
   Flame,
+  Camera,
+  Layers,
+  Compass,
+  Sliders,
 } from 'lucide-react';
 
 export type LightingMode = 'daylight' | 'sunset' | 'royal-evening';
@@ -25,11 +29,15 @@ interface MandapCanvas3DProps {
 export const MandapCanvas3D: React.FC<MandapCanvas3DProps> = ({ onSaveConcept }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const [lightingMode, setLightingMode] = useState<LightingMode>('royal-evening');
   const [decorTheme, setDecorTheme] = useState<DecorTheme>('crimson-gold');
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [isArMode, setIsArMode] = useState(false);
+  const [arScale, setArScale] = useState(1.0);
+  const [arStreamActive, setArStreamActive] = useState(false);
 
   // References to dynamic Three.js objects
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -366,6 +374,40 @@ export const MandapCanvas3D: React.FC<MandapCanvas3DProps> = ({ onSaveConcept })
     }
   }, [decorTheme]);
 
+  // AR Mode Camera Stream & Scale Handler
+  useEffect(() => {
+    if (isArMode) {
+      if (sceneRef.current) {
+        sceneRef.current.background = null;
+      }
+      if (typeof navigator !== 'undefined' && navigator.mediaDevices?.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: { facingMode: 'environment' } })
+          .then((stream) => {
+            if (videoRef.current) {
+              videoRef.current.srcObject = stream;
+              videoRef.current.play();
+              setArStreamActive(true);
+            }
+          })
+          .catch(() => {
+            setArStreamActive(false);
+          });
+      }
+    } else {
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        stream.getTracks().forEach((track) => track.stop());
+      }
+    }
+  }, [isArMode]);
+
+  useEffect(() => {
+    if (sceneRef.current) {
+      sceneRef.current.scale.set(arScale, arScale, arScale);
+    }
+  }, [arScale]);
+
   // Mouse / Touch event handlers for 3D Orbit Controls
   const handleMouseDown = (e: React.MouseEvent) => {
     isDraggingRef.current = true;
@@ -442,6 +484,36 @@ export const MandapCanvas3D: React.FC<MandapCanvas3DProps> = ({ onSaveConcept })
         transition: 'background-color 0.4s ease',
       }}
     >
+      {/* AR Background Video / Passthrough Venue Canvas */}
+      {isArMode && (
+        arStreamActive ? (
+          <video
+            ref={videoRef}
+            playsInline
+            muted
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              zIndex: 0,
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'url("https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              zIndex: 0,
+            }}
+          />
+        )
+      )}
+
       {/* Three.js Canvas */}
       <canvas
         ref={canvasRef}
@@ -450,7 +522,7 @@ export const MandapCanvas3D: React.FC<MandapCanvas3DProps> = ({ onSaveConcept })
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onWheel={handleWheel}
-        style={{ width: '100%', height: '100%', display: 'block', cursor: 'grab' }}
+        style={{ width: '100%', height: '100%', display: 'block', cursor: 'grab', position: 'relative', zIndex: 2 }}
       />
 
       {/* Floating HUD: Lighting Modes */}
@@ -619,6 +691,27 @@ export const MandapCanvas3D: React.FC<MandapCanvas3DProps> = ({ onSaveConcept })
         }}
       >
         <button
+          onClick={() => setIsArMode(!isArMode)}
+          title="Project Mandap into Real Venue Space (AR)"
+          style={{
+            padding: '8px 14px',
+            borderRadius: '8px',
+            backgroundColor: isArMode ? '#059669' : 'rgba(18, 18, 18, 0.85)',
+            border: '1.5px solid var(--color-gold)',
+            color: '#FFFFFF',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+          }}
+        >
+          <Camera size={15} color="var(--color-gold)" />
+          {isArMode ? 'Exit AR Mode' : '✨ View in AR'}
+        </button>
+
+        <button
           onClick={resetCamera}
           title="Reset Orbit Angle"
           style={{
@@ -671,6 +764,37 @@ export const MandapCanvas3D: React.FC<MandapCanvas3DProps> = ({ onSaveConcept })
           {savedSuccess ? 'Concept Saved!' : 'Save Concept'}
         </button>
       </div>
+
+      {/* AR Mode Scale Slider Overlay */}
+      {isArMode && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '75px',
+            right: '20px',
+            backgroundColor: 'rgba(18, 18, 18, 0.88)',
+            padding: '8px 16px',
+            borderRadius: '8px',
+            border: '1px solid var(--color-gold)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            zIndex: 10,
+          }}
+        >
+          <Sliders size={14} color="var(--color-gold)" />
+          <span style={{ fontSize: '0.78rem', color: '#D1D5DB' }}>AR Scale: {arScale.toFixed(1)}x</span>
+          <input
+            type="range"
+            min={0.5}
+            max={2.0}
+            step={0.1}
+            value={arScale}
+            onChange={(e) => setArScale(Number(e.target.value))}
+            style={{ width: '80px', accentColor: 'var(--color-gold)' }}
+          />
+        </div>
+      )}
 
       {/* Subtle Hint */}
       <div

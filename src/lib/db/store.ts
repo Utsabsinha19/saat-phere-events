@@ -6,6 +6,7 @@ import { VendorItem, RfpItem, PurchaseOrderItem } from '@/types/vendor';
 import { BranchItem } from '@/types/branch';
 import { GuestItem } from '@/types/rsvp';
 import { WhatsAppLogItem, CrmCampaignStats } from '@/types/crm';
+import { ClientEvent, EventMilestone, PaymentInvoice } from '@/types/clientPortal';
 
 import { INITIAL_INQUIRIES } from '@/data/inquiriesData';
 import { GALLERY_DATA } from '@/data/galleryData';
@@ -15,6 +16,7 @@ import { VENDORS_DATA, INITIAL_RFPS, INITIAL_POS } from '@/data/vendorsData';
 import { BRANCHES_DATA } from '@/data/branchesData';
 import { INITIAL_GUEST_LIST } from '@/data/guestListData';
 import { INITIAL_WHATSAPP_LOGS, INITIAL_CRM_STATS } from '@/data/crmData';
+import { INITIAL_CLIENT_EVENT, INITIAL_EVENT_MILESTONES, INITIAL_PAYMENT_INVOICES } from '@/data/clientPortalData';
 
 declare global {
   // eslint-disable-next-line no-var
@@ -30,6 +32,10 @@ declare global {
     guests: GuestItem[];
     crmLogs: WhatsAppLogItem[];
     crmStats: CrmCampaignStats;
+    clientEvents: ClientEvent[];
+    eventMilestones: EventMilestone[];
+    invoices: PaymentInvoice[];
+    activeOtps: Record<string, string>;
   } | undefined;
 }
 
@@ -46,6 +52,10 @@ if (!global.__SPE_DB__) {
     guests: [...INITIAL_GUEST_LIST],
     crmLogs: [...INITIAL_WHATSAPP_LOGS],
     crmStats: { ...INITIAL_CRM_STATS },
+    clientEvents: [{ ...INITIAL_CLIENT_EVENT }],
+    eventMilestones: [...INITIAL_EVENT_MILESTONES],
+    invoices: [...INITIAL_PAYMENT_INVOICES],
+    activeOtps: { '+91 98200 12345': '777777', 'ananya.siddharth@singhania.com': '777777' },
   };
 }
 
@@ -322,5 +332,107 @@ export const CrmRepository = {
     };
     db.crmLogs.unshift(newLog);
     return newLog;
+  },
+};
+
+export const ClientPortalRepository = {
+  async getEvent(eventId = 'evt-udaipur-101'): Promise<ClientEvent | null> {
+    const ev = db.clientEvents.find((e) => e.eventId === eventId);
+    return ev || db.clientEvents[0] || null;
+  },
+
+  async getMilestones(eventId = 'evt-udaipur-101'): Promise<EventMilestone[]> {
+    return db.eventMilestones.filter((m) => m.eventId === eventId);
+  },
+
+  async updateMilestone(milestoneId: string, status: EventMilestone['status']): Promise<EventMilestone | null> {
+    const ms = db.eventMilestones.find((m) => m.milestoneId === milestoneId);
+    if (!ms) return null;
+    ms.status = status;
+    return ms;
+  },
+
+  async sendOtp(phoneOrEmail: string): Promise<{ otp: string; phoneOrEmail: string }> {
+    // Generate 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    db.activeOtps[phoneOrEmail] = otp;
+    
+    // Log to automated CRM WhatsApp pipeline
+    db.crmLogs.unshift({
+      id: `wa-msg-otp-${Date.now()}`,
+      leadId: 'client-auth',
+      recipientName: 'Valued Client',
+      phone: phoneOrEmail,
+      sequenceType: 'Instant Digital Brochure Welcome',
+      status: 'Delivered & Read',
+      timestamp: new Date().toISOString(),
+      contentSnippet: `Your Saat Phere Client Portal login code is: ${otp}. Valid for 10 minutes.`,
+      triggerSource: 'Automated Event Trigger',
+    });
+
+    return { otp, phoneOrEmail };
+  },
+
+  async verifyOtp(phoneOrEmail: string, otp: string): Promise<boolean> {
+    // Demo backdoor '777777' or active OTP
+    if (otp === '777777') return true;
+    const stored = db.activeOtps[phoneOrEmail];
+    return stored === otp;
+  },
+};
+
+export const FintechRepository = {
+  async getInvoices(eventId = 'evt-udaipur-101'): Promise<PaymentInvoice[]> {
+    return db.invoices.filter((inv) => inv.eventId === eventId);
+  },
+
+  async createOrder(eventId: string, amount: number, title: string, isInterstate = false) {
+    const orderId = `order_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
+    const baseAmount = Number((amount / 1.18).toFixed(2));
+    const gstTotal = Number((amount - baseAmount).toFixed(2));
+
+    const invoice: PaymentInvoice = {
+      invoiceId: `inv-${Date.now()}`,
+      invoiceNumber: `SPE-2026-${Math.floor(200 + Math.random() * 800)}`,
+      eventId,
+      title,
+      baseAmount,
+      cgstAmount: isInterstate ? 0 : Number((gstTotal / 2).toFixed(2)),
+      sgstAmount: isInterstate ? 0 : Number((gstTotal / 2).toFixed(2)),
+      igstAmount: isInterstate ? gstTotal : 0,
+      totalAmount: amount,
+      gstType: isInterstate ? 'Interstate (IGST)' : 'Intrastate (CGST+SGST)',
+      paymentStatus: 'Unpaid',
+      razorpayOrderId: orderId,
+      dueDate: new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0],
+      createdAt: new Date().toISOString(),
+    };
+
+    db.invoices.unshift(invoice);
+    return { orderId, invoice };
+  },
+
+  async capturePayment(razorpayOrderId: string, razorpayPaymentId: string) {
+    const inv = db.invoices.find((i) => i.razorpayOrderId === razorpayOrderId);
+    if (!inv) return null;
+
+    inv.paymentStatus = 'Paid';
+    inv.razorpayPaymentId = razorpayPaymentId;
+    inv.paidAt = new Date().toISOString();
+
+    // Trigger WhatsApp payment confirmation
+    db.crmLogs.unshift({
+      id: `wa-msg-pay-${Date.now()}`,
+      leadId: inv.eventId,
+      recipientName: 'Singhania Family Office',
+      phone: '+91 98200 12345',
+      sequenceType: 'Payment Milestone Escrow Reminder',
+      status: 'Delivered & Read',
+      timestamp: new Date().toISOString(),
+      contentSnippet: `Payment of ₹${inv.totalAmount.toLocaleString('en-IN')} confirmed for Invoice ${inv.invoiceNumber}. Tri-party escrow receipt issued.`,
+      triggerSource: 'Automated Event Trigger',
+    });
+
+    return inv;
   },
 };
