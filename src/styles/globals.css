@@ -345,28 +345,58 @@ img {
   gap: clamp(10px, 1.2vw, 20px);
   white-space: nowrap;
   flex-shrink: 1;
+  height: 100%;
 }
 
 .header-nav-item {
+  position: relative;
   font-size: clamp(0.8rem, 0.85vw, 0.88rem);
   font-weight: 600;
   color: #374151;
-  padding-bottom: 4px;
+  padding: 8px 0;
   white-space: nowrap !important;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   flex-shrink: 0;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .header-nav-item:hover {
   color: var(--color-maroon);
 }
 
+/* Absolute bottom underline: ensures identical box model & pixel-perfect baseline alignment across all links */
+.header-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-nav-item:hover::after {
+  opacity: 0.55;
+  transform: scaleX(1);
+}
+
 .header-nav-item.active {
   color: var(--color-maroon);
-  border-bottom: 2px solid var(--color-gold);
+}
+
+.header-nav-item.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 /* Header Right Actions */

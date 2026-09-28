@@ -72,17 +72,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
               return (
                 <div
                   key={item.label}
-                  style={{ position: 'relative' }}
+                  style={{
+                    position: 'relative',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    height: '100%',
+                  }}
                   onMouseEnter={() => setServicesDropdownOpen(true)}
                   onMouseLeave={() => setServicesDropdownOpen(false)}
                 >
                   <Link
                     href={item.href}
                     className={`header-nav-item ${isActive ? 'active' : ''}`}
-                    style={{ padding: '8px 0' }}
                   >
-                    {item.label}
-                    <ChevronDown size={14} color="var(--color-gold)" />
+                    <span>{item.label}</span>
+                    <ChevronDown
+                      size={13}
+                      color="var(--color-gold)"
+                      style={{
+                        flexShrink: 0,
+                        transition: 'transform 0.2s ease',
+                        transform: servicesDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      }}
+                    />
                   </Link>
 
                   {/* Mega Dropdown for 9 Services */}
@@ -150,7 +162,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 href={item.href}
                 className={`header-nav-item ${isActive ? 'active' : ''}`}
               >
-                {item.label}
+                <span>{item.label}</span>
                 {item.label === 'Enterprise OS' && (
                   <span
                     style={{
