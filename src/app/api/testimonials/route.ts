@@ -38,10 +38,11 @@ export async function POST(req: NextRequest) {
       weddingLocation: body.weddingLocation || 'Rajasthan',
       reviewText: body.reviewText,
       rating: Number(body.rating) || 5,
-      avatarUrl: body.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-      venueImage: body.venueImage,
+      avatarUrl: body.avatarUrl || '/images/testimonials/avatar-ananya-siddharth.jpg',
+      venueImage: body.venueImage || '/images/testimonials/mandap-couple.jpg',
       eventDate: body.eventDate || new Date().toISOString().split('T')[0],
       featured: body.featured ?? false,
+      verified: true,
     });
 
     return NextResponse.json(

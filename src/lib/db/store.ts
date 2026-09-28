@@ -123,6 +123,11 @@ if (!db.checkpoints) {
   db.emergencyBroadcasts = [...INITIAL_EMERGENCY_BROADCASTS];
 }
 
+// Refresh testimonials to authentic real Indian couple photos and reviews
+if (!db.testimonials || db.testimonials[0]?.avatarUrl?.includes('unsplash.com')) {
+  db.testimonials = [...TESTIMONIALS_DATA];
+}
+
 export const InquiryRepository = {
   async getAll(params?: InquiryFilterParams): Promise<InquiryLead[]> {
     let items = [...db.inquiries];
