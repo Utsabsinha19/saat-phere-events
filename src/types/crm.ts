@@ -3,7 +3,9 @@ export type MessageSequenceType =
   | 'Consultation Slot Confirmation'
   | '3D Decor Moodboard Signoff Alert'
   | 'Payment Milestone Escrow Reminder'
-  | 'Guest RSVP Countdown Sync';
+  | 'Guest RSVP Countdown Sync'
+  | 'Vendor PO Escrow Dispatch Notification'
+  | 'Guest Welcome Protocol & Suite Key Issuance';
 
 export interface WhatsAppLogItem {
   id: string;

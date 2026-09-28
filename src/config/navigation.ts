@@ -60,6 +60,7 @@ export const MAIN_NAV: NavItem[] = [
   },
   { label: 'Portfolio', href: '/portfolio' },
   { label: '3D Studio', href: '/studio' },
+  { label: 'Enterprise OS', href: '/enterprise' },
   { label: 'Packages & Quote', href: '/packages' },
   { label: 'Client Portal', href: '/portal' },
   { label: 'Vendors', href: '/vendors' },
@@ -78,6 +79,7 @@ export const FOOTER_LINKS = {
   company: [
     { label: 'Our Brand Story', href: '/about' },
     { label: 'Portfolio Gallery', href: '/portfolio' },
+    { label: 'Enterprise Operations OS', href: '/enterprise' },
     { label: 'Artisan & Vendor Guild', href: '/vendors' },
     { label: 'Client Account Portal', href: '/portal' },
     { label: 'Schedule Consultation', href: '/contact' },
