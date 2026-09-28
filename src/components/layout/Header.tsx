@@ -163,22 +163,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 className={`header-nav-item ${isActive ? 'active' : ''}`}
               >
                 <span>{item.label}</span>
-                {item.label === 'Enterprise OS' && (
-                  <span
-                    style={{
-                      fontSize: '0.62rem',
-                      fontWeight: 800,
-                      backgroundColor: 'rgba(212, 175, 55, 0.2)',
-                      color: 'var(--color-maroon)',
-                      border: '1px solid var(--color-gold)',
-                      padding: '1px 5px',
-                      borderRadius: '4px',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    AI OS
-                  </span>
-                )}
               </Link>
             );
           })}
@@ -267,12 +251,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             <Link href="/studio" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
               3D Scenography Studio
             </Link>
-            <Link href="/enterprise" style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-maroon)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              Enterprise Operations OS
-              <span style={{ fontSize: '0.65rem', backgroundColor: 'rgba(212, 175, 55, 0.2)', border: '1px solid var(--color-gold)', padding: '1px 5px', borderRadius: '4px' }}>
-                AI OS
-              </span>
-            </Link>
+
             <Link href="/packages" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
               Packages & Custom Quote
             </Link>

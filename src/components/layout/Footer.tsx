@@ -164,7 +164,24 @@ export const Footer: React.FC = () => {
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#9CA3AF')}
                   >
                     <span style={{ color: 'var(--color-gold)', fontSize: '0.75rem' }}>›</span>
-                    {item.label}
+                    <span>{item.label}</span>
+                    {item.href === '/enterprise' && (
+                      <span
+                        style={{
+                          fontSize: '0.62rem',
+                          fontWeight: 800,
+                          backgroundColor: 'rgba(212, 175, 55, 0.18)',
+                          color: 'var(--color-gold)',
+                          border: '1px solid var(--color-gold)',
+                          padding: '1px 5px',
+                          borderRadius: '4px',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.4px',
+                        }}
+                      >
+                        AI OS
+                      </span>
+                    )}
                   </Link>
                 </li>
               ))}

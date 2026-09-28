@@ -60,7 +60,6 @@ export const MAIN_NAV: NavItem[] = [
   },
   { label: 'Portfolio', href: '/portfolio' },
   { label: '3D Studio', href: '/studio' },
-  { label: 'Enterprise OS', href: '/enterprise' },
   { label: 'Packages', href: '/packages' },
   { label: 'Client Portal', href: '/portal' },
   { label: 'Vendors', href: '/vendors' },
