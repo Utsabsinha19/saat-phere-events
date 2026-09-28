@@ -110,6 +110,19 @@ if (!global.__SPE_DB__) {
 
 const db = global.__SPE_DB__;
 
+// Hot-reload migration for newly introduced enterprise collections
+if (!db.checkpoints) {
+  db.decorConcepts = [...INITIAL_DECOR_CONCEPTS];
+  db.seatingTables = JSON.parse(JSON.stringify(INITIAL_SEATING_TABLES));
+  db.checkpoints = [...INITIAL_CEREMONY_CHECKPOINTS];
+  db.crewAlerts = [...INITIAL_CREW_ALERTS];
+  db.escrowReleases = [...INITIAL_ESCROW_RELEASES];
+  db.conciergeReferrals = [...INITIAL_CONCIERGE_REFERRALS];
+  db.smartCheckIns = [...INITIAL_SMART_CHECKINS];
+  db.crewTasks = [...INITIAL_CREW_TASKS];
+  db.emergencyBroadcasts = [...INITIAL_EMERGENCY_BROADCASTS];
+}
+
 export const InquiryRepository = {
   async getAll(params?: InquiryFilterParams): Promise<InquiryLead[]> {
     let items = [...db.inquiries];
