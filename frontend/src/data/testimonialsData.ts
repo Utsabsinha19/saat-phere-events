@@ -1,0 +1,68 @@
+import { TestimonialItem } from '@/types/testimonial';
+
+export const TESTIMONIALS_DATA: TestimonialItem[] = [
+  {
+    id: 'test-1',
+    clientNames: 'Ananya & Siddharth Singhania',
+    eventType: '3-Day Royal Destination Palace Wedding',
+    weddingLocation: 'Jagmandir Island Palace, Udaipur',
+    guestCount: '450 Guests',
+    reviewText:
+      'When you are planning a 3-day wedding on an island palace with 450 guests flying in from London, Dubai, and Mumbai, the logistics are terrifying. Saat Phere Events made the entire process feel effortless. Their boat transfers across Lake Pichola for the Baraat were synchronized to the minute, and not a single bag went missing across three hotels. During the Pheras, when the evening lake breeze suddenly picked up, their team discreetly reinforced the floral mandap canopy without anyone noticing. Most importantly, both our parents got to sit back, dance, and truly enjoy every ceremony. We could not have asked for a better team by our side.',
+    rating: 5,
+    avatarUrl: '/images/testimonials/avatar-ananya-siddharth.jpg',
+    venueImage: '/images/testimonials/mandap-couple.jpg',
+    eventDate: 'November 2024',
+    featured: true,
+    verified: true,
+    status: 'Approved',
+  },
+  {
+    id: 'test-2',
+    clientNames: 'Pooja & Rohan Mehra',
+    eventType: 'Royal Heritage Sangeet & Traditional Wedding',
+    weddingLocation: 'Rambagh Palace & Jai Mahal, Jaipur',
+    guestCount: '350 Guests',
+    reviewText:
+      'What impressed us most about Saat Phere Events was their transparency and ground-level problem solving. When our Sangeet sound permissions were delayed by local authorities, their operations lead had the paperwork sorted out within hours. The decor was even better in real life than what we approved in our renders—the jasmine and tuberose varmala stage smelled heavenly. They assigned a personal shadow coordinator to each of us who made sure we ate snacks between photos and kept our makeup fresh. Our guests are still talking about the Rajasthani royal dinner hospitality.',
+    rating: 5,
+    avatarUrl: '/images/testimonials/avatar-pooja-rohan.jpg',
+    venueImage: '/images/testimonials/couple-pooja-rohan.jpg',
+    eventDate: 'January 2025',
+    featured: true,
+    verified: true,
+    status: 'Approved',
+  },
+  {
+    id: 'test-3',
+    clientNames: 'Sanjana & Vikramaditya Kapoor',
+    eventType: 'Intimate Coastal Fort Celebration',
+    weddingLocation: 'Fort Tiracol & Morjim Coast, Goa',
+    guestCount: '140 Guests',
+    reviewText:
+      'We wanted an intimate 140-guest celebration that felt warm, soulful, and unhurried rather than commercialized. The Saat Phere team understood our vision instantly. They curated local Goan acoustic artists for the sundowner, organized sustainable floral arrangements without single-use plastics, and arranged golf carts for my elderly grandparents at the fort. When a sudden rain shower threatened our open-air reception, they transitioned everything under the covered verandah in under 15 minutes seamlessly. Their calm professionalism is worth every rupee.',
+    rating: 5,
+    avatarUrl: '/images/testimonials/avatar-vikram-sanjana.jpg',
+    venueImage: '/images/testimonials/couple-vikram-sanjana.png',
+    eventDate: 'February 2025',
+    featured: true,
+    verified: true,
+    status: 'Approved',
+  },
+  {
+    id: 'test-4',
+    clientNames: 'Dr. Rajiv & Dr. Sunita Oberoi',
+    eventType: '25th Silver Jubilee Vow Renewal & Gala',
+    weddingLocation: 'The Leela Palace, Chanakyapuri, New Delhi',
+    guestCount: '220 Guests',
+    reviewText:
+      'Re-creating our wedding vows for our 25th anniversary with our children and childhood friends was deeply emotional for us. Saat Phere Events tracked down archival photographs from our 1999 wedding to recreate our original mandap motifs with modern elegance. From handling dietary requirements for our senior doctor colleagues to managing the late-night Sufi dinner, their decor and hospitality teams operated with utmost courtesy and discretion. A truly memorable celebration executed to perfection.',
+    rating: 5,
+    avatarUrl: '/images/testimonials/avatar-rajiv-sunita.jpg',
+    venueImage: '/images/testimonials/hindu-jaimala.jpg',
+    eventDate: 'October 2024',
+    featured: true,
+    verified: true,
+    status: 'Approved',
+  },
+];

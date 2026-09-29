@@ -19,58 +19,84 @@
 
 ---
 
-## 2. Enterprise Project Directory Hierarchy
+## 2. Enterprise Project Directory Hierarchy (Monorepo)
 
 ```
 saat_phere_events/
+├── frontend/                              # Next.js 16 Web Client Application
+│   ├── public/                            # Public Static Media & Web Assets (Hero, Gallery, Services)
+│   ├── src/
+│   │   ├── app/                           # Next.js App Router (React 19, TypeScript)
+│   │   │   ├── page.tsx                   # Luxury Home Page with 7 core sections
+│   │   │   ├── about/page.tsx             # Brand Story, Leadership & Methodology
+│   │   │   ├── services/                  # 9 Dedicated Service Discipline Pages
+│   │   │   ├── portfolio/page.tsx         # 6-Category Filterable Gallery & HD Lightbox
+│   │   │   ├── packages/page.tsx          # Interactive Quotation Engine
+│   │   │   ├── contact/page.tsx           # Official 9-Field Lead Engine & Google Maps
+│   │   │   ├── admin/                     # Admin CMS, Inquiries, CRM, Gallery, Testimonials
+│   │   │   ├── portal/                    # Phase 2 Client Account Portal & Invoicing
+│   │   │   ├── studio/                    # 3D Spatial Decor & Mandap Studio (Three.js)
+│   │   │   ├── rsvp/                      # VIP Wedding Guest RSVP & Digital Pass Generator
+│   │   │   ├── vendors/                   # Verified Luxury Vendor & RFP Network
+│   │   │   ├── enterprise/                # Enterprise White-Label & Global Operations
+│   │   │   ├── layout.tsx                 # Root Layout (Nav, TopBanner, WhatsApp FAB, Call Bar)
+│   │   │   ├── robots.ts                  # Automated Robots.txt
+│   │   │   └── sitemap.ts                 # Automated Google XML Sitemap
+│   │   ├── components/                    # Modular Component System (Admin, Forms, Layout, Studio)
+│   │   ├── config/                        # Design tokens, theme, site metadata
+│   │   ├── data/                          # Frontend reference catalogs & seed datasets
+│   │   ├── styles/                        # Design System CSS (globals, variables, admin, responsive)
+│   │   ├── types/                         # TypeScript Domain Interfaces
+│   │   └── lib/                           # Frontend utility helpers & formatters
+│   ├── next.config.ts                     # Next.js Config with API Proxy Rewrites to Backend
+│   ├── package.json                       # Next.js & React dependencies
+│   └── tsconfig.json                      # Frontend TypeScript config
+├── backend/                               # Express REST API & Enterprise Services Server
+│   ├── src/
+│   │   ├── routes/                        # Express API Routers
+│   │   │   ├── health.ts                  # Enterprise Health Check endpoint
+│   │   │   ├── inquiries.ts               # Lead ingestion, triage, CSV export
+│   │   │   ├── quotes.ts                  # Dynamic proposal calculator
+│   │   │   ├── gallery.ts                 # Media showcase manager
+│   │   │   ├── testimonials.ts            # Reviews repository
+│   │   │   ├── services.ts                # Services JSON data
+│   │   │   ├── vendors.ts                 # Vendor network & RFP engine
+│   │   │   ├── branches.ts                # National franchise branch data
+│   │   │   ├── rsvps.ts                   # VIP Guest RSVP engine
+│   │   │   ├── crm.ts                     # WhatsApp CRM notifications
+│   │   │   ├── payments.ts                # Razorpay orders & webhooks
+│   │   │   ├── v1/client.ts               # Client OTP auth, dashboard, RSVP update
+│   │   │   ├── v1/enterprise.ts           # Orchestrator, Check-in, Crew, Fintech, Spatial
+│   │   │   └── index.ts                   # Master API Route Aggregator
+│   │   ├── db/                            # In-memory store & Supabase integrations
+│   │   ├── email/                         # Automated notification pipelines
+│   │   ├── payments/                      # Razorpay payment gateways & GST invoicing
+│   │   ├── validations/                   # Zod schemas for input validation
+│   │   ├── data/                          # Production seed databases
+│   │   ├── types/                         # Domain TypeScript interfaces
+│   │   └── server.ts                      # Express App on PORT 5000 with CORS & middleware
+│   ├── supabase/                          # Supabase DB configuration & migrations
+│   ├── package.json                       # Express, CORS, Zod, TSX dependencies
+│   └── tsconfig.json                      # Backend TypeScript config
 ├── docs/                                  # Enterprise Architecture & API Docs
 │   ├── architecture/overview.md           # System Architecture & Technical Specifications
 │   ├── api/endpoints.md                   # REST API Specification (cURL & Payloads)
-│   └── deployment.md                      # NVMe Server & Production Deployment Guide
-├── public/                                # Public Static Media & Web Assets
-│   └── images/                            # Hero, gallery, and service photography
-├── src/
-│   ├── app/                               # Next.js App Router (React 19, TypeScript)
-│   │   ├── (public pages)/
-│   │   │   ├── page.tsx                   # Luxury Home Page with 7 core sections
-│   │   │   ├── about/page.tsx             # Brand Story, Leadership & 4-Stage Methodology
-│   │   │   ├── services/page.tsx          # 9-Service Discipline Overview
-│   │   │   ├── services/[slug]/page.tsx   # Dynamic Dedicated Service Page Templates (SSG)
-│   │   │   ├── portfolio/page.tsx         # 6-Category Filterable Gallery & HD Lightbox
-│   │   │   ├── packages/page.tsx          # Interactive Quotation Engine (No fixed prices)
-│   │   │   └── contact/page.tsx           # Official 9-Field Lead Engine & Google Maps
-│   │   ├── admin/                         # Admin Content Management Panel
-│   │   │   ├── layout.tsx                 # Dedicated Admin Layout with Sidebar
-│   │   │   ├── page.tsx                   # Executive Dashboard & KPI Metrics
-│   │   │   ├── inquiries/page.tsx         # Lead Qualification & CSV/Excel Exporter
-│   │   │   ├── gallery/page.tsx           # Media Showcase Manager & Uploader
-│   │   │   ├── testimonials/page.tsx      # Verified Reviews & Approval Manager
-│   │   │   ├── services/page.tsx          # WYSIWYG Content Editor
-│   │   │   └── settings/page.tsx          # Domain, Payment & Notification Config
-│   │   ├── portal/                        # Phase 2 Client Account Portal
-│   │   │   └── page.tsx                   # Milestones, 3D Moodboards & GST Invoices
-│   │   ├── api/                           # REST API Endpoints
-│   │   │   ├── inquiries/                 # Lead ingestion, status triage, CSV export
-│   │   │   ├── quotes/                    # Dynamic proposal calculator
-│   │   │   ├── gallery/                   # Media catalog
-│   │   │   ├── testimonials/              # Reviews repository
-│   │   │   ├── services/                  # Services JSON data
-│   │   │   └── health/                    # Enterprise health check
-│   │   ├── layout.tsx                     # Global Root Layout (SEO, Nav, WhatsApp FAB, Call Bar)
-│   │   ├── robots.ts                      # Automated Robots.txt
-│   │   └── sitemap.ts                     # Automated Google XML Sitemap
-│   ├── components/                        # Modular Component System
-│   │   ├── admin/                         # AdminHeader, AdminSidebar, StatCard, StatusBadge
-│   │   ├── common/                        # GoldDivider, SectionHeading, LightboxModal, VideoModal
-│   │   ├── forms/                         # ContactInquiryForm (9-field), QuotationCalculator, QuickInquiryModal
-│   │   ├── layout/                        # TopBanner, Header, Footer, FloatingWhatsApp, ClickToCall
-│   │   ├── sections/home/                 # HeroSection, BrandIntro, ServicesGrid, LuxuryStats, TestimonialsCarousel, InstagramGrid
-│   │   └── seo/                           # StructuredData (EventPlanner & LocalBusiness schema)
-│   ├── config/                            # Site metadata, navigation tree, and design tokens
-│   ├── data/                              # Production seed data (Services, Gallery, Testimonials, Inquiries)
-│   ├── lib/                               # Business logic, repositories, email pipelines, payments
-│   ├── styles/                            # Vanilla CSS Design System (variables, globals, animations, admin)
-│   └── types/                             # Domain TypeScript interfaces
+│   └── deployment.md                      # Production Deployment Guide
+└── package.json                           # Root Monorepo Orchestrator (Concurrent Dev Runner)
+```
+
+### Running the Monorepo
+
+```bash
+# Start both Frontend (port 3000) and Backend (port 5000) concurrently:
+npm run dev
+
+# Or start individually:
+npm run dev:frontend    # Starts Next.js client on http://localhost:3000
+npm run dev:backend     # Starts Express API server on http://localhost:5000
+
+# Build both applications:
+npm run build
 ```
 
 ---

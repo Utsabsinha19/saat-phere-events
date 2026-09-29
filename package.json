@@ -1,29 +1,26 @@
 {
-  "name": "saat_phere_events",
-  "version": "0.1.0",
+  "name": "saat-phere-events-monorepo",
+  "version": "1.0.0",
   "private": true,
+  "description": "Saat Phere Events - Luxury Wedding Platform Monorepo (Frontend & Backend)",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@types/three": "^0.186.0",
-    "lucide-react": "^1.48.0",
-    "next": "16.3.6",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "three": "^0.186.1",
-    "zod": "^4.6.5"
+    "dev": "concurrently -n \"frontend,backend\" -c \"cyan,magenta\" \"npm --prefix frontend run dev\" \"npm --prefix backend run dev\"",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build": "npm --prefix frontend run build && npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build",
+    "start": "concurrently -n \"frontend,backend\" -c \"cyan,magenta\" \"npm --prefix frontend run start\" \"npm --prefix backend run start\"",
+    "start:frontend": "npm --prefix frontend run start",
+    "start:backend": "npm --prefix backend run start",
+    "install:all": "npm --prefix frontend install && npm --prefix backend install",
+    "lint": "npm --prefix frontend run lint"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.6",
-    "supabase": "^2.118.0",
-    "typescript": "^5"
+    "concurrently": "^9.1.2"
   }
 }
