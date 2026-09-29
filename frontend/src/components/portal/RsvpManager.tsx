@@ -90,7 +90,10 @@ export const RsvpManager: React.FC<RsvpManagerProps> = ({ eventId = 'evt-udaipur
   };
 
   const getInviteUrl = (guestId: string) => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.saatphereevents.com';
+    const origin =
+      typeof window !== 'undefined'
+        ? window.location.origin
+        : process.env.NEXT_PUBLIC_SITE_URL || 'https://saat-phere-events.vercel.app';
     return `${origin}/rsvp?guestId=${guestId}&code=SPE-UDR-2026`;
   };
 

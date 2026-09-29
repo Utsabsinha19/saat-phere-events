@@ -3,8 +3,8 @@ export const SITE_CONFIG = {
   tagline: 'Turning Your Special Moments Into Unforgettable Memories',
   description:
     'Premier luxury wedding planning and bespoke event management company in India. Specializing in royal destination weddings, mandap decor, and unforgettable milestone celebrations.',
-  domain: 'www.saatphereevents.com',
-  url: 'https://www.saatphereevents.com',
+  domain: process.env.NEXT_PUBLIC_SITE_DOMAIN || 'saat-phere-events.vercel.app',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://saat-phere-events.vercel.app',
   contact: {
     phone: '+91 98765 43210',
     phoneRaw: '+919876543210',

@@ -12,8 +12,10 @@
 ### Frontend (`frontend/.env.production` / `frontend/.env.local`)
 ```env
 NODE_ENV=production
-NEXT_PUBLIC_SITE_URL=https://www.saatphereevents.com
+NEXT_PUBLIC_SITE_URL=https://saat-phere-events.vercel.app
+NEXT_PUBLIC_SITE_DOMAIN=saat-phere-events.vercel.app
 NEXT_PUBLIC_API_URL=https://api.saatphereevents.com
+BACKEND_URL=https://api.saatphereevents.com
 NEXT_PUBLIC_GA4_ID=G-SAATPHERE2026
 ```
 
@@ -21,7 +23,7 @@ NEXT_PUBLIC_GA4_ID=G-SAATPHERE2026
 ```env
 PORT=5000
 NODE_ENV=production
-FRONTEND_URL=https://www.saatphereevents.com
+FRONTEND_URL=https://saat-phere-events.vercel.app
 
 # Notification Email Config (PRD Section 4.1)
 ADMIN_ALERT_EMAIL=info@saatphereevents.com
@@ -46,4 +48,40 @@ npm run build
 # Start production server (runs both frontend on 3000 & backend on 5000)
 npm run start
 ```
+
+---
+
+## 4. Vercel Frontend Deployment (`https://saat-phere-events.vercel.app/`)
+
+### Step-by-Step Vercel Setup:
+
+1. **Import Git Repository**:
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard) -> **Add New...** -> **Project**.
+   - Select `Utsabsinha19/saat-phere-events`.
+
+2. **Configure Project Settings**:
+   - **Framework Preset**: `Next.js`
+   - **Root Directory**: Click `Edit` and select `frontend`.
+   - **Build Command**: `next build` (or leave default)
+   - **Output Directory**: `.next` (default)
+   - **Install Command**: `npm install` (default)
+
+3. **Add Environment Variables in Vercel**:
+   In the **Environment Variables** section of the Vercel project settings, add:
+
+   | Key | Value | Notes |
+   |---|---|---|
+   | `NEXT_PUBLIC_SITE_URL` | `https://saat-phere-events.vercel.app` | Canonical site URL for metadata & sitemaps |
+   | `NEXT_PUBLIC_SITE_DOMAIN` | `saat-phere-events.vercel.app` | Domain without https scheme |
+   | `NEXT_PUBLIC_API_URL` | `https://api.saatphereevents.com` | Deployed backend API base URL |
+   | `BACKEND_URL` | `https://api.saatphereevents.com` | Server-side proxy rewrites target |
+   | `NEXT_PUBLIC_GA4_ID` | `G-SAATPHERE2026` | Google Analytics 4 Measurement ID |
+
+4. **Domains Setting**:
+   - Go to **Project Settings** -> **Domains**.
+   - Ensure `saat-phere-events.vercel.app` is added and assigned to the Production branch (`main` / `master`).
+
+5. **Deploy**:
+   - Click **Deploy**. Vercel will build the frontend with static generation and server-side optimization.
+
 
