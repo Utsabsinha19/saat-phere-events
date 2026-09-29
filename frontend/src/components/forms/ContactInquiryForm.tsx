@@ -195,7 +195,7 @@ export const ContactInquiryForm: React.FC = () => {
               type="tel"
               required
               className="form-input"
-              placeholder="+91 98765 43210"
+              placeholder="+91 72091 27697"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />

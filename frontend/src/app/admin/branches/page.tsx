@@ -26,6 +26,13 @@ interface WarehouseStock {
 }
 
 const REGIONAL_INVENTORY: Record<string, WarehouseStock[]> = {
+  'br-katihar': [
+    { itemName: 'Mughal Sheesh Mahal Mirror Arches', category: 'Mandap Structures', qty: 6, condition: 'Mint / Showroom' },
+    { itemName: 'Hand-Hammered Antique Brass Urlis (4ft)', category: 'Heritage Decor', qty: 24, condition: 'Mint / Showroom' },
+    { itemName: 'L-Acoustics K2 Line Array Rig', category: 'Concert Audio', qty: 4, condition: 'De-rigged & Inspected' },
+    { itemName: 'Belgian Cut-Crystal Grand Chandeliers (8ft)', category: 'Scenography Lighting', qty: 12, condition: 'Mint / Showroom' },
+    { itemName: 'Velvet Rajputana Sovereign Thrones', category: 'Palatial Seating', qty: 16, condition: 'Mint / Showroom' },
+  ],
   'br-jaipur': [
     { itemName: 'Mughal Sheesh Mahal Mirror Arches', category: 'Mandap Structures', qty: 6, condition: 'Mint / Showroom' },
     { itemName: 'Hand-Hammered Antique Brass Urlis (4ft)', category: 'Heritage Decor', qty: 24, condition: 'Mint / Showroom' },
@@ -139,7 +146,7 @@ export default function AdminBranchesPage() {
           Pan-India Regional Operations & Warehouses
         </h1>
         <p style={{ fontSize: '0.9rem', color: '#6B7280' }}>
-          Live telemetry across Jaipur Headquarters, Udaipur Palatial Lake Hub, Delhi NCR, Mumbai, and Goa.
+          Live telemetry across Katihar Headquarters, Jaipur Heritage Atelier, Udaipur Palatial Lake Hub, Delhi NCR, Mumbai, and Goa.
         </p>
       </div>
 

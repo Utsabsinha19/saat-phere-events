@@ -118,7 +118,7 @@ npm run build
 ## 4. Key Functional Features
 
 * **Official 9-Core Field Lead Engine:** Captures Full Name, Phone, Email, Event Type, Target Date, Location/City, Guest Count, Budget Range, and Requirements.
-* **Instant Automated Notifications:** Instant dispatch simulation to `info@saatphereevents.com` and personalized client confirmation.
+* **Instant Automated Notifications:** Instant dispatch simulation to `saatpherektr@gmail.com` and personalized client confirmation.
 * **Admin Lead Console:** Real-time triage (`New`, `Contacted`, `Quoted`, `Booked`), internal notes log, and 1-click CSV export.
 * **Interactive Quotation Engine:** Enables clients to configure preferences and receive proposal tier breakdowns without fixed prices.
 * **Instant Communication:** Persistent WhatsApp Floating Action Button (FAB) and sticky mobile Click-to-Call bar.

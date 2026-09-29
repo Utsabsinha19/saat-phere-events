@@ -343,12 +343,24 @@ img {
 
 /* Brand Logo */
 .brand-logo-link {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  white-space: nowrap;
   user-select: none;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo-link:hover {
+  transform: scale(1.02);
+}
+
+.brand-logo-image {
+  height: 56px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-logo-title-row {
@@ -579,13 +591,9 @@ img {
 }
 
 @media (max-width: 480px) {
-  .brand-logo-text {
-    font-size: 1.15rem;
-  }
-  .brand-logo-subtitle {
-    font-size: 0.52rem;
-    letter-spacing: 1.8px;
-    padding-left: 36px;
+  .brand-logo-image {
+    height: 46px;
+    max-width: 110px;
   }
   .header-consultation-btn {
     padding: 6px 8px;
@@ -594,17 +602,9 @@ img {
 }
 
 @media (max-width: 360px) {
-  .brand-logo-badge {
-    width: 28px;
-    height: 28px;
-    font-size: 0.95rem;
-  }
-  .brand-logo-text {
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-  }
-  .brand-logo-subtitle {
-    display: none !important;
+  .brand-logo-image {
+    height: 40px;
+    max-width: 90px;
   }
   .header-consultation-btn {
     padding: 5px 7px;

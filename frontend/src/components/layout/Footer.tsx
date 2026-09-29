@@ -25,36 +25,21 @@ export const Footer: React.FC = () => {
           className="footer-grid">
           {/* Column 1: Brand & Philosophy */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-              <span
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  background: 'var(--gradient-gold)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--color-maroon)',
-                  fontWeight: 900,
-                  fontSize: '1.1rem',
-                  fontFamily: 'var(--font-serif)',
-                }}
-              >
-                7
-              </span>
-              <span
-                style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '1.4rem',
-                  fontWeight: 800,
-                  color: 'var(--color-gold-light)',
-                  letterSpacing: '1px',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Saat Phere
-              </span>
+            <div style={{ marginBottom: '18px' }}>
+              <Link href="/" aria-label="Saat Phere Events Home" style={{ display: 'inline-block' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/logo.png"
+                  alt="Saat Phere Events"
+                  style={{
+                    height: '62px',
+                    width: 'auto',
+                    objectFit: 'contain',
+                    display: 'block',
+                    filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.3))',
+                  }}
+                />
+              </Link>
             </div>
             <p
               style={{

@@ -11,6 +11,8 @@ export const StructuredData: React.FC = () => {
         name: SITE_CONFIG.name,
         description: SITE_CONFIG.description,
         url: SITE_CONFIG.url,
+        logo: `${SITE_CONFIG.url}${SITE_CONFIG.logo}`,
+        image: `${SITE_CONFIG.url}${SITE_CONFIG.logo}`,
         telephone: SITE_CONFIG.contact.phoneRaw,
         email: SITE_CONFIG.contact.email,
         priceRange: '₹₹₹₹',
@@ -24,8 +26,8 @@ export const StructuredData: React.FC = () => {
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: '26.9124',
-          longitude: '75.7873',
+          latitude: '25.5433',
+          longitude: '87.5714',
         },
         openingHoursSpecification: [
           {
@@ -58,6 +60,8 @@ export const StructuredData: React.FC = () => {
           'Luxury wedding planning and bespoke event management company offering royal destination weddings in Rajasthan, Goa, and international destinations.',
         url: SITE_CONFIG.url,
         areaServed: [
+          'Katihar',
+          'Bihar',
           'Jaipur',
           'Udaipur',
           'Jodhpur',

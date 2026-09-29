@@ -26,8 +26,8 @@ NODE_ENV=production
 FRONTEND_URL=https://saat-phere-events.vercel.app
 
 # Notification Email Config (PRD Section 4.1)
-ADMIN_ALERT_EMAIL=info@saatphereevents.com
-CONCIERGE_HOTLINE=+919876543210
+ADMIN_ALERT_EMAIL=saatpherektr@gmail.com
+CONCIERGE_HOTLINE=+917209127697
 
 # Phase 2 Payment Gateway (PRD Section 6)
 RAZORPAY_KEY_ID=rzp_live_your_key_here

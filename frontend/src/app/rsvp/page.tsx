@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { GoldDivider } from '@/components/common/GoldDivider';
 import { RsvpStatus, DietaryPreference } from '@/types/rsvp';
+import { SITE_CONFIG } from '@/config/site';
 import {
   Calendar,
   MapPin,
@@ -99,7 +100,7 @@ Day 3 (Dec 20):
 - 16:30: Sacred Sunset Vedic Pheras at Lakeside Lotus Mandap
 - 20:30: Royal Reception Dinner & White-Glove Banquet
 
-Concierge Helpline: +91 98765 43210 (Saat Phere Guest Logistics)
+Concierge Helpline: ${SITE_CONFIG.contact.phone} (Saat Phere Guest Logistics)
 ========================================================================`;
 
     const blob = new Blob([pass], { type: 'text/plain' });

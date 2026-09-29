@@ -140,7 +140,7 @@ export const BudgetTracker: React.FC = () => {
     const receiptText = `=====================================================
 SAAT PHERE LUXURY WEDDINGS & CELEBRATIONS PVT. LTD.
 GSTIN: 08AAACS9821M1Z4 • SAC CODE: 998596
-Registered Office: Civil Lines, Jaipur 302006, Rajasthan
+Registered Office: Daulat Ram Chowk, Katihar 854105, Bihar
 Client: Ananya & Siddharth Singhania
 Event: 3-Day Palatial Destination Wedding • Jagmandir Palace, Udaipur
 Date: ${new Date().toLocaleDateString('en-IN')}

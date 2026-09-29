@@ -73,7 +73,7 @@ export default function ContactPage() {
                 Headquarters & Regional Suites
               </h2>
               <p style={{ color: '#4B5563', fontSize: '0.98rem', lineHeight: 1.7, marginBottom: '28px' }}>
-                Our flagship design atelier is located in the royal heritage heart of Jaipur, with consultation suites in Udaipur, New Delhi, and North Goa.
+                Our corporate headquarters is located at Daulat Ram Chowk, Katihar, Bihar, with nationwide destination wedding and luxury event consultation suites across India.
               </p>
 
               {/* Contact Cards */}
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.05rem', color: 'var(--color-maroon)', marginBottom: '4px' }}>
-                      Jaipur Design Headquarters
+                      Corporate Headquarters
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: '#4B5563', lineHeight: 1.5 }}>
                       {SITE_CONFIG.contact.headquarters.street}, {SITE_CONFIG.contact.headquarters.city},{' '}
@@ -218,11 +218,11 @@ export default function ContactPage() {
                 <div style={{ padding: '12px 16px', background: '#F9FAFB', borderBottom: '1px solid #E5E7EB', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <MapPin size={16} color="var(--color-gold)" />
                   <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#374151' }}>
-                    Headquarters Pin: Civil Lines, Jaipur
+                    Headquarters Pin: Daulat Ram Chowk, Katihar, Bihar – 854105
                   </span>
                 </div>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113840.40772739433!2d75.7196614183758!3d26.91243364491953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db479f9d19727%3A0x62955512b3226db9!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://maps.google.com/maps?q=Daulat+Ram+Chowk,+Katihar,+Bihar+854105&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="260"
                   style={{ border: 0, display: 'block' }}

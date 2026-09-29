@@ -35,12 +35,22 @@ export const AdminSidebar: React.FC = () => {
   return (
     <aside className="admin-sidebar">
       <div className="admin-sidebar-header">
-        <div className="admin-brand">
-          <Crown size={22} color="var(--color-gold)" />
-          <span>Saat Phere Admin</span>
-        </div>
-        <div style={{ fontSize: '0.72rem', color: '#9CA3AF', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>
-          Operations & CMS Console
+        <Link href="/" target="_blank" style={{ display: 'block', marginBottom: '8px' }} title="Visit Website">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.png"
+            alt="Saat Phere Events"
+            style={{
+              height: '46px',
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block',
+              filter: 'drop-shadow(0 2px 6px rgba(212, 175, 55, 0.3))',
+            }}
+          />
+        </Link>
+        <div style={{ fontSize: '0.72rem', color: '#9CA3AF', letterSpacing: '1px', textTransform: 'uppercase' }}>
+          Operations &amp; CMS Console
         </div>
       </div>
 

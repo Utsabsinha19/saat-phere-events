@@ -49,18 +49,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
     >
       <div className="container header-inner-container">
         {/* Brand Logo - Fixed non-wrapping layout */}
-        <Link href="/" className="brand-logo-link">
-          <div className="brand-logo-title-row">
-            <span className="brand-logo-badge">
-              7
-            </span>
-            <span className="brand-logo-text">
-              Saat Phere
-            </span>
-          </div>
-          <span className="brand-logo-subtitle">
-            Events &amp; Weddings
-          </span>
+        <Link href="/" className="brand-logo-link" aria-label="Saat Phere Events Home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.png"
+            alt="Saat Phere Events"
+            className="brand-logo-image"
+          />
         </Link>
 
         {/* Desktop Navigation - Hidden under 1200px to prevent wrapping */}
