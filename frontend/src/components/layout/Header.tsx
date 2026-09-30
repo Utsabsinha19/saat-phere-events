@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           />
           <div className="brand-logo-text-block">
             <span className="brand-logo-title">Saat Phere</span>
-            <span className="brand-logo-subtitle">Events • Royal Weddings</span>
+            <span className="brand-logo-subtitle">Events</span>
           </div>
         </Link>
 
