@@ -32,4 +32,7 @@ export interface ServiceItem {
   startingBudgetGuide?: string;
   popularLocations?: string[];
   featured: boolean;
+  videoClip?: string;
+  videoPoster?: string;
+  videoTitle?: string;
 }
