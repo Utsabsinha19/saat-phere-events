@@ -103,7 +103,7 @@ export default async function ServiceDetailPage({
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <a href="#inquiry" className="btn-gold" style={{ padding: '14px 30px' }}>
               <Sparkles size={16} />
-              Instant Service Consultation
+              Get in Touch
             </a>
             <Link
               href={`/packages?service=${encodeURIComponent(service.title)}`}
@@ -153,6 +153,41 @@ export default async function ServiceDetailPage({
               </div>
             ))}
           </div>
+
+          {/* Dedicated Video Reel Player */}
+          {service.videoClip && (
+            <div
+              style={{
+                marginTop: '36px',
+                marginBottom: '36px',
+                backgroundColor: '#141414',
+                borderRadius: '16px',
+                border: '2px solid var(--color-gold)',
+                padding: '24px 20px',
+                textAlign: 'center',
+                color: '#FFFFFF',
+                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.3)',
+              }}
+            >
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+                <Sparkles size={16} color="var(--color-gold)" />
+                <span style={{ fontSize: '0.86rem', fontWeight: 700, color: 'var(--color-gold-light)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  {service.videoTitle || `${service.title} Cinematic Video Reel`}
+                </span>
+              </div>
+              <div style={{ maxWidth: '720px', margin: '0 auto', borderRadius: '10px', overflow: 'hidden', backgroundColor: '#000000' }}>
+                <video
+                  src={service.videoClip}
+                  poster={service.videoPoster}
+                  controls
+                  playsInline
+                  style={{ width: '100%', maxHeight: '420px', display: 'block' }}
+                >
+                  Your browser does not support video playback.
+                </video>
+              </div>
+            </div>
+          )}
 
           {service.popularLocations && service.popularLocations.length > 0 && (
             <div

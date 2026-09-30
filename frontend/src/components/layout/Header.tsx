@@ -247,23 +247,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             <button
               onClick={onOpenConsultation}
               className="btn-primary header-consultation-btn"
-              title="Book Consultation"
+              title="Get in Touch"
             >
               <Sparkles size={14} color="var(--color-gold)" style={{ flexShrink: 0 }} />
-              <span className="header-btn-text-full">Book Consultation</span>
-              <span className="header-btn-text-tablet">Book Consult</span>
-              <span className="header-btn-text-mobile">Consult</span>
+              <span className="header-btn-text-full">Get in Touch</span>
+              <span className="header-btn-text-tablet">Get in Touch</span>
+              <span className="header-btn-text-mobile">Contact</span>
             </button>
           ) : (
             <Link
               href="/contact"
               className="btn-primary header-consultation-btn"
-              title="Book Consultation"
+              title="Get in Touch"
             >
               <Sparkles size={14} color="var(--color-gold)" style={{ flexShrink: 0 }} />
-              <span className="header-btn-text-full">Book Consultation</span>
-              <span className="header-btn-text-tablet">Book Consult</span>
-              <span className="header-btn-text-mobile">Consult</span>
+              <span className="header-btn-text-full">Get in Touch</span>
+              <span className="header-btn-text-tablet">Get in Touch</span>
+              <span className="header-btn-text-mobile">Contact</span>
             </Link>
           )}
 
@@ -319,9 +319,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             </div>
             <Link href="/portfolio" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
               Portfolio & Gallery
-            </Link>
-            <Link href="/studio" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
-              3D Scenography Studio
             </Link>
 
             <Link href="/packages" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>

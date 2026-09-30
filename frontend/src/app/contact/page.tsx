@@ -39,11 +39,11 @@ export default function ContactPage() {
               marginBottom: '16px',
             }}
           >
-            Connect With Our Senior Event Concierge
+            Get in Touch with Saat Phere Events
           </h1>
           <GoldDivider width="200px" />
           <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', lineHeight: 1.6, marginTop: '16px' }}>
-            Whether curating an intimate cliffside vow renewal or a 4-day royal palatial celebration for 1,000 guests, our directors are available for confidential consultations.
+            Proudly rooted in Bihar with headquarters in Katihar and operations across Patna, Rajasthan, and Goa. Our directors are available around the clock for confidential wedding and celebration planning.
           </p>
         </div>
       </section>

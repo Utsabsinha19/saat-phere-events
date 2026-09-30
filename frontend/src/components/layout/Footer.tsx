@@ -29,14 +29,14 @@ export const Footer: React.FC = () => {
               <Link href="/" aria-label="Saat Phere Events Home" style={{ display: 'inline-block' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo-official-transparent.png"
                   alt="Saat Phere Events"
                   style={{
-                    height: '62px',
+                    height: '80px',
                     width: 'auto',
                     objectFit: 'contain',
                     display: 'block',
-                    filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.3))',
+                    filter: 'drop-shadow(0 4px 15px rgba(212, 175, 55, 0.45))',
                   }}
                 />
               </Link>
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
                 marginBottom: '20px',
               }}
             >
-              India’s premier luxury wedding planning and bespoke event management agency. Transforming sacred vows and special milestones into unforgettable royal celebrations.
+              Bihar’s premier luxury wedding planning and bespoke event management agency. Rooted proudly in Katihar &amp; Patna, crafting palatial royal celebrations and sacred rituals across India.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#D1D5DB' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
@@ -244,14 +244,14 @@ export const Footer: React.FC = () => {
               </a>
             </div>
             <div style={{ marginTop: '24px' }}>
-              <Link
-                href="/contact"
+              <a
+                href="#get-a-quote"
                 className="btn-gold"
-                style={{ padding: '10px 18px', fontSize: '0.8rem', width: '100%' }}
+                style={{ padding: '12px 18px', fontSize: '0.86rem', width: '100%', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
               >
                 <Sparkles size={14} />
-                Get Free Consultation
-              </Link>
+                Get in Touch
+              </a>
             </div>
           </div>
         </div>

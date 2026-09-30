@@ -45,8 +45,56 @@
   }
 }
 
+@keyframes slowZoomBlur {
+  0% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes logoGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 4px 18px rgba(212, 175, 55, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 6px 32px rgba(212, 175, 55, 0.8));
+  }
+}
+
+@keyframes borderGoldShimmer {
+  0% {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    border-color: rgba(212, 175, 55, 0.85);
+  }
+  100% {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+}
+
+@keyframes fadeInUpSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-float {
@@ -57,6 +105,10 @@
   animation: pulseGoldGlow 2.5s infinite;
 }
 
+.animate-logo-glow {
+  animation: logoGlowPulse 4s ease-in-out infinite;
+}
+
 .shimmer-text {
   background: linear-gradient(90deg, #D4AF37 0%, #FFFFFF 50%, #D4AF37 100%);
   background-size: 200% auto;
@@ -64,4 +116,25 @@
   -webkit-background-clip: text;
   background-clip: text;
   animation: shimmerGold 4s linear infinite;
+}
+
+.shimmer-gold-badge {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(128, 0, 32, 0.25) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  animation: borderGoldShimmer 3s ease-in-out infinite;
+}
+
+.luxury-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.luxury-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 0 20px rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
+.hero-blurry-backdrop {
+  animation: slowZoomBlur 20s ease-in-out infinite;
+  transform-origin: center center;
 }

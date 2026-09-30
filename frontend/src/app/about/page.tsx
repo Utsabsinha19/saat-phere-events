@@ -118,7 +118,7 @@ export default function AboutPage() {
                 In Indian wedding traditions, the <em>Saat Phere</em> (seven sacred circumambulations around the holy fire) symbolize seven solemn vows of nourishment, strength, prosperity, joy, family, togetherness, and lifelong friendship.
               </p>
               <p style={{ color: '#4B5563', fontSize: '1rem', lineHeight: 1.7, marginBottom: '24px' }}>
-                Saat Phere Events was established to elevate this sacred milestone into an unforgettable, stress-free royal celebration. With deep roots across Rajasthan’s royal circuits (Jaipur, Udaipur, Jodhpur) and premier destination havens, our multi-disciplinary creative studio unites architectural designers, master florists, culinary directors, and logistics veterans.
+                Saat Phere Events was established to elevate this sacred milestone into an unforgettable, stress-free royal celebration. Born proudly in Katihar, Bihar, with executive presence in Patna and expansive reach across Rajasthan’s royal circuits (Jaipur, Udaipur) and Goa, our multi-disciplinary creative studio unites architectural designers, master florists, culinary directors, and logistics veterans.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -276,7 +276,7 @@ export default function AboutPage() {
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <Link href="/contact" className="btn-gold" style={{ padding: '14px 32px' }}>
               <Sparkles size={16} />
-              Schedule Founder Consultation
+              Get in Touch
               <ArrowRight size={16} />
             </Link>
           </div>

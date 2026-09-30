@@ -105,7 +105,7 @@ export const ContactInquiryForm: React.FC = () => {
       }}
     >
       <div style={{ marginBottom: '24px' }}>
-        <span className="badge-gold">Official 9-Core Inquiry Portal</span>
+        <span className="badge-gold">Official Inquiry Portal • Katihar &amp; Patna HQ</span>
         <h3
           style={{
             fontFamily: 'var(--font-serif)',
@@ -114,7 +114,7 @@ export const ContactInquiryForm: React.FC = () => {
             marginTop: '8px',
           }}
         >
-          Book Your Event Consultation
+          Get in Touch
         </h3>
         <p style={{ fontSize: '0.9rem', color: '#6B7280', marginTop: '4px' }}>
           Please complete the 9 lead parameters below to receive our confidential creative deck & availability review.
@@ -341,7 +341,7 @@ export const ContactInquiryForm: React.FC = () => {
             ) : (
               <>
                 <Send size={18} />
-                Submit Consultation Request
+                Get in Touch • Submit Inquiry
               </>
             )}
           </button>

@@ -18,7 +18,7 @@ export const TopBanner: React.FC = () => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
           <span className="top-banner-brand" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-gold-light)' }}>
             <ShieldCheck size={14} color="var(--color-gold)" />
-            Bespoke Luxury Wedding Planners • Pan-India & International
+            Proudly Rooted in Bihar • Luxury Wedding Planners Across India
           </span>
           <span className="top-banner-hours" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#D1D5DB' }}>
             <Clock size={14} color="var(--color-gold)" />

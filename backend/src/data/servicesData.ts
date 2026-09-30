@@ -2,416 +2,743 @@ import { ServiceItem } from '@/types/service';
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'srv-1',
-    slug: 'wedding-planning-and-management',
-    title: 'Wedding Planning & Management',
-    tagline: 'Flawless Orchestration for Your Royal Celebration',
-    category: 'Full-Service Planning',
-    shortDescription:
-      'End-to-end luxury wedding planning encompassing bespoke concept formulation, master timeline design, premium vendor curation, and discreet VIP hospitality.',
-    longDescription:
-      'At Saat Phere Events, we recognize that an Indian wedding is more than a celebration—it is a timeless confluence of family legacies, heartfelt emotions, and royal traditions. Our full-service wedding management team orchestrates every element with surgical precision and opulent flair. From securing coveted heritage palace venues to managing multi-day production schedules and celebrity entertainment, we transform your dream celebration into an effortless reality.',
-    heroImage: '/images/services/wedding-planning-hero.jpg',
-    cardImage: '/images/testimonials/mandap-couple.jpg',
-    galleryImages: [
-      '/images/testimonials/couple-pooja-rohan.jpg',
-      '/images/testimonials/hindu-jaimala.jpg',
-      '/images/gallery/mandap-glass-udaipur.jpg',
-      '/images/gallery/baraat-jaipur.jpg',
+    "id": "srv-wedding-planning",
+    "slug": "wedding-planning",
+    "title": "Wedding Planning",
+    "tagline": "Royal Wedding Orchestration from Bihar to Palatial Circuits",
+    "category": "Full-Service Royal Planning",
+    "shortDescription": "End-to-end luxury wedding planning encompassing bespoke concept formulation, Vedic rituals, master timelines, Bihar heritage traditions, premium vendor curation, and discreet VIP hospitality.",
+    "longDescription": "At Saat Phere Events, we celebrate the sacred confluence of family legacies, Vedic heritage, and royal hospitality. Originating proudly from Bihar and executing across premier palatial circuits of India, our wedding planning division curates unforgettable multi-day wedding celebrations. From authentic Maithil, Bhojpuri, and royal Bihari traditions to palatial royal setups, our dedicated white-glove team guarantees flawless execution.",
+    "heroImage": "/images/real-events/decor-1.webp",
+    "cardImage": "/images/real-events/decor-1.webp",
+    "galleryImages": [
+      "/images/real-events/decor-2.webp",
+      "/images/real-events/inner-decor-2.webp",
+      "/images/gallery/mandap-glass-udaipur.jpg",
+      "/images/gallery/wedding-stage.jpg"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoTitle": "Grand Royal Wedding Setup & Mandap Production",
+    "offerings": [
       {
-        title: 'Master Budgeting & Financial Control',
-        description: 'Transparent expenditure forecasting with line-item allocation and vendor negotiation.',
-        highlights: ['Contract negotiations', 'Cashflow milestone tracking', 'Escrow reconciliation'],
+        "title": "Master Budgeting & Financial Control",
+        "description": "Transparent expenditure forecasting with line-item allocation and vendor negotiation.",
+        "highlights": [
+          "Zero hidden margins",
+          "Milestone escrow tracking",
+          "Contract verification"
+        ]
       },
       {
-        title: 'Bespoke Creative Theme & Styling',
-        description: 'Architectural mood boards, custom invitation suites, and tailored sensory experiences.',
-        highlights: ['Color palette curation', 'Couture decor blueprinting', 'Floral scent profiling'],
+        "title": "Bespoke Decor & Vastu Architecture",
+        "description": "Custom floral mandaps, sacred havan styling, and auspicious vastu-aligned layout designs.",
+        "highlights": [
+          "Authentic ritual spaces",
+          "Custom floral arches",
+          "Royal entrance pathways"
+        ]
       },
       {
-        title: 'Complete Vendor & Talent Management',
-        description: 'Vetting and contracting top-tier photographers, choreographers, caterers, and artists.',
-        highlights: ['Celebrity artist procurement', 'Sound & light engineers', 'Artisanal culinary teams'],
+        "title": "Turnkey Vendor & Talent Management",
+        "description": "Vetting and contracting top-tier pandits, shehnai maestros, photographers, and royal caterers.",
+        "highlights": [
+          "Top-tier catering procurement",
+          "Cinematography coordination",
+          "Artist booking"
+        ]
       },
       {
-        title: 'Day-of White Glove Coordination',
-        description: 'Shadow coordinators dedicated to bride, groom, and immediate families around the clock.',
-        highlights: ['Personal bridal concierge', 'Live cue-to-cue execution', 'Crisis prevention protocols'],
-      },
+        "title": "Day-of White Glove Shadow Concierge",
+        "description": "Dedicated coordinators assigned to bride, groom, and immediate families around the clock.",
+        "highlights": [
+          "Personal bridal shadow",
+          "Live cue-to-cue execution",
+          "VIP hospitality"
+        ]
+      }
     ],
-    processSteps: [
-      { step: 1, title: 'Discovery & Vision Consultation', description: 'Deep dive into your family traditions, design preferences, and hospitality goals.' },
-      { step: 2, title: 'Blueprint & Financial Architecture', description: 'Development of custom conceptual decks, 3D venue renders, and allocated budgets.' },
-      { step: 3, title: 'Curated Vendor Enlistment', description: 'Contracting premier artisans, floral designers, and production engineers.' },
-      { step: 4, title: 'Rehearsals & Flawless Execution', description: 'Multi-tiered dry runs ensuring effortless celebration across all wedding days.' },
-    ],
-    faqs: [
+    "processSteps": [
       {
-        question: 'How early should we engage Saat Phere Events before our wedding date?',
-        answer: 'For luxury multi-day and destination celebrations, we recommend onboarding 8 to 14 months prior to secure flagship venues and peak auspicious dates.',
+        "step": 1,
+        "title": "Discovery & Vision Consultation",
+        "description": "Deep dive into family customs, sacred dates, and visual preferences."
       },
       {
-        question: 'Do you work with our family preferred vendors?',
-        answer: 'Absolutely. We seamlessly integrate with your family-trusted pandits, caterers, or jewelers while providing technical infrastructure.',
+        "step": 2,
+        "title": "Spatial Concept & Budget Blueprint",
+        "description": "3D decor layouts, timeline mapping, and transparent cost allocation."
       },
+      {
+        "step": 3,
+        "title": "Vendor Procurement & Tasting",
+        "description": "Securing premier artisans, floral teams, and culinary masters."
+      },
+      {
+        "step": 4,
+        "title": "Rehearsal & Flawless Wedding Days",
+        "description": "End-to-end stage management for all rituals from Haldi to Vidai."
+      }
     ],
-    startingBudgetGuide: 'Tailored Bespoke Engagements',
-    popularLocations: ['Udaipur', 'Jaipur', 'Jodhpur', 'Mumbai', 'New Delhi'],
-    featured: true,
+    "faqs": [
+      {
+        "question": "Do you plan weddings in Bihar as well as destination weddings outside?",
+        "answer": "Yes! We are proudly rooted in Bihar (Katihar & Patna) and orchestrate both grand hometown weddings across Bihar and destination weddings in Rajasthan, Goa, and NCR."
+      },
+      {
+        "question": "How early should we start planning our wedding with Saat Phere Events?",
+        "answer": "We recommend reaching out 4 to 10 months prior to your wedding date to secure premium dates, venues, and specialized artisanal decor."
+      }
+    ],
+    "startingBudgetGuide": "Custom Tailored Packages",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Purnia",
+      "Bhagalpur",
+      "Jaipur",
+      "Udaipur",
+      "Goa"
+    ],
+    "featured": true
   },
   {
-    id: 'srv-2',
-    slug: 'destination-weddings',
-    title: 'Destination Weddings',
-    tagline: 'Palatial Forts, Coastal Sands & Exotic International Havens',
-    category: 'Destination Weddings',
-    shortDescription:
-      'Immersive destination wedding management featuring turnkey guest logistics, charter flights, 5-star resort buyouts, and multi-cultural hospitality.',
-    longDescription:
-      'A destination wedding is an unforgettable getaway for you and your loved ones. Saat Phere Events commands deep hospitality partnerships across India’s most celebrated royal palaces (Udaipur, Jaipur, Jodhpur), tranquil beaches of Goa and Kerala, and international luxury destinations like Dubai, Oman, and Thailand. We orchestrate round-the-clock airport welcome desks, customized guest luggage delivery, bespoke room gifting, and themed multi-venue transitions.',
-    heroImage: '/images/hero/hero-palace-udaipur.jpg',
-    cardImage: '/images/hero/hero-palace-jaipur.jpg',
-    galleryImages: [
-      '/images/hero/hero-palace-jodhpur.jpg',
-      '/images/hero/hero-beach-goa.jpg',
-      '/images/services/destination-hero.jpg',
+    "id": "srv-haldi-mehndi-sangeet",
+    "slug": "haldi-mehndi-sangeet",
+    "title": "Haldi / Mehndi / Sangeet",
+    "tagline": "Sun-Drenched Marigold Carnivals & Electric Sangeet Galas",
+    "category": "Pre-Wedding Festivities",
+    "shortDescription": "Vibrant traditional ceremonies featuring marigold floral canopies, bespoke bridal seating, artisanal mehendi lounges, and concert-grade sangeet stages with dazzling illumination.",
+    "longDescription": "Pre-wedding functions set the emotional cadence for the celebration. Our Haldi, Mehndi, and Sangeet productions blend joyful cultural customs with sensational design. From bright yellow marigold cascades, urlis, and dholak troupes for Haldi, to fragrant Henna cabanas and high-tech LED concert dance floors for Sangeet, every detail radiates joy.",
+    "heroImage": "/images/gallery/haldi-marigold.jpg",
+    "cardImage": "/images/gallery/haldi-marigold.jpg",
+    "galleryImages": [
+      "/images/services/mehendi-bridal.jpg",
+      "/images/gallery/mehendi-hands.jpg",
+      "/images/gallery/sangeet-dance.jpg",
+      "/images/real-events/decor-5.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/sangeet-highlights.mov",
+    "videoPoster": "/videos/poster-sangeet.jpg",
+    "videoTitle": "Sangeet Stage, Concert Lights & Choreography",
+    "offerings": [
       {
-        title: 'Palace & Resort Exclusive Buyouts',
-        description: 'Negotiating full property takeovers for complete privacy and unrestricted celebration timings.',
-        highlights: ['Heritage fort access', 'Exclusive resort isolation', 'Private villas & suites'],
+        "title": "Artisanal Haldi Decor & Floral Urlis",
+        "description": "Traditional brass urlis, marigold swings, organic chandan setups, and flower showers.",
+        "highlights": [
+          "Custom floral swings",
+          "Brass urli seating",
+          "Organic haldi bar"
+        ]
       },
       {
-        title: 'Guest Hospitality & Travel Concierge',
-        description: 'End-to-end flight booking, airport luxury transfers, and bilingual hospitality desks.',
-        highlights: ['Luxury fleet coordination', 'Digital RSVP & room tagging', 'Bespoke welcome hampers'],
+        "title": "Bespoke Mehndi Lounges & Henna Bars",
+        "description": "Low-slung Moroccan diwans, colorful dupattas, bangle stations, and master mehendi artists.",
+        "highlights": [
+          "Bridal cabana",
+          "Live bangle bar",
+          "Personalized favors"
+        ]
       },
       {
-        title: 'Local Permitting & Technical Rigging',
-        description: 'Navigating municipal clearances, sound permissions, fireworks licensing, and power generators.',
-        highlights: ['Heritage site approvals', 'Drone & fireworks permits', 'DG backup power infrastructure'],
-      },
+        "title": "Concert-Grade Sangeet Stage & Lighting",
+        "description": "Kinetic LED screens, concert intelligent moving heads, dry ice fog, and sound engineering.",
+        "highlights": [
+          "Celebrity DJ setup",
+          "Cold pyrotechnics",
+          "Rehearsal management"
+        ]
+      }
     ],
-    processSteps: [
-      { step: 1, title: 'Destinations Shortlisting', description: 'Curated comparative analysis of 3-5 regal locations matching your vision.' },
-      { step: 2, title: 'On-Ground Recce & Food Tastings', description: 'Guided site inspection trip with menu curations and lighting tests.' },
-      { step: 3, title: 'Logistics Architecture', description: 'Deployment of specialized guest management app and arrival schedules.' },
-      { step: 4, title: 'Grand Onsite Hospitality', description: '24/7 dedicated concierge desk stationed in hotel lobbies.' },
-    ],
-    faqs: [
+    "processSteps": [
       {
-        question: 'Which destination spots do you specialize in?',
-        answer: 'We have executed flagship celebrations in Udaipur (City Palace, Jagmandir), Jaipur (Rambagh, Fairmont), Jodhpur (Umaid Bhawan), Goa, Dubai, and Antalya.',
+        "step": 1,
+        "title": "Ceremony Moodboard Curation",
+        "description": "Defining festive palettes: golden marigold, royal magenta, and teal."
       },
+      {
+        "step": 2,
+        "title": "Technical Stage & Audio Planning",
+        "description": "Audio-visual blueprints, choreography rehearsals, and artist bookings."
+      },
+      {
+        "step": 3,
+        "title": "Day-of Live Show Orchestration",
+        "description": "Seamless transition from afternoon rituals into high-energy evening party."
+      }
     ],
-    startingBudgetGuide: 'Bespoke Quote Upon Consultation',
-    popularLocations: ['Udaipur', 'Jaipur', 'Goa', 'Muscat', 'Dubai'],
-    featured: true,
+    "faqs": [
+      {
+        "question": "Can we arrange Haldi and Mehndi on the same day?",
+        "answer": "Yes, our team specializes in dual-ceremony spatial shifts with smooth thematic transitions between afternoon Haldi and evening Mehndi/Sangeet."
+      }
+    ],
+    "startingBudgetGuide": "Packages for Every Celebration Scale",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Muzaffarpur",
+      "Ranchi",
+      "Kolkata"
+    ],
+    "featured": true
   },
   {
-    id: 'srv-3',
-    slug: 'engagement-and-ring-ceremony',
-    title: 'Engagement & Ring Ceremony',
-    tagline: 'An Intimate Symphony of Love, Diamonds & Warmth',
-    category: 'Ceremonial',
-    shortDescription:
-      'Enchanting ring ceremony decor, couture ring platters, thematic floral arches, and curated family dinner settings.',
-    longDescription:
-      'The ring exchange marks the first official step of two families coming together. Saat Phere Events designs romantic, sophisticated engagement environments that capture the tenderness of the proposal while honoring Indian customs. From fairy-lit glass gazebos to handcrafted royal ring platters and soulful acoustic musical backdrops, we set an unforgettable tone for your wedding journey.',
-    heroImage: '/images/services/engagement-rings.jpg',
-    cardImage: '/images/services/engagement-rings.jpg',
-    galleryImages: [
-      '/images/services/engagement-rings.jpg',
-      '/images/testimonials/couple-vikram-sanjana.png',
-      '/images/testimonials/hindu-jaimala.jpg',
+    "id": "srv-birthday-parties",
+    "slug": "birthday-parties",
+    "title": "Birthday Parties",
+    "tagline": "Bespoke Milestone Celebrations & Enchanting Children\u2019s Themes",
+    "category": "Milestone & Kids Celebrations",
+    "shortDescription": "From magical 1st birthday fairytale wonderlands to lavish 50th golden jubilee galas. Custom balloon sculpting, themed backdrops, interactive dessert bars, and dynamic live entertainment.",
+    "longDescription": "Birthdays mark personal history and family milestones. Saat Phere Events designs memorable birthday celebrations with imaginative decor and seamless hospitality. Whether it's an enchanting jungle safari or princess kingdom for little ones, or a glamorous black-tie retro gala for milestones, we create wonder for guests of all ages.",
+    "heroImage": "/images/real-events/decor-4.webp",
+    "cardImage": "/images/real-events/decor-4.webp",
+    "galleryImages": [
+      "/images/real-events/decor-5.webp",
+      "/images/gallery/royal-feast.jpg",
+      "/images/real-events/inner-decor-3.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoTitle": "Milestone Birthday Atmosphere & Thematic Decor",
+    "offerings": [
       {
-        title: 'Custom Ring Platter & Exchange Stage',
-        description: 'Artisanal mechanized or floral ring boxes designed uniquely for the couple.',
-        highlights: ['Handmade velvet trays', 'Dry-ice stage entry', 'Cold pyrotechnic sparkle showers'],
+        "title": "Immersive Thematic Backdrops",
+        "description": "3D character cutouts, bespoke illuminated marquees, neon signs, and pastel arches.",
+        "highlights": [
+          "3D arch installations",
+          "Custom neon letters",
+          "Photo-booth corners"
+        ]
       },
       {
-        title: 'Romantic Ambient Illumination',
-        description: 'Cascading fairy lights, Edison bulbs, and floral candle centerpieces.',
-        highlights: ['Warm amber spotlights', 'Mirror dancefloors', 'Custom monogram neon backdrops'],
+        "title": "Kids Entertainment & Game Hosts",
+        "description": "Professional anchors, magic shows, tattoo artists, puppet shows, and interactive mascots.",
+        "highlights": [
+          "Live game coordinator",
+          "Custom return gift packaging",
+          "Carnival stalls"
+        ]
       },
-    ],
-    processSteps: [
-      { step: 1, title: 'Concept Formulation', description: 'Aligning on formal gala vs boho-chic garden celebration.' },
-      { step: 2, title: 'Stage & Seating Drafting', description: 'Custom layouts maximizing intimate sightlines for all elders and guests.' },
-      { step: 3, title: 'Production Execution', description: 'Day-of precision setup with rehearsal of ring exchange timing.' },
-    ],
-    faqs: [
       {
-        question: 'Can you organize engagement ceremonies on short notice?',
-        answer: 'Yes, our rapid-response team can execute breathtaking engagements within 2 to 4 weeks depending on venue availability.',
-      },
+        "title": "Gourmet Catering & Designer Cakes",
+        "description": "Thematic dessert tables, candy bars, multi-tier custom cakes, and kid-friendly menus.",
+        "highlights": [
+          "Live waffle/crepe counter",
+          "Fondant artisanal cakes",
+          "Beverage mocktail bar"
+        ]
+      }
     ],
-    featured: false,
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Theme Conception",
+        "description": "Brainstorming custom motifs matching the guest of honor's personality."
+      },
+      {
+        "step": 2,
+        "title": "Spatial & Activity Design",
+        "description": "Planning activity zones, photo zones, and seamless dining flow."
+      },
+      {
+        "step": 3,
+        "title": "Event Day Joy",
+        "description": "Complete on-ground supervision so parents and hosts simply enjoy the celebration."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can you handle intimate home birthday setups as well as banquet celebrations?",
+        "answer": "Yes, we produce both intimate home/garden parties and large banquet hall birthday spectacles across Bihar."
+      }
+    ],
+    "startingBudgetGuide": "Flexible Milestone Packages",
+    "popularLocations": [
+      "Katihar",
+      "Patna",
+      "Purnia",
+      "Bhagalpur"
+    ],
+    "featured": true
   },
   {
-    id: 'srv-4',
-    slug: 'birthday-parties-and-kids-events',
-    title: 'Birthday Parties & Kids Events',
-    tagline: 'Whimsical Wonderlands & Milestone Celebrations',
-    category: 'Private Parties',
-    shortDescription:
-      'Imaginative themed birthdays, immersive adventure setups, artisanal dessert tables, interactive entertainment, and bespoke return gifts.',
-    longDescription:
-      'Whether it is a child’s first milestone birthday celebration with fairy-tale castles and balloon arches or a 50th golden jubilee dinner, our celebration designers create wonder. We weave interactive entertainment, live illusionists, customized sweet carts, and interactive craft stations that keep both kids and adults captivated.',
-    heroImage: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1600&q=80',
-    cardImage: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1000&q=80',
+    "id": "srv-reception",
+    "slug": "reception",
+    "title": "Reception",
+    "tagline": "Opulent Crystal Grandeur & Regal Banquet Scenography",
+    "category": "Post-Wedding Gala",
+    "shortDescription": "Celebrate the newlywed couple in royal majesty with architectural floral backdrops, crystal chandelier installations, seamless VIP guest hospitality, and gourmet banquet coordination.",
+    "longDescription": "The wedding reception is the grand formal debut of the newlyweds before family, dignitaries, and social circle. Saat Phere Events constructs palatial reception environments featuring panoramic floral stages, crystal chandelier cascades, royal diwan seating, and synchronized entrance pyrotechnics that leave every guest in awe.",
+    "heroImage": "/images/real-events/decor-3.webp",
+    "cardImage": "/images/real-events/decor-3.webp",
+    "galleryImages": [
+      "/images/real-events/decor-6.webp",
+      "/images/services/reception-stage.jpg",
+      "/images/gallery/wedding-stage.jpg",
+      "/images/real-events/decor-7.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-mandap.jpg",
+    "videoTitle": "Palatial Reception Stage & Ballroom Walkthrough",
+    "offerings": [
       {
-        title: 'Thematic 3D Scenic Production',
-        description: 'Custom fabricated castle gates, enchanted jungle landscapes, and cartoon wonderlands.',
-        highlights: ['Life-size prop sculpting', 'Organic balloon garlands', 'Photo op installations'],
+        "title": "Monumental Floral & Crystal Stages",
+        "description": "Grand multi-tiered stages featuring imported blossoms, gold lattice work, and crystal fixtures.",
+        "highlights": [
+          "Custom monogram backdrop",
+          "Tiered sofa platforms",
+          "Architectural uplighting"
+        ]
       },
       {
-        title: 'Interactive Entertainment & Artisans',
-        description: 'International magicians, puppet theatre, pottery stations, and caricature artists.',
-        highlights: ['Game masters', 'Live science wonders', 'Cotton candy and churro stations'],
+        "title": "Dramatic Couple Grand Entrance",
+        "description": "Cold-fire sparkler runways, dry ice low fog cloud effects, violinists, and fanfare trumpets.",
+        "highlights": [
+          "Zero-smoke pyro safety",
+          "Synchronized lighting cues",
+          "Red carpet arrivals"
+        ]
       },
-    ],
-    processSteps: [
-      { step: 1, title: 'Theme Selection', description: 'Brainstorming unique concepts based on favorite stories or eras.' },
-      { step: 2, title: 'Decor & Entertainment Curation', description: 'Designing interactive zones and gourmet kids menus.' },
-      { step: 3, title: 'Celebration Day', description: 'Seamless host-free experience where parents simply enjoy the day.' },
-    ],
-    faqs: [
       {
-        question: 'Do you also cater food for dietary preferences?',
-        answer: 'Yes, our partner chefs curate kid-friendly, nut-free, vegan, and organic menus alongside adult gourmet stations.',
-      },
+        "title": "VIP Table Scenography & Hospitality",
+        "description": "Royal banquet layouts with gold Chiavari chairs, monogrammed runners, and formal service.",
+        "highlights": [
+          "Family VIP table styling",
+          "Attendant guest service",
+          "Seamless flow control"
+        ]
+      }
     ],
-    featured: false,
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Ballroom Architectural Blueprint",
+        "description": "Mapping stage dimensions, guest density, and photography angles."
+      },
+      {
+        "step": 2,
+        "title": "Floral & Light Balancing",
+        "description": "Ensuring soft flattering illumination for high-end photography and live stage view."
+      },
+      {
+        "step": 3,
+        "title": "Flawless Gala Execution",
+        "description": "VIP receiving line coordination, dinner service synchronization, and stage flow."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can you handle receptions for 1,000 to 3,000+ guests in Bihar?",
+        "answer": "Absolutely. We routinely coordinate mega-scale receptions with expansive ground layouts, multiple dining pavilions, and dedicated parking logistics."
+      }
+    ],
+    "startingBudgetGuide": "Grand Scale & Bespoke Packages",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Gaya",
+      "Muzaffarpur",
+      "Ranchi"
+    ],
+    "featured": true
   },
   {
-    id: 'srv-5',
-    slug: 'anniversary-and-couple-celebrations',
-    title: 'Anniversary & Couple Celebrations',
-    tagline: 'Honoring Decades of Devotion with Timeless Luxury',
-    category: 'Milestone Celebrations',
-    shortDescription:
-      'Romantic silver and golden jubilee galas, vow renewals, private candlelit dinner staging, and vintage musical retrospectives.',
-    longDescription:
-      'Milestone anniversaries deserve the honor of a royal jubilee. Saat Phere Events crafts deeply nostalgic, celebratory evenings that celebrate the couple’s journey. From screening surprise biographical family documentaries to curated vintage decor reminiscent of the couple’s wedding era, we create tearful joy and joyous dance.',
-    heroImage: '/images/testimonials/couple-vikram-sanjana.png',
-    cardImage: '/images/testimonials/avatar-rajiv-sunita.jpg',
-    galleryImages: [
-      '/images/testimonials/couple-pooja-rohan.jpg',
-      '/images/gallery/wedding-stage.jpg',
+    "id": "srv-corporate-events",
+    "slug": "corporate-events",
+    "title": "Corporate Events",
+    "tagline": "Executive Precision, High-Tech AV & Prestigious Brand Galas",
+    "category": "Corporate & Institutional",
+    "shortDescription": "Delivering immaculate corporate summits, award evenings, product unveilings, dealer meets, and executive banquets across Bihar and major metro cities with flawless technical execution.",
+    "longDescription": "Corporate events demand brand precision, technical excellence, and seamless protocol. Saat Phere Events delivers turnkey corporate event production for enterprise clients, banking institutions, and healthcare brands across Eastern India. From crisp high-definition LED screens and acoustic engineering to delegate registration kiosks and celebrity artist nights, we ensure brand distinction.",
+    "heroImage": "/images/services/banquet-spread.jpg",
+    "cardImage": "/images/services/banquet-spread.jpg",
+    "galleryImages": [
+      "/images/gallery/umaid-bhawan-gardens.jpg",
+      "/images/gallery/royal-feast.jpg",
+      "/images/hero/hero-palace-udaipur.jpg"
     ],
-    offerings: [
+    "videoClip": "/videos/sangeet-highlights.mov",
+    "videoPoster": "/videos/poster-sangeet.jpg",
+    "videoTitle": "Corporate Gala Stage, Lighting & Spatial Setup",
+    "offerings": [
       {
-        title: 'Silver & Gold Jubilee Styling',
-        description: 'Refined metallic champagne and ivory palettes with crystal chandeliers.',
-        highlights: ['Custom family crests', 'Vintage photo tunnels', 'Orchestral string quartets'],
+        "title": "High-Definition AV & LED Setup",
+        "description": "High-lumen projection, seamless P3 LED video walls, digital podiums, and multi-mic setups.",
+        "highlights": [
+          "Crystal acoustic line arrays",
+          "Live hybrid streaming",
+          "Lighting cues"
+        ]
       },
       {
-        title: 'Vow Renewal Ceremonies',
-        description: 'Recreating traditional pheras or modern vows in romantic open-air settings.',
-        highlights: ['Priest coordination', 'Flower shower confetti', 'Champagne toasts'],
+        "title": "Delegate Hospitality & Registration",
+        "description": "QR badge scanning kiosks, branded welcome kits, VIP green rooms, and concierge logistics.",
+        "highlights": [
+          "Frictionless check-in",
+          "Executive lounge design",
+          "Protocol escorts"
+        ]
       },
-    ],
-    processSteps: [
-      { step: 1, title: 'Story Gathering', description: 'Interviews with family members to integrate surprise sentimental touches.' },
-      { step: 2, title: 'Atmosphere Design', description: 'Selecting heritage lawns or royal banquet halls.' },
-      { step: 3, title: 'The Toast', description: 'Flawlessly coordinated tributes, video montages, and dancing.' },
-    ],
-    faqs: [
       {
-        question: 'Can you arrange surprise anniversary events?',
-        answer: 'Yes! Over 60% of our anniversary bookings are surprise affairs planned discreetly with the children or friends.',
-      },
+        "title": "Annual Galas & Award Nights",
+        "description": "Glitz and glam stage backdrops, custom trophies, professional emcees, and gala dinners.",
+        "highlights": [
+          "Emcee management",
+          "Trophy presentation choreography",
+          "Live band"
+        ]
+      }
     ],
-    featured: false,
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Corporate Scope & Brand Alignment",
+        "description": "Defining corporate objectives, brand guidelines, and run-of-show schedule."
+      },
+      {
+        "step": 2,
+        "title": "Production & Acoustic Dry Run",
+        "description": "Rigorous AV testing, cue checking, and spatial setup before delegates arrive."
+      },
+      {
+        "step": 3,
+        "title": "Punctual Executive Execution",
+        "description": "Clockwork stage management and dedicated client liaison officer."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you provide GST compliant invoicing for corporate clients?",
+        "answer": "Yes, we provide 100% compliant multi-state GST invoices with full vendor reconciliation and formal enterprise contracts."
+      }
+    ],
+    "startingBudgetGuide": "Enterprise & Custom Proposals",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Kolkata",
+      "Delhi NCR"
+    ],
+    "featured": false
   },
   {
-    id: 'srv-6',
-    slug: 'haldi-mehendi-and-sangeet',
-    title: 'Haldi, Mehendi & Sangeet Ceremonies',
-    tagline: 'Vibrant Traditional Festivities, Marigold Canopies & Grand Dance Stages',
-    category: 'Pre-Wedding Functions',
-    shortDescription:
-      'Carnival-style Mehendi lounges, floral jewelry styling, turmeric pool setups, concert-grade Sangeet audio/visual stages, and celebrity choreography.',
-    longDescription:
-      'The pre-wedding festivities are the heartbeat of the Indian wedding experience. For Haldi, we build sunny yellow marigold cascades, brass urli dunking pools, and organic herbal pastes. For Mehendi, we create Moroccan or Rajasthani bohemian cabanas with henna artists and bangles bazaar. For Sangeet, we produce a concert-level show with custom LED mapping, hydraulic stages, and celebrity emcees.',
-    heroImage: '/images/gallery/haldi-marigold.jpg',
-    cardImage: '/images/services/mehendi-bridal.jpg',
-    galleryImages: [
-      '/images/services/haldi-ceremony.jpg',
-      '/images/gallery/sangeet-dance.jpg',
-      '/images/gallery/mehendi-hands.jpg',
+    "id": "srv-theme-decoration",
+    "slug": "theme-decoration",
+    "title": "Theme Decoration",
+    "tagline": "Artisanal Scenography, Custom Floral Canopies & 3D Spatial Worlds",
+    "category": "Bespoke Scenography",
+    "shortDescription": "Transforming blank spaces into breathtaking sensory wonderlands. Vintage Royal Bihari, Rajasthani Palace, Bohemian Chic, Modern Contemporary, floral garden arches, and customized tunnel entrances.",
+    "longDescription": "Theme decoration is the heartbeat of Saat Phere Events. Led by our seasoned creative directors and master florists, we craft transformative spatial experiences. From hand-crafted wooden jali screens and authentic brass artifacts to exotic imported flora and fairy light ceilings, we make dreams tangible.",
+    "heroImage": "/images/real-events/decor-7.webp",
+    "cardImage": "/images/real-events/decor-7.webp",
+    "galleryImages": [
+      "/images/real-events/inner-decor-3.webp",
+      "/images/real-events/decor-2.webp",
+      "/images/real-events/decor-1.webp",
+      "/images/real-events/decor-3.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoTitle": "Artisanal Theme Decor Walkthrough",
+    "offerings": [
       {
-        title: 'Haldi Splash & Urli Staging',
-        description: 'Floral umbrellas, brass urlis, rose petal showers, and herbal turmeric formulations.',
-        highlights: ['Phoolon ki Holi setup', 'Gota patti props', 'Sunglass & dupatta giveaways'],
+        "title": "Royal Heritage & Traditional Themes",
+        "description": "Jharokhas, antique brass bells, royal velvet drapes, and traditional lotus motifs.",
+        "highlights": [
+          "Heritage arches",
+          "Brass lamp candelabras",
+          "Rich zardozi textiles"
+        ]
       },
       {
-        title: 'Mehendi Fair & Live Bazaars',
-        description: 'Bespoke Rajasthani puppet tents, lac bangle makers, and live folk singing.',
-        highlights: ['Celebrity henna artists', 'Vibrant cabanas', 'Chaat & street food carts'],
+        "title": "Modern Minimalist & Pastel Garden Themes",
+        "description": "Blush pink hydrangeas, baby's breath clouds, acrylic structures, and warm champagne accents.",
+        "highlights": [
+          "Organic floral arches",
+          "Floating candles",
+          "Mirror-finish aisles"
+        ]
       },
       {
-        title: 'Sangeet Concert Audio & Visuals',
-        description: 'High-definition curved LED walls, intelligent moving head beams, and sound arrays.',
-        highlights: ['Bollywood choreography sync', 'Smoke & CO2 cryo jets', 'DJ after-party setup'],
-      },
+        "title": "Illuminated Entrance Tunnels & Gateways",
+        "description": "Stunning 100-foot floral tunnels with thousands of fairy lights, crystals, and fragrance diffusers.",
+        "highlights": [
+          "First-impression gateway",
+          "Photogenic corridors",
+          "Ambient fragrance"
+        ]
+      }
     ],
-    processSteps: [
-      { step: 1, title: 'Color Palette & Theme Selection', description: 'Curating sunflower yellows, emerald greens, and high-energy jewel tones.' },
-      { step: 2, title: 'Choreography & Audio Alignment', description: 'Managing rehearsals, track sequencing, and stage cues.' },
-      { step: 3, title: 'Carnival & Stage Setup', description: 'Building the festival atmosphere across resort gardens.' },
-      { step: 4, title: 'Live Show Direction', description: 'Stage managers directing family entries and surprise dance performances.' },
-    ],
-    faqs: [
+    "processSteps": [
       {
-        question: 'Do you provide the sound equipment and acoustic engineers?',
-        answer: 'Yes, we supply line-array acoustic systems (L-Acoustics / JBL VTX) tuned for both delicate acoustic sufi and high-energy EDM.',
+        "step": 1,
+        "title": "Spatial Concept & Color Palette",
+        "description": "Selection of custom hues, fabric swatches, and structural elements."
       },
+      {
+        "step": 2,
+        "title": "Material Sourcing & Fabrication",
+        "description": "Crafting custom wooden arches, sourcing fresh blooms, and lighting test."
+      },
+      {
+        "step": 3,
+        "title": "On-Site Installation & Dressing",
+        "description": "Round-the-clock production ensuring pristine freshness and architectural balance."
+      }
     ],
-    popularLocations: ['Jaipur', 'Udaipur', 'Goa', 'Chandigarh', 'New Delhi'],
-    featured: true,
+    "faqs": [
+      {
+        "question": "Can you design a customized theme from our personal inspiration photos?",
+        "answer": "Yes! Bring us your Pinterest boards or Instagram bookmarks, and our designers will adapt and elevate them to fit your specific venue."
+      }
+    ],
+    "startingBudgetGuide": "Bespoke Decor Proposals",
+    "popularLocations": [
+      "Katihar",
+      "Patna",
+      "Purnia",
+      "Darbhanga",
+      "Bhagalpur"
+    ],
+    "featured": true
   },
   {
-    id: 'srv-7',
-    slug: 'reception-and-wedding-decor',
-    title: 'Reception & Wedding Decor',
-    tagline: 'Monumental Mandaps, Royal Entrance Gates & Haute Floral Architecture',
-    category: 'Decor & Production',
-    shortDescription:
-      'Architectural floral mandaps, mirrored aisle runways, crystal chandelier ceilings, and regal stage backdrops designed to awe.',
-    longDescription:
-      'Your wedding mandap is the sacred sanctum where seven vows are sealed for eternity. Saat Phere Events designs breathtaking mandap architecture, from floating lotus pavilions on tranquil palace lakes to domed floral structures adorned with tens of thousands of imported Dutch carnations, tuberoses, and orchids. Reception decors feature sweeping grand arches, mood-lit dining tables, and regal seating thrones.',
-    heroImage: '/images/gallery/wedding-stage.jpg',
-    cardImage: '/images/gallery/mandap-glass-udaipur.jpg',
-    galleryImages: [
-      '/images/hero/hero-mandap.jpg',
-      '/images/services/reception-stage.jpg',
-      '/images/gallery/umaid-bhawan-gardens.jpg',
+    "id": "srv-baby-shower",
+    "slug": "baby-shower",
+    "title": "Baby Shower",
+    "tagline": "Heartwarming Godh Bharai Rituals & Whimsical Pastel Celebrations",
+    "category": "Family Milestones",
+    "shortDescription": "Honoring motherhood with elegant traditional Godh Bharai rituals and modern aesthetic baby showers. Cloud-themed pastels, floral swing cradles, customized return favors, and sweet family memories.",
+    "longDescription": "A baby shower is a tender celebration of new life and maternal love. Saat Phere Events blends respectful traditional Godh Bharai customs with delightful modern aesthetic touches. From fresh blossom cradle styling and photo arches to mommy-to-be thrones, guest guessing games, and customized favor hampers, we make the day unforgettable.",
+    "heroImage": "/images/real-events/inner-decor-2.webp",
+    "cardImage": "/images/real-events/inner-decor-2.webp",
+    "galleryImages": [
+      "/images/real-events/decor-5.webp",
+      "/images/gallery/haldi-marigold.jpg",
+      "/images/real-events/decor-4.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoTitle": "Pastel Floral Baby Shower Setup",
+    "offerings": [
       {
-        title: 'Architectural Sacred Mandaps',
-        description: 'Custom engineered mandap pavilions with fire-safe havan kunds and unobstructed 360-degree guest views.',
-        highlights: ['Floating water pavilions', 'Carved heritage jharokhas', 'Glass mirrored mandap decks'],
+        "title": "Mommy-to-Be Throne & Floral Swing",
+        "description": "Comfortable luxury velvet seating nestled in a bespoke floral swing or balloon cloud arch.",
+        "highlights": [
+          "Ergonomic plush seating",
+          "Delicate floral accents",
+          "Gorgeous photo backdrop"
+        ]
       },
       {
-        title: 'Grand Entrance & Floral Walkways',
-        description: '100-foot floral tunnels, brass diyas, and royal chhatri gates welcoming arriving royalty.',
-        highlights: ['Real floral chandeliers', 'Scented mist machines', 'Living carpet runways'],
+        "title": "Traditional Godh Bharai Thali Styling",
+        "description": "Auspicious decorated thalis, dry fruit platters, silver ornaments, and ritual coordination.",
+        "highlights": [
+          "Handcrafted puja thalis",
+          "Traditional sweets spread",
+          "Family blessing setup"
+        ]
       },
       {
-        title: 'Haute Table Styling & Banqueting',
-        description: 'Gold-rimmed charger plates, linen napery, custom calligraphed menus, and crystal glassware.',
-        highlights: ['Tall candelabra centerpieces', 'Velvet seating banquettes', 'Thematic table numbering'],
-      },
+        "title": "Interactive Games & Custom Favors",
+        "description": "Fun baby shower trivia, wishes for baby memory book, customized sweet boxes, and scented candles.",
+        "highlights": [
+          "Keepsake memory book",
+          "Curated favor hampers",
+          "Charming props"
+        ]
+      }
     ],
-    processSteps: [
-      { step: 1, title: '3D Spatial CAD & Renders', description: 'Exact virtual walk-throughs of mandap, stage, and dining layout.' },
-      { step: 2, title: 'Floral Sourcing & Prep', description: 'Cold-chain transport of fresh blossoms from Bangalore, Holland, and Thailand.' },
-      { step: 3, title: 'Overnight Rigging & Quality Audits', description: 'Multi-shift production team executing precise lighting angles.' },
-    ],
-    faqs: [
+    "processSteps": [
       {
-        question: 'Are your floral decors eco-friendly?',
-        answer: 'Yes! We actively support sustainable practices by partnering with floral recycling NGOs that compost organic flowers post-event.',
+        "step": 1,
+        "title": "Theme & Color Scheme Selection",
+        "description": "Choosing soft pastels: mint, baby blue, peach, or classic golden yellow."
       },
+      {
+        "step": 2,
+        "title": "Comfort & Ambience Styling",
+        "description": "Ensuring the venue is peaceful, comfortable, and beautifully photogenic."
+      },
+      {
+        "step": 3,
+        "title": "Warm Family Coordination",
+        "description": "Guiding guests through rituals and games with effortless hospitality."
+      }
     ],
-    popularLocations: ['Udaipur', 'Jaipur', 'Mumbai', 'Kolkata', 'Hyderabad'],
-    featured: true,
+    "faqs": [
+      {
+        "question": "Do you organize baby showers at home or in banquet venues?",
+        "answer": "We cater to both! We can transform living rooms, terraces, or garden lawns into dream settings, as well as handle hotel banquets."
+      }
+    ],
+    "startingBudgetGuide": "Cherished Milestone Packages",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Purnia",
+      "Bhagalpur"
+    ],
+    "featured": false
   },
   {
-    id: 'srv-8',
-    slug: 'corporate-events-and-private-parties',
-    title: 'Corporate Events & Private Parties',
-    tagline: 'High-Impact Brand Galas, Product Launches & Executive Summits',
-    category: 'Corporate',
-    shortDescription:
-      'Sophisticated corporate conferences, luxury brand reveals, awards nights, and VIP CEO dinners engineered with seamless technical infrastructure.',
-    longDescription:
-      'Saat Phere Events brings the same artistic mastery and flawless execution to the corporate world. From high-profile automobile launches and international summit conventions to black-tie anniversary banquets, we ensure your brand message shines with authority and sophistication.',
-    heroImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80',
-    cardImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1000&q=80',
+    "id": "srv-wedding-rental-car",
+    "slug": "wedding-rental-car",
+    "title": "Wedding Rental Car",
+    "tagline": "Prestigious Vintage Classics, Luxury Fleets & Decorated Entries",
+    "category": "Luxury Fleet Logistics",
+    "shortDescription": "Arrive like royalty with our premium bridal and groom fleet. Featuring antique vintage cars, open-top luxury convertibles, decorated Mercedes, Audi, BMW, and VIP family escort convoys.",
+    "longDescription": "The bridal arrival and royal groom baraat entry are iconic moments immortalized in photographs forever. Saat Phere Events provides an immaculate fleet of luxury and heritage vehicles across Bihar and regional circuits. Every vehicle arrives chauffeur-driven in formal attire, meticulously detailed, and exquisitely floral-dressed according to your wedding color theme.",
+    "heroImage": "/images/gallery/baraat-jaipur.jpg",
+    "cardImage": "/images/gallery/baraat-jaipur.jpg",
+    "galleryImages": [
+      "/images/gallery/baraat-horse.jpg",
+      "/images/hero/hero-palace-jaipur.jpg",
+      "/images/real-events/decor-1.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoTitle": "Royal Baraat Convoy & Luxury Vehicle Showcase",
+    "offerings": [
       {
-        title: 'Turnkey Summit & Stage AV',
-        description: 'Seamless LED video walls, live multi-camera broadcast switching, and simultaneous translation booths.',
-        highlights: ['Custom keynote stages', 'Teleprompters & Green Rooms', 'Interactive polling displays'],
+        "title": "Heritage Vintage & Open-Top Classics",
+        "description": "Authentic vintage roadsters and open-top convertible tourers for unforgettable baraat entries.",
+        "highlights": [
+          "Royal vintage styling",
+          "Chauffeur in ceremonial dress",
+          "Slow-drive escort"
+        ]
       },
       {
-        title: 'Executive Hospitality & Registration',
-        description: 'QR-code badge printing, VIP lounge hospitality, and speaker protocol management.',
-        highlights: ['High-speed check-in kiosks', 'Security protocol integration', 'Gourmet executive dining'],
+        "title": "Modern Luxury Sedans & SUVs",
+        "description": "Mercedes S-Class / E-Class, Audi, BMW, and Jaguar fleets for bride, groom, and immediate in-laws.",
+        "highlights": [
+          "Pristine interiors",
+          "Chilled refreshments onboard",
+          "GPS route mapping"
+        ]
       },
-    ],
-    processSteps: [
-      { step: 1, title: 'Brand Brief & ROI Objectives', description: 'Translating corporate values and delegate experience into clear run-sheets.' },
-      { step: 2, title: 'Technical Blueprinting', description: 'Acoustic modeling, sightline studies, and contingency power planning.' },
-      { step: 3, title: 'Flawless Live Direction', description: 'Dedicated stage calling directors orchestrating lighting, audio, and awards.' },
-    ],
-    faqs: [
       {
-        question: 'Do you manage pan-India corporate events?',
-        answer: 'Yes, our corporate division manages recurring annual conventions and launches across Tier-1 and Tier-2 convention hubs.',
-      },
+        "title": "Bespoke Fresh Floral Decoration",
+        "description": "Subtle, couture floral styling with exotic orchids, lilies, and ribbons without damaging vehicle finish.",
+        "highlights": [
+          "Paint-safe mounting",
+          "Fresh floral art",
+          "Matching wedding palette"
+        ]
+      }
     ],
-    featured: false,
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Fleet Selection & Date Reservation",
+        "description": "Choosing the ideal model to suit wedding style and arrival route."
+      },
+      {
+        "step": 2,
+        "title": "Floral Styling Blueprint",
+        "description": "Coordinating hood, door handle, and rear floral installations."
+      },
+      {
+        "step": 3,
+        "title": "Punctual VIP Escort",
+        "description": "Vehicles arrive 60 minutes before scheduled departure for hassle-free photography."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can we book luxury wedding cars for inter-city travel within Bihar?",
+        "answer": "Yes, our luxury rental fleet services Patna, Katihar, Purnia, Bhagalpur, Siliguri, and all surrounding regions."
+      }
+    ],
+    "startingBudgetGuide": "Transparent Daily & Hourly Rental Tiers",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Purnia",
+      "Muzaffarpur"
+    ],
+    "featured": false
   },
   {
-    id: 'srv-9',
-    slug: 'theme-parties-and-customized-events',
-    title: 'Theme Parties & Customized Events',
-    tagline: 'Boundless Imagination Crafted Into Experiential Realities',
-    category: 'Bespoke Celebrations',
-    shortDescription:
-      'Immersive Great Gatsby soirees, Arabian Nights lounges, tropical sundowners, and bespoke private galas built around your fantasies.',
-    longDescription:
-      'When conventional party formats fall short, Saat Phere Events produces immersive theatrical experiences. Whether transforming a desert campsite into a glowing 1001-Nights oasis or designing an ultra-modern neon futuristic rave for an after-party, our creative directors spare no detail.',
-    heroImage: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80',
-    cardImage: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1000&q=80',
-      '/images/gallery/sangeet-dance.jpg',
+    "id": "srv-wooden-games-for-weddings",
+    "slug": "wooden-games-for-weddings",
+    "title": "Wooden Games for Weddings",
+    "tagline": "Handcrafted Artisanal Lawn Games & Interactive Guest Merriment",
+    "category": "Interactive Entertainment",
+    "shortDescription": "Bring warmth, laughter, and camaraderie to daytime Sundowners, Haldi, and Mehendi carnivals with handcrafted giant wooden Jenga, Connect-4, Ring Toss, Cornhole, Croquet, and customized wedding trivia.",
+    "longDescription": "Modern luxury weddings are defined by spontaneous joy and shared moments. Saat Phere Events introduces handcrafted artisanal wooden lawn games that turn pre-wedding afternoons and sundowners into cheerful social hubs. Perfect for breaking the ice between bride and groom families, our games are built from polished teak and rosewood, doubling as charming aesthetic photo props.",
+    "heroImage": "/images/real-events/decor-6.webp",
+    "cardImage": "/images/real-events/decor-6.webp",
+    "galleryImages": [
+      "/images/real-events/decor-4.webp",
+      "/images/gallery/umaid-bhawan-gardens.jpg",
+      "/images/real-events/inner-decor-3.webp"
     ],
-    offerings: [
+    "videoClip": "/videos/wedding-decor-reel.mov",
+    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoTitle": "Artisanal Wooden Lawn Games & Interactive Merriment",
+    "offerings": [
       {
-        title: '360-Degree Environmental Scenography',
-        description: 'Complete transformation of venue ceilings, floors, wall draperies, and olfactory ambiance.',
-        highlights: ['Custom sculpted set pieces', 'Thematic actors & greeters', 'Immersive scent dispensers'],
+        "title": "Giant Wooden Jenga & Connect 4",
+        "description": "Oversized, hand-sanded wooden blocks that can be customized with couple's initials and funny family dares.",
+        "highlights": [
+          "Custom engraved blocks",
+          "Safe rounded edges",
+          "High-energy crowd puller"
+        ]
       },
       {
-        title: 'Signature Mixology & Gourmet Concepts',
-        description: 'Themed molecular cocktails, theatrical nitrogen food stations, and customized bar facades.',
-        highlights: ['Flair bartending troupes', 'Custom branded ice sculptures', 'Thematic dessert installations'],
+        "title": "Artisanal Cornhole & Ring Toss",
+        "description": "Classic lawn games with customized painted wooden boards and canvas bean bags.",
+        "highlights": [
+          "Couple vs In-Laws tournaments",
+          "Charming rustic wooden aesthetics",
+          "All-age fun"
+        ]
       },
-    ],
-    processSteps: [
-      { step: 1, title: 'Concept Ideation', description: 'Brainstorming audacious themes and character mood boards.' },
-      { step: 2, title: 'Prop Fabrication & Lighting', description: 'Custom theatrical workshop production of specialized decor props.' },
-      { step: 3, title: 'The Immersive Reveal', description: 'Guests step into a completely altered fantasy universe.' },
-    ],
-    faqs: [
       {
-        question: 'Can you build custom sets from scratch?',
-        answer: 'Yes, our in-house carpentry and 3D fabrication teams can manufacture custom architectural facades, thrones, and arches.',
-      },
+        "title": "Game Host & Carnival Attendant",
+        "description": "Friendly dedicated host to explain rules, organize playful bride-vs-groom matches, and award fun prizes.",
+        "highlights": [
+          "Ice-breaker host",
+          "Tournament scoreboard",
+          "Social photo ops"
+        ]
+      }
     ],
-    featured: false,
-  },
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Game Set Curation",
+        "description": "Selecting games suitable for lawn, poolside, or terrace venues."
+      },
+      {
+        "step": 2,
+        "title": "Personalized Branding",
+        "description": "Customizing game boards and blocks with couple's hashtag or initials."
+      },
+      {
+        "step": 3,
+        "title": "Lawn Setup & Host Direction",
+        "description": "Setting up attractive play stations with aesthetic wooden scoreboards."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which wedding ceremonies are best suited for wooden lawn games?",
+        "answer": "They are ideal for daytime Haldi ceremonies, Mehendi brunches, welcome sundowners, and poolside cocktail gatherings."
+      }
+    ],
+    "startingBudgetGuide": "Lawn Game Packages & Carnival Add-ons",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Purnia",
+      "Udaipur",
+      "Goa"
+    ],
+    "featured": false
+  }
 ];

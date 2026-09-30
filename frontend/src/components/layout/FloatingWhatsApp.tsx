@@ -47,10 +47,10 @@ export const FloatingWhatsApp: React.FC = () => {
             <X size={12} />
           </button>
           <p style={{ fontWeight: 700, color: 'var(--color-maroon)', marginBottom: '2px', fontSize: '0.82rem' }}>
-            Speak with an Event Director
+            Get in Touch on WhatsApp
           </p>
           <p style={{ fontSize: '0.74rem', color: '#6B7280', lineHeight: 1.3 }}>
-            Instant replies on WhatsApp for bookings &amp; date checks.
+            Instant replies for weddings in Bihar &amp; across India.
           </p>
         </div>
       )}
