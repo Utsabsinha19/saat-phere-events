@@ -195,7 +195,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     "cardImage": "/images/real-events/decor-4.webp",
     "galleryImages": [
       "/images/real-events/decor-5.webp",
-      "/images/gallery/royal-feast.jpg",
+      "/images/gallery/birthday-celebration.webp",
       "/images/real-events/inner-decor-3.webp"
     ],
     "videoClip": "/videos/wedding-decor-reel.mov",
@@ -355,7 +355,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     "cardImage": "/images/services/banquet-spread.jpg",
     "galleryImages": [
       "/images/gallery/umaid-bhawan-gardens.jpg",
-      "/images/gallery/royal-feast.jpg",
+      "/images/gallery/corporate-gala.webp",
       "/images/hero/hero-palace-udaipur.jpg"
     ],
     "videoClip": "/videos/sangeet-highlights.mov",

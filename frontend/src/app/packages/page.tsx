@@ -44,7 +44,7 @@ export default function PackagesPage() {
       {/* Banner */}
       <section
         style={{
-          background: 'var(--gradient-royal-overlay), url("/images/gallery/royal-feast.jpg")',
+          background: 'var(--gradient-royal-overlay), url("/images/gallery/royal-banquet.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
