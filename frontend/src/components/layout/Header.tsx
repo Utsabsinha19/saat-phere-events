@@ -38,12 +38,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
         position: 'sticky',
         top: 0,
         zIndex: 1000,
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.96)' : 'rgba(255, 255, 255, 0.98)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: isScrolled
-          ? '1px solid rgba(212, 175, 55, 0.35)'
-          : '1px solid rgba(0, 0, 0, 0.06)',
-        boxShadow: isScrolled ? '0 4px 20px rgba(0, 0, 0, 0.08)' : 'none',
+        backgroundColor: isScrolled ? 'rgba(16, 10, 14, 0.96)' : 'rgba(20, 12, 16, 0.98)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid rgba(212, 175, 55, 0.28)',
+        boxShadow: isScrolled ? '0 8px 30px rgba(0, 0, 0, 0.55)' : 'none',
         transition: 'all 0.3s ease',
       }}
     >
@@ -52,8 +50,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
         <Link href="/" className="brand-logo-link" aria-label="Saat Phere Events Home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/logo-emblem.png"
-            alt="Saat Phere Insignia"
+            src="/images/crest-official.png"
+            alt="Saat Phere Events Official Royal Crest"
             className="brand-logo-emblem"
           />
           <div className="brand-logo-text-block">
@@ -108,10 +106,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                         width: '560px',
                         maxWidth: 'calc(100vw - 40px)',
                         boxSizing: 'border-box',
-                        backgroundColor: '#FFFFFF',
-                        border: '1px solid var(--color-border-gold)',
+                        backgroundColor: 'rgba(22, 14, 18, 0.98)',
+                        border: '1px solid rgba(212, 175, 55, 0.35)',
                         borderRadius: '10px',
-                        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.13)',
+                        boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
+                        backdropFilter: 'blur(16px)',
                         padding: '16px',
                         zIndex: 1001,
                       }}
@@ -121,11 +120,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                         fontSize: '0.7rem',
                         fontWeight: 700,
                         letterSpacing: '0.08em',
-                        color: 'var(--color-gold-dark)',
+                        color: 'var(--color-gold-light)',
                         textTransform: 'uppercase',
                         marginBottom: '12px',
                         paddingBottom: '8px',
-                        borderBottom: '1px solid var(--color-border-gold)',
+                        borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
                       }}>
                         Our 9 Event Services
                       </div>
@@ -149,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                                 padding: '8px 10px',
                                 borderRadius: '7px',
                                 transition: 'background-color 0.18s ease',
-                                backgroundColor: pathname === sub.href ? 'var(--color-ivory-light)' : 'transparent',
+                                backgroundColor: pathname === sub.href ? 'rgba(212, 175, 55, 0.15)' : 'transparent',
                                 gridColumn: (isLast && isOdd) ? '1 / -1' : undefined,
                                 display: 'block',
                                 textDecoration: 'none',
@@ -160,7 +159,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                                 boxSizing: 'border-box',
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = 'var(--color-ivory-light)';
+                                e.currentTarget.style.backgroundColor = 'rgba(212, 175, 55, 0.12)';
                               }}
                               onMouseLeave={(e) => {
                                 if (pathname !== sub.href) e.currentTarget.style.backgroundColor = 'transparent';
@@ -170,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                                 style={{
                                   fontSize: '0.84rem',
                                   fontWeight: 700,
-                                  color: 'var(--color-maroon)',
+                                  color: '#FCE6A2',
                                   marginBottom: '2px',
                                   lineHeight: 1.3,
                                   overflowWrap: 'break-word',
@@ -182,7 +181,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                               {sub.description && (
                                 <div style={{
                                   fontSize: '0.72rem',
-                                  color: '#6B7280',
+                                  color: 'rgba(255, 255, 255, 0.65)',
                                   lineHeight: 1.4,
                                   overflowWrap: 'break-word',
                                   wordBreak: 'break-word',
@@ -199,7 +198,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                       <div style={{
                         marginTop: '12px',
                         paddingTop: '10px',
-                        borderTop: '1px solid var(--color-border-gold)',
+                        borderTop: '1px solid rgba(212, 175, 55, 0.25)',
                         textAlign: 'center',
                       }}>
                         <Link
@@ -207,7 +206,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                           style={{
                             fontSize: '0.78rem',
                             fontWeight: 600,
-                            color: 'var(--color-maroon)',
+                            color: 'var(--color-gold-light)',
                             textDecoration: 'none',
                             letterSpacing: '0.04em',
                           }}
@@ -272,6 +271,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="header-mobile-toggle"
             aria-label="Toggle navigation"
+            style={{ color: 'var(--color-gold)' }}
           >
             {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -283,8 +283,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
         <div
           className="header-mobile-drawer"
           style={{
-            backgroundColor: '#FFFFFF',
-            borderTop: '1px solid var(--color-border)',
+            backgroundColor: 'rgba(20, 12, 16, 0.98)',
+            borderTop: '1px solid rgba(212, 175, 55, 0.25)',
             borderBottom: '2px solid var(--color-gold)',
             padding: '20px',
             maxHeight: '80vh',
@@ -292,14 +292,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <Link href="/" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
+            <Link href="/" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
               Home
             </Link>
-            <Link href="/about" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
+            <Link href="/about" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
               About Us
             </Link>
             <div style={{ paddingLeft: '8px', borderLeft: '2px solid var(--color-gold)' }}>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-gold-dark)', marginBottom: '8px' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-gold-light)', marginBottom: '8px' }}>
                 OUR 9 EVENT SERVICES:
               </div>
               {servicesNav?.children?.map((sub) => (
@@ -310,24 +310,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                     display: 'block',
                     padding: '6px 0',
                     fontSize: '0.9rem',
-                    color: '#4B5563',
+                    color: 'rgba(255, 255, 255, 0.85)',
                   }}
                 >
                   • {sub.label}
                 </Link>
               ))}
             </div>
-            <Link href="/portfolio" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
+            <Link href="/portfolio" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
               Portfolio & Gallery
             </Link>
 
-            <Link href="/packages" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
+            <Link href="/packages" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
               Packages & Custom Quote
             </Link>
-            <Link href="/contact" style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-maroon)' }}>
+            <Link href="/contact" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
               Contact & Inquiry
             </Link>
-            <Link href="/portal" style={{ fontSize: '1rem', fontWeight: 600, color: '#6B7280' }}>
+            <Link href="/portal" style={{ fontSize: '1rem', fontWeight: 600, color: '#9CA3AF' }}>
               Client Account Portal
             </Link>
           </div>

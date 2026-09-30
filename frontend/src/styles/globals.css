@@ -361,7 +361,7 @@ img {
   width: auto;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 6px rgba(180, 130, 20, 0.25));
+  filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.45));
   transition: transform 0.25s ease;
 }
 
@@ -377,25 +377,29 @@ img {
 
 .brand-logo-title {
   font-family: var(--font-display, var(--font-serif));
-  font-size: 1.45rem;
+  font-size: 1.52rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
-  color: var(--color-maroon);
+  letter-spacing: 1.6px;
+  background: linear-gradient(135deg, #FFF4D0 0%, #E8C360 45%, #C29124 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   line-height: 1.1;
   white-space: nowrap;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
 }
 
 .brand-logo-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
-  letter-spacing: 2.4px;
+  font-size: 0.65rem;
+  letter-spacing: 2.8px;
   text-transform: uppercase;
-  color: var(--color-gold-dark);
+  color: #E8C360;
   font-weight: 700;
   margin-top: 3px;
   white-space: nowrap;
   line-height: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Desktop Navigation */
@@ -412,7 +416,7 @@ img {
   position: relative;
   font-size: clamp(0.8rem, 0.85vw, 0.88rem);
   font-weight: 600;
-  color: #374151;
+  color: rgba(255, 255, 255, 0.92);
   padding: 8px 0;
   white-space: nowrap !important;
   transition: color 0.2s ease;
@@ -426,7 +430,7 @@ img {
 }
 
 .header-nav-item:hover {
-  color: var(--color-maroon);
+  color: #F8E5A7;
 }
 
 /* Absolute bottom underline: ensures identical box model & pixel-perfect baseline alignment across all links */
@@ -446,12 +450,12 @@ img {
 }
 
 .header-nav-item:hover::after {
-  opacity: 0.55;
+  opacity: 0.75;
   transform: scaleX(1);
 }
 
 .header-nav-item.active {
-  color: var(--color-maroon);
+  color: #F8E5A7;
 }
 
 .header-nav-item.active::after {
@@ -474,14 +478,21 @@ img {
   gap: 6px;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--color-maroon);
+  color: #FCE6A2;
   padding: 8px 14px;
   border-radius: 6px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.header-phone-cta:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.55);
 }
 
 .header-consultation-btn {
