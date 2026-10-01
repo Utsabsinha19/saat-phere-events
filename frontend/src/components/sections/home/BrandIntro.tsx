@@ -70,24 +70,16 @@ export const BrandIntro: React.FC = () => {
           description="Named after the sacred seven vows that unite two souls for eternity, Saat Phere Events represents the pinnacle of luxury wedding and event management. Originating in Bihar, we blend heartfelt regional warmth with royal palatial opulence."
         />
 
-        {/* 6 Luxury Feature Cards Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
-            gap: '24px',
-            marginBottom: '48px',
-          }}
-        >
+        {/* 6 Luxury Feature Cards Grid — responsive: 1→2→3 columns */}
+        <div className="brand-intro-grid">
           {whyChoosePillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={idx}
-                className="luxury-card luxury-card-hover"
+                className="luxury-card luxury-card-hover brand-intro-card"
                 style={{
                   backgroundColor: '#FFFFFF',
-                  padding: '32px 26px',
                   borderRadius: '12px',
                   border: '1px solid rgba(212, 175, 55, 0.35)',
                   display: 'flex',

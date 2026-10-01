@@ -31,15 +31,7 @@ export const GallerySection: React.FC = () => {
         />
 
         {/* Filter Pills with Luxury Styling */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '10px',
-            marginBottom: '40px',
-          }}
-        >
+        <div className="gallery-filter-bar">
           {filters.map((filter) => {
             const isActive = activeFilter === filter;
             return (
@@ -67,25 +59,17 @@ export const GallerySection: React.FC = () => {
           })}
         </div>
 
-        {/* Gallery Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '24px',
-            marginBottom: '40px',
-          }}
-        >
+        {/* Gallery Grid — responsive: 1→2→3→4 columns */}
+        <div className="gallery-section-grid">
           {filteredItems.map((item) => {
             const isVideo = item.type === 'video';
             return (
               <div
                 key={item.id}
                 onClick={() => setSelectedMedia(item)}
-                className="luxury-card luxury-card-hover"
+              className="luxury-card luxury-card-hover gallery-card-item"
                 style={{
                   position: 'relative',
-                  height: '320px',
                   borderRadius: '12px',
                   overflow: 'hidden',
                   cursor: 'pointer',

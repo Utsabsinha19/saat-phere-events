@@ -42,12 +42,12 @@ export default function HomePage() {
 
       {/* Royal Get in Touch Invitation Banner */}
       <section
+      className="consultation-banner"
         style={{
           background: 'var(--gradient-royal-overlay), url("/images/real-events/decor-3.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
-          padding: '90px 20px',
           textAlign: 'center',
           position: 'relative',
         }}
@@ -84,7 +84,7 @@ export default function HomePage() {
             Connect with our Senior Creative Director in Katihar & Patna to discuss venue selections, auspicious date blocks, and tailored floral scenography.
           </p>
 
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '16px' }}>
+          <div className="consultation-banner-ctas">
             {/* Requirement 6: CTA text "Get in Touch" */}
             <button
               onClick={() => setModalOpen(true)}

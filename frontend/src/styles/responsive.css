@@ -1,106 +1,123 @@
 /* ==========================================================================
    SAAT PHERE EVENTS — COMPREHENSIVE RESPONSIVE SYSTEM
    Mobile-first: base = smallest (320px), enhance upward
-   Breakpoints: 480px | 640px | 768px | 900px | 1024px | 1200px | 1440px | 1920px
+   Breakpoints: 480 | 600 | 640 | 768 | 900 | 1024 | 1200 | 1440 | 1920 | 2560 | 3840
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. GLOBAL RESET ADDITIONS
    -------------------------------------------------------------------------- */
 html {
-  /* Prevent iOS font-size inflation */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Strict horizontal scroll prevention at document root */
+  overflow-x: hidden;
 }
 
 body {
-  /* Strict horizontal scroll prevention at body level */
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* Every element respects box-sizing (already in globals but reinforce) */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* Images never overflow their container */
-img, video, svg {
+/* All media: never overflow their container */
+img, video, svg, canvas, iframe {
   max-width: 100%;
   height: auto;
 }
 
+/* Prevent ANY text from causing horizontal overflow */
+p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, button, label, input {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 /* --------------------------------------------------------------------------
-   2. CONTAINER SYSTEM — Responsive padding & max-width
+   2. FLUID TYPOGRAPHY — clamp() for smooth scaling across ALL viewports
+   -------------------------------------------------------------------------- */
+h1 {
+  font-size: clamp(1.75rem, 4.5vw, 4.4rem);
+  line-height: 1.15;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+h2 {
+  font-size: clamp(1.45rem, 3.2vw, 2.75rem);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2.2vw, 1.85rem);
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+
+h4 {
+  font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+  line-height: 1.3;
+}
+
+p {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* --------------------------------------------------------------------------
+   3. CONTAINER ARCHITECTURE — Fluid padding with clamp()
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
   max-width: var(--max-width, 1280px);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: clamp(16px, 4vw, 48px);
+  padding-right: clamp(16px, 4vw, 48px);
 }
 
-@media (min-width: 480px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .container {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-}
-
-/* Ultra-wide: never stretch content absurdly */
+/* 1920px+: prevent content from stretching absurdly */
 @media (min-width: 1920px) {
   .container {
     max-width: 1440px;
   }
 }
 
+/* 2560px (2K): keep content balanced */
+@media (min-width: 2560px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* 3840px (4K): luxury level restraint */
+@media (min-width: 3840px) {
+  .container {
+    max-width: 1920px;
+  }
+}
+
 /* --------------------------------------------------------------------------
-   3. SECTION PADDING — Responsive vertical rhythm
+   4. SECTION PADDING — Responsive vertical rhythm with clamp()
    -------------------------------------------------------------------------- */
 .section-padding {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: clamp(48px, 8vw, 100px);
+  padding-bottom: clamp(48px, 8vw, 100px);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1920px) {
   .section-padding {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 }
 
 /* --------------------------------------------------------------------------
-   4. TOP BANNER — Hide secondary items on mobile, stack gracefully
+   5. TOP BANNER — Hide secondary items on mobile, stack gracefully
    -------------------------------------------------------------------------- */
 .top-banner-inner {
   display: flex;
@@ -110,17 +127,13 @@ img, video, svg {
   gap: 8px;
 }
 
-/* On mobile: hide less critical banner info */
 @media (max-width: 640px) {
-  /* Hide the hours text on tiny screens */
   .top-banner-hours {
     display: none !important;
   }
-  /* Hide email on very small */
   .top-banner-email {
     display: none !important;
   }
-  /* Stack the two sides */
   .top-banner-inner {
     justify-content: center;
     gap: 6px;
@@ -138,54 +151,369 @@ img, video, svg {
 }
 
 /* --------------------------------------------------------------------------
-   5. HERO SECTION — Fully responsive
+   6. HEADER — Logo, navigation, actions responsive system
    -------------------------------------------------------------------------- */
-.hero-section {
-  padding: 60px 16px 48px;
-  min-height: calc(85vh - var(--header-height, 80px) - var(--topbar-height, 38px));
+.header-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height, 80px);
+  flex-wrap: nowrap;
+  gap: 8px;
 }
 
-@media (min-width: 640px) {
-  .hero-section {
-    padding: 80px 24px 64px;
-  }
+/* Brand Logo — responsive sizing via clamp */
+.brand-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+  user-select: none;
+  transition: transform 0.25s ease;
 }
 
-@media (min-width: 1024px) {
-  .hero-section {
-    padding: 100px 40px 80px;
-    min-height: calc(100vh - var(--header-height, 80px) - var(--topbar-height, 38px));
-  }
+.brand-logo-link:hover {
+  transform: translateY(-1px);
 }
 
-/* Hero CTA buttons: stack on mobile */
-.hero-cta-group {
+.brand-logo-emblem {
+  height: clamp(36px, 5vw, 52px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.45));
+  transition: transform 0.25s ease;
+}
+
+.brand-logo-link:hover .brand-logo-emblem {
+  transform: scale(1.05);
+}
+
+.brand-logo-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-logo-title {
+  font-family: var(--font-display, var(--font-serif));
+  font-size: clamp(0.95rem, 1.8vw, 1.52rem);
+  font-weight: 800;
+  letter-spacing: clamp(0.5px, 0.2vw, 1.6px);
+  background: linear-gradient(135deg, #FFF4D0 0%, #E8C360 45%, #C29124 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  line-height: 1.1;
+  white-space: nowrap;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+}
+
+.brand-logo-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.5rem, 0.8vw, 0.65rem);
+  letter-spacing: clamp(1.5px, 0.3vw, 2.8px);
+  text-transform: uppercase;
+  color: #E8C360;
+  font-weight: 700;
+  margin-top: 3px;
+  white-space: nowrap;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Desktop Navigation */
+.header-desktop-nav {
+  display: none;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 20px);
+  white-space: nowrap;
+  flex-shrink: 1;
+  height: 100%;
+}
+
+.header-nav-item {
+  position: relative;
+  font-size: clamp(0.8rem, 0.85vw, 0.88rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 8px 0;
+  white-space: nowrap !important;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-nav-item:hover {
+  color: #F8E5A7;
+}
+
+.header-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-nav-item:hover::after {
+  opacity: 0.75;
+  transform: scaleX(1);
+}
+
+.header-nav-item.active {
+  color: #F8E5A7;
+}
+
+.header-nav-item.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Header Right Actions */
+.header-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.header-phone-cta {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FCE6A2;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.header-phone-cta:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+.header-consultation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  min-height: 36px;
+}
+
+.header-btn-text-full {
+  display: inline;
+}
+
+.header-btn-text-tablet {
+  display: none;
+}
+
+.header-btn-text-mobile {
+  display: none;
+}
+
+.header-mobile-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  color: var(--color-gold);
+  cursor: pointer;
+  flex-shrink: 0;
+  /* Minimum touch target */
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* ---- Responsive breakpoints for Header ---- */
+@media (min-width: 1200px) {
+  .header-desktop-nav {
+    display: flex !important;
+  }
+  .header-mobile-toggle {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .header-phone-cta {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .header-desktop-nav {
+    display: none !important;
+  }
+  .header-mobile-toggle {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 641px) {
+  .header-btn-text-full {
+    display: none !important;
+  }
+  .header-btn-text-tablet {
+    display: inline !important;
+  }
+  .header-btn-text-mobile {
+    display: none !important;
+  }
+  .header-consultation-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-btn-text-full {
+    display: none !important;
+  }
+  .header-btn-text-tablet {
+    display: none !important;
+  }
+  .header-btn-text-mobile {
+    display: inline !important;
+  }
+  .header-consultation-btn {
+    padding: 7px 11px;
+    font-size: 0.76rem;
+    gap: 4px;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero-cta-group {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
+  .header-consultation-btn {
+    padding: 6px 9px;
+    font-size: 0.72rem;
   }
+}
 
-  .hero-cta-group .btn-gold,
-  .hero-cta-group .btn-outline,
-  .hero-cta-group .btn-primary {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px !important;
-    font-size: 0.9rem !important;
-    white-space: normal !important;
+@media (max-width: 360px) {
+  .brand-logo-subtitle {
+    display: none !important;
+  }
+  .brand-logo-emblem {
+    height: 34px;
+  }
+  .brand-logo-title {
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+  }
+  .header-consultation-btn {
+    padding: 5px 7px !important;
+    font-size: 0.68rem !important;
+  }
+}
+
+/* Mobile Drawer */
+.header-mobile-drawer {
+  max-height: 80svh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(16px, 3vw, 24px) !important;
+}
+
+/* Touch-friendly link height in drawer */
+.header-mobile-drawer a,
+.header-mobile-drawer button {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO SECTION — Fully responsive at every viewport
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: clamp(48px, 8vw, 100px) clamp(16px, 4vw, 40px) clamp(48px, 8vw, 80px);
+  min-height: clamp(480px, calc(100svh - var(--header-height, 80px) - var(--topbar-height, 38px)), 900px);
+}
+
+/* Landscape phones: prevent hero from being too tall */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: unset !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+}
+
+/* Hero badge container */
+.hero-badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 18px;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.hero-badge-text-full {
+  display: inline;
+}
+
+.hero-badge-text-short {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .hero-badge-text-full {
+    display: none !important;
+  }
+  .hero-badge-text-short {
+    display: inline !important;
+  }
+  .shimmer-gold-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
     text-align: center;
+    white-space: normal;
+    line-height: 1.4;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+@media (max-width: 360px) {
+  .shimmer-gold-badge {
+    font-size: 0.62rem;
+    padding: 4px 10px;
   }
 }
 
@@ -203,33 +531,58 @@ img, video, svg {
 
 @media (max-width: 480px) {
   .hero-frame-border {
-    top: 12px !important;
-    left: 12px !important;
-    right: 12px !important;
-    bottom: 12px !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+  }
+}
+
+/* Hero CTA group: stack on mobile */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+@media (max-width: 480px) {
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-cta-group .btn-gold,
+  .hero-cta-group .btn-outline,
+  .hero-cta-group .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px !important;
+    font-size: 0.9rem !important;
+    white-space: normal !important;
+    text-align: center;
   }
 }
 
 /* --------------------------------------------------------------------------
-   6. BUTTONS — Responsive, never clip text
+   8. BUTTONS — Responsive, accessible (min 44px touch), never clip
    -------------------------------------------------------------------------- */
-
-@media (max-width: 768px) {
-  .btn-primary,
-  .btn-gold,
-  .btn-outline {
-    white-space: normal;
-    text-align: center;
-    word-break: break-word;
-  }
+.btn-primary,
+.btn-gold,
+.btn-outline {
+  min-height: 44px;
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-/* Header consultation button: ALWAYS single-line nowrap */
-.header-consultation-btn {
-  white-space: nowrap !important;
-}
-
-/* On very small screens reduce horizontal padding */
 @media (max-width: 480px) {
   .btn-primary,
   .btn-gold,
@@ -247,70 +600,40 @@ img, video, svg {
 }
 
 /* --------------------------------------------------------------------------
-   7. BRAND INTRO PILLARS GRID — Fix minmax(290px) overflow
+   9. BRAND INTRO PILLARS GRID
+   FIX: was repeat(auto-fit, minmax(310px, 1fr)) → overflows at 320-600px
    -------------------------------------------------------------------------- */
 .brand-intro-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
   margin-bottom: 40px;
+  width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
   .brand-intro-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .brand-intro-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
+    gap: 28px;
     margin-bottom: 48px;
   }
 }
 
-/* Pillar card padding — reduce on mobile */
 .brand-intro-card {
-  padding: 28px 20px !important;
-}
-
-@media (min-width: 640px) {
-  .brand-intro-card {
-    padding: 36px 28px !important;
-  }
+  padding: clamp(20px, 3vw, 36px) clamp(18px, 2.5vw, 28px) !important;
+  min-width: 0;
 }
 
 /* --------------------------------------------------------------------------
-   8. LUXURY STATS GRID — Fix minmax(220px) overflow on mobile
-   -------------------------------------------------------------------------- */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .stats-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 32px;
-  }
-}
-
-.stats-section {
-  padding: 48px 20px !important;
-}
-
-@media (min-width: 768px) {
-  .stats-section {
-    padding: 70px 20px !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   9. SERVICES GRID (homepage cards) — Already fixed, enhance
+   10. SERVICES GRID — homepage .services-grid
+   FIX: was repeat(2, minmax(0,1fr)) with no mobile base → add 1-col base
    -------------------------------------------------------------------------- */
 .services-grid {
   display: grid;
@@ -318,6 +641,12 @@ img, video, svg {
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.services-grid > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 @media (min-width: 640px) {
@@ -329,49 +658,111 @@ img, video, svg {
 
 @media (min-width: 1200px) {
   .services-grid {
-    gap: 30px;
+    gap: 28px;
   }
 }
 
-/* Service card image height: shorter on mobile */
+/* Service card image: fluid height */
 .service-card-image {
-  height: 180px !important;
+  height: clamp(160px, 28vw, 240px) !important;
 }
 
-@media (min-width: 480px) {
-  .service-card-image {
-    height: 210px !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .service-card-image {
-    height: 230px !important;
-  }
-}
-
-/* Service card body padding: tighter on mobile */
+/* Service card body: responsive padding */
 .service-card-body {
-  padding: 20px !important;
+  padding: clamp(16px, 3vw, 28px) !important;
 }
 
-@media (min-width: 768px) {
-  .service-card-body {
-    padding: 28px !important;
+/* --------------------------------------------------------------------------
+   11. HOMEPAGE SERVICES SECTION (ServicesGrid.tsx)
+   FIX: inline style was repeat(auto-fill, minmax(340px, 1fr)) → overflow
+   Override with class-based grid
+   -------------------------------------------------------------------------- */
+.services-section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .services-section-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .services-section-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
   }
 }
 
 /* --------------------------------------------------------------------------
-   10. SHOWCASE PREVIEW GRID — Fix minmax(320px) overflow + fixed height
+   12. GALLERY SECTION (GallerySection.tsx)
+   FIX: inline style was repeat(auto-fill, minmax(320px, 1fr)) → overflow
+   -------------------------------------------------------------------------- */
+.gallery-section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .gallery-section-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery-section-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .gallery-section-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Gallery card: fluid height */
+.gallery-card-item {
+  height: clamp(200px, 30vw, 320px) !important;
+}
+
+/* Gallery filter bar */
+.gallery-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+  .gallery-filter-bar button {
+    padding: 7px 14px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. SHOWCASE PREVIEW GRID
    -------------------------------------------------------------------------- */
 .showcase-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   margin-bottom: 36px;
+  width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
   .showcase-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
@@ -386,30 +777,10 @@ img, video, svg {
   }
 }
 
-/* Gallery card: fixed height replaced with fluid */
 .showcase-card {
-  height: 240px !important;
+  height: clamp(200px, 30vw, 360px) !important;
 }
 
-@media (min-width: 480px) {
-  .showcase-card {
-    height: 280px !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .showcase-card {
-    height: 320px !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .showcase-card {
-    height: 360px !important;
-  }
-}
-
-/* Category filter pills: allow wrap on mobile */
 .showcase-filter {
   display: flex;
   flex-wrap: wrap;
@@ -426,96 +797,88 @@ img, video, svg {
   }
 }
 
-/* Filter buttons: smaller on mobile */
 @media (max-width: 480px) {
   .showcase-filter button {
-    padding: 6px 14px !important;
+    padding: 6px 12px !important;
     font-size: 0.78rem !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   11. INSTAGRAM GRID — Fix minmax(180px) + fixed height
+   14. LUXURY STATS GRID
+   -------------------------------------------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+.stats-section {
+  padding: clamp(48px, 8vw, 80px) 20px !important;
+}
+
+/* --------------------------------------------------------------------------
+   15. INSTAGRAM GRID
    -------------------------------------------------------------------------- */
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 24px;
 }
 
 @media (min-width: 480px) {
   .instagram-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 10px;
   }
 }
 
 @media (min-width: 768px) {
   .instagram-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
     margin-bottom: 32px;
   }
 }
 
-/* Instagram image height: responsive */
 .instagram-post {
-  height: 140px !important;
-}
-
-@media (min-width: 480px) {
-  .instagram-post {
-    height: 160px !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .instagram-post {
-    height: 200px !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .instagram-post {
-    height: 220px !important;
-  }
+  height: clamp(120px, 22vw, 220px) !important;
 }
 
 /* --------------------------------------------------------------------------
-   12. TESTIMONIALS CAROUSEL — Responsive card padding
+   16. TESTIMONIALS CAROUSEL
    -------------------------------------------------------------------------- */
 .testimonial-card {
-  padding: 24px 20px !important;
+  padding: clamp(20px, 4vw, 44px) clamp(18px, 3.5vw, 40px) !important;
 }
 
-@media (min-width: 640px) {
-  .testimonial-card {
-    padding: 36px 32px !important;
+/* Review text: smaller on very small phones */
+@media (max-width: 480px) {
+  .testimonial-card p[style*="1.18rem"] {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
   }
 }
 
-@media (min-width: 768px) {
-  .testimonial-card {
-    padding: 44px 40px !important;
-  }
-}
-
-/* Testimonial inner layout: stack on mobile */
-.testimonial-body {
-  flex-direction: column !important;
-  gap: 20px !important;
-}
-
-@media (min-width: 768px) {
-  .testimonial-body {
-    flex-direction: row !important;
-    gap: 32px !important;
+/* Testimonial footer row: stack on small phones */
+@media (max-width: 560px) {
+  .testimonial-card > div:last-of-type {
+    flex-direction: column;
+    gap: 16px;
   }
 }
 
 /* --------------------------------------------------------------------------
-   13. FOOTER — Responsive grid & bottom bar
+   17. FOOTER
    -------------------------------------------------------------------------- */
 .footer-grid {
   display: grid;
@@ -524,7 +887,7 @@ img, video, svg {
   margin-bottom: 40px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 36px;
@@ -539,7 +902,11 @@ img, video, svg {
   }
 }
 
-/* Footer bottom bar: stack on mobile */
+footer {
+  padding-top: clamp(48px, 8vw, 80px) !important;
+  padding-bottom: clamp(24px, 4vw, 40px) !important;
+}
+
 .footer-bottom {
   display: flex;
   flex-direction: column;
@@ -573,102 +940,18 @@ img, video, svg {
   }
 }
 
-/* Footer top padding: reduce on mobile */
-footer {
-  padding-top: 48px !important;
-  padding-bottom: 24px !important;
-}
-
-@media (min-width: 768px) {
-  footer {
-    padding-top: 70px !important;
-    padding-bottom: 30px !important;
-  }
-}
-
 /* --------------------------------------------------------------------------
-   14. SECTION HEADING — Responsive margin & font
+   18. SECTION HEADING — Responsive margins
    -------------------------------------------------------------------------- */
 .section-heading-wrapper {
-  margin-bottom: 32px !important;
-}
-
-@media (min-width: 768px) {
-  .section-heading-wrapper {
-    margin-bottom: 48px !important;
-  }
+  margin-bottom: clamp(24px, 5vw, 52px) !important;
 }
 
 /* --------------------------------------------------------------------------
-   15. LUXURY CARD — Responsive hover (touch devices)
-   -------------------------------------------------------------------------- */
-@media (hover: none) {
-  .luxury-card:hover {
-    transform: none;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   16. MOBILE STICKY ACTION BAR — safe-area for modern phones
-   -------------------------------------------------------------------------- */
-.mobile-sticky-action-bar {
-  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
-  padding-left: max(16px, env(safe-area-inset-left, 16px));
-  padding-right: max(16px, env(safe-area-inset-right, 16px));
-}
-
-/* --------------------------------------------------------------------------
-   17. FLOATING WIDGETS — Coordinated luxury placement (zero collision)
-   -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* Tooltip never covers mobile screen */
-  .floating-whatsapp-tooltip {
-    display: none !important;
-  }
-
-  /* WhatsApp circle: compact, bottom right */
-  .floating-whatsapp-wrapper {
-    bottom: calc(66px + env(safe-area-inset-bottom, 0px)) !important;
-    right: 14px !important;
-    left: auto !important;
-  }
-
-  .floating-whatsapp-wrapper a {
-    width: 44px !important;
-    height: 44px !important;
-  }
-
-  /* AI Concierge pill: positioned on bottom LEFT */
-  .floating-ai-concierge-pill {
-    bottom: calc(66px + env(safe-area-inset-bottom, 0px)) !important;
-    left: 14px !important;
-    right: auto !important;
-    padding: 8px 12px !important;
-    font-size: 0.76rem !important;
-    gap: 6px !important;
-    border-radius: 50px !important;
-  }
-
-  .ai-concierge-text-full {
-    display: none !important;
-  }
-
-  .ai-concierge-text-short {
-    display: inline !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   18. CONSULTATION BANNER (homepage) — Responsive
+   19. CONSULTATION BANNER (homepage)
    -------------------------------------------------------------------------- */
 .consultation-banner {
-  padding: 60px 16px !important;
-}
-
-@media (min-width: 768px) {
-  .consultation-banner {
-    padding: 90px 20px !important;
-  }
+  padding: clamp(60px, 10vw, 110px) clamp(16px, 4vw, 40px) !important;
 }
 
 .consultation-banner-ctas {
@@ -691,7 +974,7 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
-   19. FORMS — Fully responsive inputs
+   20. FORMS — Responsive inputs, iOS zoom prevention
    -------------------------------------------------------------------------- */
 .form-input,
 .form-select,
@@ -699,6 +982,17 @@ footer {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  /* iOS: prevent font zoom on focus (must be >= 16px) */
+  font-size: 16px;
+}
+
+/* On larger screens we can restore design size */
+@media (min-width: 768px) {
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 0.95rem;
+  }
 }
 
 /* Form grid: single column on mobile */
@@ -711,67 +1005,294 @@ footer {
 @media (min-width: 640px) {
   .form-grid-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 
 /* --------------------------------------------------------------------------
-   20. MODALS & OVERLAYS — Responsive sizing
+   21. MODALS & OVERLAYS — Responsive sizing across all devices
    -------------------------------------------------------------------------- */
 .modal-overlay {
-  padding: 16px;
+  padding: clamp(12px, 3vw, 24px);
 }
 
 .modal-content {
   width: 100%;
-  max-width: 560px;
-  max-height: 90vh;
+  max-width: min(560px, calc(100vw - 32px));
+  max-height: 90svh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: 12px;
   margin: auto;
 }
 
 @media (max-width: 480px) {
   .modal-content {
-    max-height: 95vh;
-    border-radius: 8px;
+    max-height: 95svh;
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+/* AI Concierge modal */
+.ai-concierge-modal-window {
+  width: min(420px, calc(100vw - 32px)) !important;
+  max-height: min(650px, 90svh) !important;
+}
+
+@media (max-width: 768px) {
+  .ai-concierge-modal-window {
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    max-height: min(85svh, 85vh) !important;
+    border-radius: 20px 20px 0 0 !important;
+    position: fixed !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   21. TYPOGRAPHY — Clamp all headings for smooth scaling
+   22. CONTACT PAGE — Two-column layout
    -------------------------------------------------------------------------- */
-h1 {
-  font-size: clamp(1.8rem, 5vw, 4.4rem);
-  line-height: 1.15;
-  overflow-wrap: break-word;
-  word-break: break-word;
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
 }
 
-h2 {
-  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
-  line-height: 1.2;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-h3 {
-  font-size: clamp(1.15rem, 2.5vw, 1.85rem);
-  line-height: 1.25;
-  overflow-wrap: break-word;
-}
-
-h4 {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  line-height: 1.3;
-}
-
-p {
-  overflow-wrap: break-word;
-  word-break: normal;
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 3fr 2fr;
+    gap: 48px;
+  }
 }
 
 /* --------------------------------------------------------------------------
-   22. BADGES — Responsive across all devices
+   23. PACKAGES PAGE — Calculator layout
+   -------------------------------------------------------------------------- */
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .calculator-layout {
+    grid-template-columns: 3fr 2fr;
+    gap: 32px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   24. PORTFOLIO / GALLERY PAGE GRID
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .gallery-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   25. SERVICES PAGE — Service detail layout
+   -------------------------------------------------------------------------- */
+.service-detail-hero {
+  height: clamp(200px, 40vw, 480px) !important;
+}
+
+.service-offerings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .service-offerings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-offerings-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   26. FLOATING WIDGETS — Coordinated placement, zero collision
+   -------------------------------------------------------------------------- */
+.floating-ai-concierge-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9989;
+  background-color: #800020;
+  color: #FFFFFF;
+  border: 2px solid var(--color-gold);
+  border-radius: 50px;
+  padding: 12px 20px;
+  box-shadow: 0 10px 30px rgba(128, 0, 32, 0.45);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.floating-ai-concierge-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(128, 0, 32, 0.55);
+}
+
+.floating-whatsapp-wrapper {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  z-index: 9988;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.floating-whatsapp-wrapper > * {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .floating-whatsapp-tooltip {
+    display: none !important;
+  }
+
+  .floating-whatsapp-wrapper {
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 14px !important;
+    left: auto !important;
+  }
+
+  .floating-whatsapp-wrapper a {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  /* AI Concierge: bottom-LEFT — never collides with WhatsApp */
+  .floating-ai-concierge-pill {
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+    left: 14px !important;
+    right: auto !important;
+    padding: 8px 12px !important;
+    font-size: 0.76rem !important;
+    gap: 6px !important;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 16px rgba(128, 0, 32, 0.4) !important;
+  }
+
+  .ai-concierge-text-full {
+    display: none !important;
+  }
+
+  .ai-concierge-text-short {
+    display: inline !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .floating-ai-concierge-pill {
+    padding: 6px 10px !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   27. MOBILE STICKY ACTION BAR — proper safe-area handling
+   -------------------------------------------------------------------------- */
+.mobile-sticky-action-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9980;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 10px max(16px, env(safe-area-inset-left, 16px));
+  padding-right: max(16px, env(safe-area-inset-right, 16px));
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-action-bar {
+    display: flex !important;
+  }
+
+  /* Ensure the sticky bar never covers important content */
+  main {
+    padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Footer: add bottom breathing room on mobile */
+  footer {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   28. LUXURY CARD — Touch device hover disable
+   -------------------------------------------------------------------------- */
+@media (hover: none) {
+  .luxury-card:hover {
+    transform: none !important;
+    box-shadow: var(--shadow-sm) !important;
+    border-color: var(--color-border, #E5E7EB) !important;
+  }
+  .luxury-card-hover:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.luxury-card,
+.luxury-card-hover {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   29. TABLES — Horizontal scroll only for the table widget
+   -------------------------------------------------------------------------- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --------------------------------------------------------------------------
+   30. BADGES — Responsive across all devices
    -------------------------------------------------------------------------- */
 .badge-gold,
 .badge-maroon {
@@ -801,98 +1322,41 @@ p {
 }
 
 /* --------------------------------------------------------------------------
-   23. HEADER MOBILE DRAWER — Fully responsive
+   31. ANIMATIONS — Prevent layout shifts & mobile overflow
    -------------------------------------------------------------------------- */
-.header-mobile-drawer {
-  max-height: 80vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 16px !important;
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
+  will-change: transform;
 }
 
-@media (min-width: 480px) {
-  .header-mobile-drawer {
-    padding: 20px !important;
-  }
+.animate-pulse-glow {
+  animation: pulseGoldGlow 2.5s infinite;
+  will-change: box-shadow;
+}
+
+.animate-logo-glow {
+  animation: logoGlowPulse 4s ease-in-out infinite;
+  will-change: filter;
+}
+
+/* Shimmer only runs when motion is allowed */
+.shimmer-text {
+  background: linear-gradient(90deg, #D4AF37 0%, #FFFFFF 50%, #D4AF37 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerGold 4s linear infinite;
+}
+
+.shimmer-gold-badge {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(128, 0, 32, 0.25) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  animation: borderGoldShimmer 3s ease-in-out infinite;
 }
 
 /* --------------------------------------------------------------------------
-   24. PORTFOLIO / GALLERY PAGE GRID
-   -------------------------------------------------------------------------- */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-@media (min-width: 640px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   25. SERVICES PAGE — Service detail layout
-   -------------------------------------------------------------------------- */
-.service-detail-hero {
-  height: clamp(240px, 40vw, 480px) !important;
-}
-
-.service-offerings-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-@media (min-width: 640px) {
-  .service-offerings-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   26. CONTACT PAGE — Two-column layout responsive
-   -------------------------------------------------------------------------- */
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-
-@media (min-width: 900px) {
-  .contact-layout {
-    grid-template-columns: 3fr 2fr;
-    gap: 48px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   27. PACKAGES PAGE (QuotationCalculator) — Responsive
-   -------------------------------------------------------------------------- */
-.calculator-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 900px) {
-  .calculator-layout {
-    grid-template-columns: 3fr 2fr;
-    gap: 32px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   28. REDUCED MOTION
+   32. PREFERS-REDUCED-MOTION — Accessibility compliance
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -903,20 +1367,70 @@ p {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
 
-/* --------------------------------------------------------------------------
-   29. ULTRA-WIDE SCREENS (1920px+) — Contain layout
-   -------------------------------------------------------------------------- */
-@media (min-width: 1920px) {
-  .section-padding {
-    padding-top: 100px;
-    padding-bottom: 100px;
+  .shimmer-text {
+    animation: none !important;
+    background: none !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+  }
+
+  .shimmer-gold-badge {
+    animation: none !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   30. PRINT — Basic print styles
+   33. ULTRA-WIDE & LARGE SCREEN OPTIMIZATION (1920px – 3840px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1920px) {
+  /* Prevent excessive hero height */
+  .hero-section {
+    max-height: 960px;
+  }
+
+  /* More generous footer spacing */
+  .footer-grid {
+    gap: 56px;
+  }
+}
+
+@media (min-width: 2560px) {
+  /* 2K screens: slightly larger base font for readability */
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 3840px) {
+  /* 4K screens */
+  html {
+    font-size: 19px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   34. LANDSCAPE PHONE — Targeted adjustments
+   -------------------------------------------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: unset !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .mobile-sticky-action-bar {
+    padding-top: 6px !important;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .header-inner-container {
+    height: 60px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   35. PRINT — Hide decorative and interactive elements
    -------------------------------------------------------------------------- */
 @media print {
   .floating-ai-concierge-pill,
@@ -924,5 +1438,63 @@ p {
   .mobile-sticky-action-bar,
   .header-mobile-toggle {
     display: none !important;
+  }
+
+  body {
+    padding-bottom: 0 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  main {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   36. GENERIC REUSABLE RESPONSIVE GRIDS
+   -------------------------------------------------------------------------- */
+
+/* Auto 2/3 column grid */
+.card-grid-auto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .card-grid-auto {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid-auto {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Two-column text + image layout */
+.two-col-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .two-col-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .two-col-layout {
+    gap: 64px;
   }
 }

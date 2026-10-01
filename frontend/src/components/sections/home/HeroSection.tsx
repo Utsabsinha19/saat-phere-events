@@ -21,8 +21,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         overflow: 'hidden',
         color: '#FFFFFF',
         textAlign: 'center',
-        minHeight: 'calc(100vh - 72px)',
-        padding: '60px 20px 80px 20px',
       }}
     >
       {/* 1. Blurry Event-Related Image in Background */}
@@ -205,14 +203,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
         {/* CTA Buttons - Requirement 6: "Get in Touch" instead of "Consultant" / "Book Your Event" */}
         <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '16px',
-            width: '100%',
-          }}
+          className="hero-cta-group"
         >
           {onOpenConsultation ? (
             <button

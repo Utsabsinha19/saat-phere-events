@@ -21,14 +21,8 @@ export const ServicesGrid: React.FC = () => {
           description="Explore our nine dedicated celebration disciplines. Each service is executed by specialized artisans and accompanied by our real-world photography and cinematic video reels."
         />
 
-        {/* 9 Services Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: '30px',
-          }}
-        >
+        {/* 9 Services Grid — responsive: 1 col → 2 col (≥640px) → 3 col (≥1200px) */}
+        <div className="services-section-grid">
           {SERVICES_DATA.map((srv: ServiceItem, index: number) => (
             <div
               key={srv.id}
@@ -47,7 +41,7 @@ export const ServicesGrid: React.FC = () => {
               <div
                 style={{
                   position: 'relative',
-                  height: '240px',
+                  height: 'clamp(180px, 28vw, 260px)',
                   overflow: 'hidden',
                   backgroundColor: '#1A1A1A',
                 }}
