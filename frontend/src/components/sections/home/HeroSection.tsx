@@ -86,25 +86,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         }}
       >
         {/* Bihar Heritage Origin Badge */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '16px', width: '100%', display: 'flex', justifyContent: 'center' }}>
           <span
-            className="shimmer-gold-badge"
+            className="shimmer-gold-badge hero-origin-badge"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '8px 22px',
+              gap: '6px',
+              padding: '7px 16px',
               borderRadius: '999px',
-              fontSize: '0.84rem',
+              fontSize: '0.78rem',
               fontWeight: 600,
-              letterSpacing: '0.08em',
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
               color: '#FFF2C6',
               boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
+              maxWidth: 'calc(100vw - 48px)',
+              textAlign: 'center',
+              lineHeight: 1.4,
             }}
           >
-            <MapPin size={13} color="var(--color-gold)" />
-            <span>Proudly Rooted in Bihar • Crafting Royal Celebrations Across India</span>
+            <MapPin size={12} color="var(--color-gold)" style={{ flexShrink: 0 }} />
+            {/* Full text on tablet+ */}
+            <span className="hero-badge-text-full">Proudly Rooted in Bihar • Crafting Royal Celebrations Across India</span>
+            {/* Short text on phones */}
+            <span className="hero-badge-text-short">Rooted in Bihar • Pan-India Luxury Events</span>
           </span>
         </div>
 
@@ -149,10 +155,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
             <img
               src="/images/logo-official-transparent.png"
               alt="Saat Phere Events - Official Royal Emblem"
+              className="hero-logo-img"
               style={{
-                width: 'clamp(280px, 35vw, 480px)',
+                width: 'clamp(200px, 60vw, 480px)',
                 height: 'auto',
-                maxHeight: '270px',
+                maxHeight: 'clamp(160px, 35vw, 270px)',
                 objectFit: 'contain',
                 display: 'block',
                 margin: '0 auto',
@@ -168,13 +175,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         <h1
           style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(1.85rem, 4.4vw, 3.4rem)',
+            fontSize: 'clamp(1.45rem, 4.4vw, 3.4rem)',
             fontWeight: 800,
             lineHeight: 1.2,
             color: '#FFFFFF',
             textShadow: '0 4px 24px rgba(0, 0, 0, 0.8)',
-            marginTop: '8px',
-            marginBottom: '16px',
+            marginTop: '6px',
+            marginBottom: '12px',
             letterSpacing: '0.01em',
             maxWidth: '900px',
           }}
@@ -189,11 +196,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         {/* Description highlighting Bihar pride & royal standards */}
         <p
           style={{
-            fontSize: 'clamp(1rem, 1.8vw, 1.22rem)',
+            fontSize: 'clamp(0.88rem, 1.8vw, 1.22rem)',
             color: 'rgba(255, 255, 255, 0.94)',
             maxWidth: '820px',
-            margin: '22px auto 36px auto',
-            lineHeight: 1.68,
+            margin: '14px auto 22px auto',
+            lineHeight: 1.65,
             fontWeight: 300,
             textShadow: '0 2px 12px rgba(0, 0, 0, 0.7)',
           }}
@@ -257,7 +264,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         </div>
 
         {/* Scroll Cue to 2nd Look: Why Choose Saat Phere Events */}
-        <div style={{ marginTop: '48px' }}>
+        <div style={{ marginTop: '28px' }}>
           <a
             href="#why-choose"
             style={{
@@ -265,16 +272,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               flexDirection: 'column',
               alignItems: 'center',
               color: 'rgba(212, 175, 55, 0.9)',
-              fontSize: '0.78rem',
-              letterSpacing: '2.5px',
+              fontSize: '0.72rem',
+              letterSpacing: '2px',
               textTransform: 'uppercase',
               textDecoration: 'none',
               fontWeight: 600,
-              gap: '6px',
+              gap: '5px',
             }}
           >
-            <span>Why Choose Saat Phere Events</span>
-            <ArrowDown size={16} className="animate-float" />
+            <span>Explore</span>
+            <ArrowDown size={14} className="animate-float" />
           </a>
         </div>
       </div>

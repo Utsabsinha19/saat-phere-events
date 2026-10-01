@@ -1498,3 +1498,566 @@ footer {
     gap: 64px;
   }
 }
+
+/* ==========================================================================
+   41. PHONE-SPECIFIC RESPONSIVE OPTIMISATIONS
+   Targets: 320px–480px — iPhone SE, iPhone 14, Samsung Galaxy A/S series,
+            OnePlus, Realme, Redmi, and most Android mid-range phones.
+   The user's device is ~412px wide (common Android tall-screen ratio 9:19.5)
+   ========================================================================== */
+
+/* ---- Hero Badge: switch to short text on phones ---- */
+@media (max-width: 540px) {
+  .hero-badge-text-full {
+    display: none !important;
+  }
+  .hero-badge-text-short {
+    display: inline !important;
+  }
+  .hero-origin-badge {
+    font-size: 0.72rem !important;
+    padding: 6px 14px !important;
+    letter-spacing: 0.05em !important;
+    gap: 5px !important;
+  }
+}
+
+/* ---- Hero Logo: properly sized for phone screens ---- */
+@media (max-width: 540px) {
+  .hero-logo-img {
+    /* On a 412px phone: 60vw = ~247px — just right for the logo */
+    width: clamp(180px, 62vw, 280px) !important;
+    max-height: 220px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-logo-img {
+    width: clamp(160px, 62vw, 220px) !important;
+    max-height: 190px !important;
+  }
+}
+
+/* ---- Hero Section: reduced padding so content fits ---- */
+@media (max-width: 540px) {
+  .hero-section {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    min-height: calc(100svh - var(--header-height, 80px) - var(--topbar-height, 38px)) !important;
+    /* Content fills the viewport neatly */
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-section {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+/* ---- Hero content container: tighter on phone ---- */
+@media (max-width: 540px) {
+  /* The shimmer gold badge */
+  .shimmer-gold-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    letter-spacing: 0.05em;
+    white-space: normal;
+    text-align: center;
+    max-width: calc(100vw - 40px);
+    line-height: 1.35;
+  }
+
+  /* Hero h1 tagline */
+  .hero-section h1 {
+    font-size: clamp(1.35rem, 6vw, 1.65rem) !important;
+    margin-top: 4px !important;
+    margin-bottom: 10px !important;
+    line-height: 1.22 !important;
+  }
+
+  /* Hero description text */
+  .hero-section p {
+    font-size: 0.85rem !important;
+    margin: 10px auto 18px auto !important;
+    line-height: 1.6 !important;
+    padding: 0 4px;
+  }
+
+  /* Gold divider: shorter on mobile */
+  .hero-section .gold-divider {
+    width: 160px !important;
+  }
+
+  /* CTA buttons: full width stacked */
+  .hero-cta-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-cta-group .btn-gold,
+  .hero-cta-group .btn-outline,
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 13px 16px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Decorative frame: tighter inset on small phones */
+  .hero-frame-border {
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+  }
+}
+
+/* ---- Header: compact but premium on phone ---- */
+@media (max-width: 540px) {
+  .header-inner-container {
+    gap: 6px !important;
+    padding: 0 !important;
+  }
+
+  /* Container inside header: tighter side padding */
+  header .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .brand-logo-link {
+    gap: 8px !important;
+  }
+
+  .brand-logo-emblem {
+    height: 38px !important;
+  }
+
+  .brand-logo-title {
+    font-size: 1rem !important;
+    letter-spacing: 0.8px !important;
+  }
+
+  .brand-logo-subtitle {
+    font-size: 0.52rem !important;
+    letter-spacing: 1.8px !important;
+  }
+
+  .header-consultation-btn {
+    padding: 7px 10px !important;
+    font-size: 0.78rem !important;
+    gap: 4px !important;
+    border-radius: 6px !important;
+  }
+
+  .header-mobile-toggle {
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 5px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-logo-subtitle {
+    display: none !important;
+  }
+  .brand-logo-emblem {
+    height: 34px !important;
+  }
+  .brand-logo-title {
+    font-size: 0.9rem !important;
+  }
+  .header-consultation-btn {
+    padding: 6px 8px !important;
+    font-size: 0.72rem !important;
+  }
+  header .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+/* ---- Top Banner: minimal on phone ---- */
+@media (max-width: 540px) {
+  /* Hide everything except phone number and admin link */
+  .top-banner-brand,
+  .top-banner-hours,
+  .top-banner-email {
+    display: none !important;
+  }
+
+  .top-banner-inner {
+    justify-content: space-between !important;
+    gap: 0 !important;
+    padding: 0;
+  }
+
+  /* Container inside top banner: tighter */
+  .top-banner-inner.container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* ---- Section padding: reduced on phone ---- */
+@media (max-width: 540px) {
+  .section-padding {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-padding {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* ---- Services Section Grid: 1 column on phone ---- */
+@media (max-width: 540px) {
+  .services-section-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Service card body: tighter padding on phone */
+  .services-section-grid .luxury-card > div:last-child {
+    padding: 16px 14px !important;
+  }
+
+  /* Service card image: slightly shorter on phone */
+  .services-section-grid .luxury-card > div:first-child {
+    height: clamp(160px, 46vw, 220px) !important;
+  }
+}
+
+/* ---- Gallery Section: 1 column on phone, 2 col at 430px+ ---- */
+@media (max-width: 429px) {
+  .gallery-section-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .gallery-card-item {
+    height: clamp(180px, 55vw, 240px) !important;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 540px) {
+  .gallery-section-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .gallery-card-item {
+    height: clamp(140px, 40vw, 200px) !important;
+  }
+}
+
+/* ---- Gallery filter pills: wrap on phone ---- */
+@media (max-width: 540px) {
+  .gallery-filter-bar {
+    gap: 6px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .gallery-filter-bar button {
+    padding: 6px 11px !important;
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* ---- BrandIntro Grid: 1 column on phone ---- */
+@media (max-width: 540px) {
+  .brand-intro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .brand-intro-card {
+    padding: 20px 16px !important;
+  }
+}
+
+/* ---- Floating Widgets: coordinated phone positions ---- */
+@media (max-width: 540px) {
+  /* WhatsApp: compact, bottom-right, above sticky bar */
+  .floating-whatsapp-wrapper {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 12px !important;
+  }
+
+  .floating-whatsapp-wrapper a {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* AI Concierge: bottom-LEFT, never collides with WhatsApp */
+  .floating-ai-concierge-pill {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    left: 12px !important;
+    right: auto !important;
+    padding: 8px 11px !important;
+    font-size: 0.74rem !important;
+    gap: 5px !important;
+  }
+
+  .ai-concierge-text-full {
+    display: none !important;
+  }
+  .ai-concierge-text-short {
+    display: inline !important;
+  }
+
+  /* WhatsApp tooltip: hidden on phones */
+  .floating-whatsapp-tooltip {
+    display: none !important;
+  }
+}
+
+/* ---- Mobile Sticky Bar: proper phone sizing ---- */
+@media (max-width: 540px) {
+  .mobile-sticky-action-bar {
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)) 12px !important;
+    gap: 8px !important;
+  }
+
+  .mobile-sticky-action-bar a {
+    font-size: 0.8rem !important;
+    padding: 10px 8px !important;
+    gap: 6px !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+  }
+
+  /* Main: add breathing room so sticky bar doesn't cover hero scroll cue */
+  main {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* ---- Stats Grid: 2x2 on phone (already set), but smaller stats ---- */
+@media (max-width: 540px) {
+  .stats-grid {
+    gap: 14px !important;
+  }
+
+  .stats-section {
+    padding: 40px 14px !important;
+  }
+}
+
+/* ---- Instagram Grid: 2 columns on phone ---- */
+@media (max-width: 540px) {
+  .instagram-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .instagram-post {
+    height: clamp(100px, 28vw, 150px) !important;
+  }
+}
+
+/* ---- Testimonial Card: compact on phone ---- */
+@media (max-width: 540px) {
+  .testimonial-card {
+    padding: 20px 16px !important;
+  }
+}
+
+/* ---- Quote/Form Section: tighter on phone ---- */
+@media (max-width: 540px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* iOS: always enforce 16px to prevent zoom */
+  .form-input,
+  .form-select,
+  .form-textarea,
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ---- Section Heading: tighter margins on phone ---- */
+@media (max-width: 540px) {
+  .section-heading-wrapper {
+    margin-bottom: 24px !important;
+  }
+
+  /* Heading subtitle badge */
+  .section-heading-wrapper > div:first-child {
+    font-size: 0.72rem !important;
+  }
+
+  /* Section h2 heading */
+  .section-heading-wrapper h2 {
+    font-size: clamp(1.4rem, 6.5vw, 1.75rem) !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Section description */
+  .section-heading-wrapper p {
+    font-size: 0.86rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* ---- Footer: compact on phone ---- */
+@media (max-width: 540px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  footer {
+    padding-top: 40px !important;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* ---- Consultation Banner CTA: stacked on phone ---- */
+@media (max-width: 540px) {
+  .consultation-banner {
+    padding: 48px 14px !important;
+  }
+
+  .consultation-banner-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+  }
+
+  .consultation-banner-ctas button,
+  .consultation-banner-ctas a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ---- Large text clamping on phone ---- */
+@media (max-width: 540px) {
+  /* Prevent any h1 from being too large on phone */
+  h1 {
+    font-size: clamp(1.35rem, 6.5vw, 1.75rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 5.5vw, 1.55rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1rem, 4.5vw, 1.3rem) !important;
+  }
+}
+
+/* ==========================================================================
+   42. SPECIFIC ANDROID TALL-SCREEN PHONE (412px × 915px — Galaxy S, OnePlus)
+   This is the most common Android flagship phone CSS width.
+   ========================================================================== */
+@media (min-width: 400px) and (max-width: 430px) {
+  /* Hero: fits content perfectly on this exact screen */
+  .hero-logo-img {
+    width: 240px !important;
+    max-height: 200px !important;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-origin-badge {
+    font-size: 0.7rem !important;
+  }
+
+  /* 2-column gallery on this size */
+  .gallery-section-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ==========================================================================
+   43. IPHONE-SPECIFIC (390px × 844px — iPhone 14/15 standard)
+   ========================================================================== */
+@media (min-width: 385px) and (max-width: 400px) {
+  .hero-logo-img {
+    width: 230px !important;
+    max-height: 195px !important;
+  }
+
+  .hero-section h1 {
+    font-size: 1.48rem !important;
+  }
+}
+
+/* ==========================================================================
+   44. VERY SMALL PHONES (320px–359px — iPhone SE 1st gen, old Androids)
+   ========================================================================== */
+@media (max-width: 359px) {
+  .hero-logo-img {
+    width: 170px !important;
+    max-height: 160px !important;
+  }
+
+  .hero-section h1 {
+    font-size: 1.25rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-origin-badge {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+  }
+
+  .brand-logo-title {
+    font-size: 0.84rem !important;
+  }
+
+  .brand-logo-subtitle {
+    display: none !important;
+  }
+
+  .header-consultation-btn {
+    padding: 5px 7px !important;
+    font-size: 0.68rem !important;
+  }
+
+  h1 {
+    font-size: clamp(1.15rem, 6vw, 1.4rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.05rem, 5.5vw, 1.3rem) !important;
+  }
+}
