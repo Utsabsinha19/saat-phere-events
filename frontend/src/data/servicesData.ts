@@ -351,12 +351,12 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Corporate & Institutional",
     "shortDescription": "Delivering immaculate corporate summits, award evenings, product unveilings, dealer meets, and executive banquets across Bihar and major metro cities with flawless technical execution.",
     "longDescription": "Corporate events demand brand precision, technical excellence, and seamless protocol. Saat Phere Events delivers turnkey corporate event production for enterprise clients, banking institutions, and healthcare brands across Eastern India. From crisp high-definition LED screens and acoustic engineering to delegate registration kiosks and celebrity artist nights, we ensure brand distinction.",
-    "heroImage": "/images/services/banquet-spread.jpg",
-    "cardImage": "/images/services/banquet-spread.jpg",
+    "heroImage": "/images/services/corporate-meeting.jpg",
+    "cardImage": "/images/services/corporate-meeting.jpg",
     "galleryImages": [
-      "/images/gallery/umaid-bhawan-gardens.jpg",
+      "/images/services/corporate-meeting.jpg",
       "/images/gallery/corporate-gala.webp",
-      "/images/hero/hero-palace-udaipur.jpg"
+      "/images/gallery/umaid-bhawan-gardens.jpg"
     ],
     "videoClip": "/videos/sangeet-highlights.mov",
     "videoPoster": "/videos/poster-sangeet.jpg",
