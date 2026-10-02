@@ -522,9 +522,9 @@ export const SERVICES_DATA: ServiceItem[] = [
     "cardImage": "/images/real-events/corporate-bihar-business-connect.webp",
     "galleryImages": [
       "/images/real-events/corporate-bihar-business-connect.webp",
-      "/images/real-events/decor-showcase-6.webp",
-      "/images/real-events/decor-showcase-7.webp",
-      "/images/real-events/decor-5.webp"
+      "/images/real-events/corporate-summit-stage.webp",
+      "/images/real-events/corporate-conference-hall.webp",
+      "/images/real-events/corporate-annual-awards.webp"
     ],
     "videoClip": "/videos/wedding-planning-reel.mp4",
     "videoPoster": "/videos/poster-wedding-planning.jpg",
