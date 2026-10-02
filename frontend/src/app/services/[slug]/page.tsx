@@ -8,10 +8,24 @@ import { ContactInquiryForm } from '@/components/forms/ContactInquiryForm';
 import Link from 'next/link';
 import { CheckCircle2, MapPin, Sparkles, HelpCircle, ArrowRight } from 'lucide-react';
 
+function findService(slug: string) {
+  return SERVICES_DATA.find(
+    (s) =>
+      s.slug === slug ||
+      (slug === 'myra-bhaat' && s.slug === 'myra-bhaat-ceremony') ||
+      (slug === 'baby-shower-jalwa-ceremony' && s.slug === 'baby-shower')
+  );
+}
+
 export async function generateStaticParams() {
-  return SERVICES_DATA.map((srv) => ({
+  const baseParams = SERVICES_DATA.map((srv) => ({
     slug: srv.slug,
   }));
+  return [
+    ...baseParams,
+    { slug: 'myra-bhaat' },
+    { slug: 'baby-shower-jalwa-ceremony' },
+  ];
 }
 
 export async function generateMetadata({
@@ -20,7 +34,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = SERVICES_DATA.find((s) => s.slug === slug);
+  const service = findService(slug);
   if (!service) return { title: 'Service Not Found | Saat Phere Events' };
 
   return {
@@ -35,7 +49,7 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const service = SERVICES_DATA.find((s) => s.slug === slug);
+  const service = findService(slug);
 
   if (!service) {
     notFound();

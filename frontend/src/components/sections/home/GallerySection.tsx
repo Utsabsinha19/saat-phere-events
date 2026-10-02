@@ -11,7 +11,18 @@ export const GallerySection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('All');
   const [selectedMedia, setSelectedMedia] = useState<GalleryMediaItem | null>(null);
 
-  const filters = ['All', 'Photos', 'Videos', 'Mandap Designs', 'Stage Decors', 'Haldi / Mehendi'];
+  const filters = [
+    'All',
+    'Photos',
+    'Videos',
+    'Stage Decors',
+    'Myra / Bhaat',
+    'Haldi / Mehendi',
+    'Jalwa Ceremony',
+    'Vintage Procession',
+    'Wooden Games',
+    'Corporate Events',
+  ];
 
   const filteredItems = GALLERY_DATA.filter((item) => {
     if (activeFilter === 'All') return true;

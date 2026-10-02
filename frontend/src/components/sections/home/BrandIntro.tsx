@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import {
@@ -12,67 +12,89 @@ import {
   ShieldCheck,
   Palette,
   ArrowRight,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 
 export const BrandIntro: React.FC = () => {
+  const [showAllPillars, setShowAllPillars] = useState(false);
+  const [expandedCard1, setExpandedCard1] = useState(false);
+
   const whyChoosePillars = [
     {
       icon: MapPin,
-      badge: 'Bihar Origin',
+      badge: 'Bihar Pioneer',
       title: 'Bihar’s Luxury Event Pioneer',
-      description:
-        'Born proudly in Katihar and serving Patna, Purnia, Bhagalpur, and all across Bihar. We deeply honor regional customs, Maithil & Bhojpuri traditions, and elevate them to royal palatial standards.',
+      subtitle: 'Specialists in Marwari & Rajasthani Weddings',
+      leadDescription:
+        'From authentic Marwari and Rajasthani traditions to celebrations across diverse cultures, we plan and manage every wedding with elegance, attention to detail, and deep respect for traditions.',
+      extendedDescription:
+        'Born proudly in Katihar and orchestrating celebrations across Patna, Purnia, Bhagalpur, and premier palatial circuits across India.',
+      hasReadMore: true,
     },
     {
       icon: Palette,
       badge: 'Bespoke Production',
       title: 'In-House Artisanal Scenography',
-      description:
+      leadDescription:
         'Our in-house master florists, timber craftsmen, and lighting artists craft custom grand mandaps, dramatic stages, and tunnel entries without inflated middleman commissions.',
+      hasReadMore: false,
     },
     {
       icon: Compass,
       badge: 'Turnkey Excellence',
       title: 'Flawless 360° Turnkey Logistics',
-      description:
+      leadDescription:
         'From venue negotiation, 3D CAD decor layouts, and guest hospitality to artist booking and precision timeline coordination, every minute is flawlessly executed.',
+      hasReadMore: false,
     },
     {
       icon: HeartHandshake,
       badge: 'White-Glove Care',
       title: 'Dedicated Shadow Concierge',
-      description:
+      leadDescription:
         'A dedicated family shadow concierge remains by the bride, groom, and parents throughout the wedding days—managing rituals, refreshments, and stage cues so you simply rejoice.',
+      hasReadMore: false,
     },
     {
       icon: ShieldCheck,
       badge: 'Honest Pricing',
       title: 'Transparent Budget Optimization',
-      description:
+      leadDescription:
         'Zero hidden margins, transparent line-item estimates, and flexible packages tailored to deliver supreme visual grandeur for every scale of celebration.',
+      hasReadMore: false,
     },
     {
       icon: Award,
       badge: 'Proven Legacy',
       title: '250+ Celebrated Royal Events',
-      description:
+      leadDescription:
         'A proven track record of orchestrating magnificent weddings and high-profile milestone galas trusted by distinguished families and enterprise brands alike.',
+      hasReadMore: false,
     },
   ];
 
+  const visiblePillars = showAllPillars ? whyChoosePillars : whyChoosePillars.slice(0, 3);
+
   return (
-    <section id="why-choose" className="section-padding ivory-bg" style={{ position: 'relative' }}>
+    <section id="why-choose" className="section-padding ivory-bg" style={{ position: 'relative', paddingTop: '64px', paddingBottom: '64px' }}>
       <div className="container">
-        {/* 2nd Look Requirement: "Why Choose Saat Phere Events?" */}
+        {/* Section Heading */}
         <SectionHeading
           subtitle="Proudly Rooted in Bihar • Revered Across India"
           title="Why Choose Saat Phere Events?"
-          description="Named after the sacred seven vows that unite two souls for eternity, Saat Phere Events represents the pinnacle of luxury wedding and event management. Originating in Bihar, we blend heartfelt regional warmth with royal palatial opulence."
+          description="Named after the sacred seven vows that unite two souls for eternity, Saat Phere Events represents the pinnacle of luxury wedding and event management, blending regional warmth with royal palatial opulence."
         />
 
-        {/* 6 Luxury Feature Cards Grid — responsive: 1→2→3 columns */}
-        <div className="brand-intro-grid">
-          {whyChoosePillars.map((pillar, idx) => {
+        {/* Compact Luxury Feature Cards Grid */}
+        <div
+          className="brand-intro-grid"
+          style={{
+            marginBottom: '24px',
+            gap: '22px',
+          }}
+        >
+          {visiblePillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
@@ -80,27 +102,30 @@ export const BrandIntro: React.FC = () => {
                 className="luxury-card luxury-card-hover brand-intro-card"
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '12px',
+                  borderRadius: '14px',
                   border: '1px solid rgba(212, 175, 55, 0.35)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   boxShadow: 'var(--shadow-sm)',
+                  padding: '24px 22px',
+                  transition: 'all 0.3s ease',
                 }}
               >
                 <div>
+                  {/* Top Bar: Icon + Badge */}
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      marginBottom: '18px',
+                      marginBottom: '14px',
                     }}
                   >
                     <div
                       style={{
-                        width: '56px',
-                        height: '56px',
+                        width: '48px',
+                        height: '48px',
                         borderRadius: '50%',
                         background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(128, 0, 32, 0.15) 100%)',
                         border: '1px solid var(--color-gold)',
@@ -108,14 +133,15 @@ export const BrandIntro: React.FC = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         color: 'var(--color-maroon)',
+                        flexShrink: 0,
                       }}
                     >
-                      <Icon size={26} />
+                      <Icon size={22} />
                     </div>
 
                     <span
                       style={{
-                        fontSize: '0.72rem',
+                        fontSize: '0.7rem',
                         fontWeight: 700,
                         textTransform: 'uppercase',
                         letterSpacing: '1px',
@@ -124,45 +150,143 @@ export const BrandIntro: React.FC = () => {
                         padding: '4px 10px',
                         borderRadius: '999px',
                         border: '1px solid rgba(212, 175, 55, 0.3)',
+                        whiteSpace: 'nowrap',
                       }}
                     >
                       {pillar.badge}
                     </span>
                   </div>
 
+                  {/* Title */}
                   <h3
                     style={{
                       fontFamily: 'var(--font-serif)',
-                      fontSize: '1.25rem',
+                      fontSize: '1.18rem',
                       color: 'var(--color-maroon)',
-                      marginBottom: '10px',
-                      lineHeight: 1.35,
+                      marginBottom: pillar.subtitle ? '4px' : '8px',
+                      lineHeight: 1.3,
+                      fontWeight: 600,
                     }}
                   >
                     {pillar.title}
                   </h3>
 
-                  <p style={{ fontSize: '0.92rem', color: '#4B5563', lineHeight: 1.62 }}>
-                    {pillar.description}
+                  {/* Subtitle if available */}
+                  {pillar.subtitle && (
+                    <div
+                      style={{
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        color: 'var(--color-gold-dark)',
+                        letterSpacing: '0.5px',
+                        textTransform: 'uppercase',
+                        marginBottom: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                      }}
+                    >
+                      <Sparkles size={12} color="var(--color-gold)" style={{ flexShrink: 0 }} />
+                      <span>{pillar.subtitle}</span>
+                    </div>
+                  )}
+
+                  {/* Content with Read More Toggle for Card 1 */}
+                  <p
+                    style={{
+                      fontSize: '0.88rem',
+                      color: '#4B5563',
+                      lineHeight: 1.55,
+                      margin: 0,
+                    }}
+                  >
+                    {pillar.leadDescription}
+                    {pillar.hasReadMore && expandedCard1 && (
+                      <span style={{ display: 'inline', marginLeft: '4px', color: '#374151' }}>
+                        {' '}{pillar.extendedDescription}
+                      </span>
+                    )}
                   </p>
+
+                  {/* Inline Read More / Show Less Button */}
+                  {pillar.hasReadMore && (
+                    <button
+                      type="button"
+                      onClick={() => setExpandedCard1(!expandedCard1)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        padding: '6px 0 0 0',
+                        color: 'var(--color-gold-dark)',
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '2px',
+                      }}
+                      aria-expanded={expandedCard1}
+                    >
+                      <span>{expandedCard1 ? 'Read less' : 'Read more...'}</span>
+                      {expandedCard1 ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                    </button>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Bihar Heritage Statement Banner */}
+        {/* Compact Toggle: View All 6 Pillars / Show Less */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '36px',
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setShowAllPillars(!showAllPillars)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '9px 24px',
+              borderRadius: '999px',
+              fontSize: '0.84rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'all 0.25s ease',
+              border: '1px solid var(--color-gold)',
+              backgroundColor: showAllPillars ? 'var(--color-maroon)' : '#FFFFFF',
+              color: showAllPillars ? '#FFFFFF' : 'var(--color-maroon)',
+              boxShadow: 'var(--shadow-sm)',
+            }}
+          >
+            <span>
+              {showAllPillars
+                ? 'Show Top 3 Pillars'
+                : 'View All 6 Excellence Pillars (Concierge, Pricing & Legacy)'}
+            </span>
+            {showAllPillars ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+          </button>
+        </div>
+
+        {/* Refined Bihar Heritage Statement Banner */}
         <div
           style={{
             backgroundColor: '#141414',
             color: '#FFFFFF',
-            border: '2px solid var(--color-gold)',
-            borderRadius: '16px',
-            padding: '40px 32px',
-            maxWidth: '920px',
+            border: '1.5px solid var(--color-gold)',
+            borderRadius: '14px',
+            padding: '30px 24px',
+            maxWidth: '880px',
             margin: '0 auto',
             textAlign: 'center',
-            boxShadow: '0 12px 36px rgba(0, 0, 0, 0.25)',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.22)',
             position: 'relative',
             overflow: 'hidden',
           }}
@@ -172,8 +296,8 @@ export const BrandIntro: React.FC = () => {
               position: 'absolute',
               top: '-40px',
               right: '-40px',
-              width: '180px',
-              height: '180px',
+              width: '160px',
+              height: '160px',
               background: 'radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
@@ -184,13 +308,13 @@ export const BrandIntro: React.FC = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              marginBottom: '14px',
+              marginBottom: '10px',
             }}
           >
-            <Sparkles size={16} color="var(--color-gold)" />
+            <Sparkles size={15} color="var(--color-gold)" />
             <span
               style={{
-                fontSize: '0.82rem',
+                fontSize: '0.78rem',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '1.5px',
@@ -204,11 +328,11 @@ export const BrandIntro: React.FC = () => {
           <p
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
               color: '#FFFFFF',
               fontStyle: 'italic',
-              marginBottom: '24px',
-              lineHeight: 1.65,
+              marginBottom: '20px',
+              lineHeight: 1.6,
             }}
           >
             &ldquo;On your wedding day, your only responsibility is to cherish every sacred ritual and heartbeat, while our team orchestrates the entire universe around you with royal grace.&rdquo;
@@ -220,29 +344,29 @@ export const BrandIntro: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center',
               flexWrap: 'wrap',
-              gap: '14px',
+              gap: '12px',
             }}
           >
             <a
               href="#get-a-quote"
               className="btn-gold"
               style={{
-                padding: '12px 28px',
-                fontSize: '0.92rem',
+                padding: '10px 24px',
+                fontSize: '0.88rem',
                 textDecoration: 'none',
               }}
             >
               <span>Get in Touch with Our Team</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={15} />
             </a>
 
             <Link
               href="/about"
               style={{
-                fontSize: '0.9rem',
+                fontSize: '0.88rem',
                 color: 'var(--color-gold-light)',
                 textDecoration: 'underline',
-                padding: '10px 16px',
+                padding: '8px 14px',
               }}
             >
               Explore Our Story & Bihar Roots →

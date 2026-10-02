@@ -9,16 +9,16 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Full-Service Royal Planning",
     "shortDescription": "End-to-end luxury wedding planning encompassing bespoke concept formulation, Vedic rituals, master timelines, Bihar heritage traditions, premium vendor curation, and discreet VIP hospitality.",
     "longDescription": "At Saat Phere Events, we celebrate the sacred confluence of family legacies, Vedic heritage, and royal hospitality. Originating proudly from Bihar and executing across premier palatial circuits of India, our wedding planning division curates unforgettable multi-day wedding celebrations. From authentic Maithil, Bhojpuri, and royal Bihari traditions to palatial royal setups, our dedicated white-glove team guarantees flawless execution.",
-    "heroImage": "/images/real-events/decor-1.webp",
-    "cardImage": "/images/real-events/decor-1.webp",
+    "heroImage": "/images/real-events/stage-decor-1.webp",
+    "cardImage": "/images/real-events/stage-decor-1.webp",
     "galleryImages": [
-      "/images/real-events/decor-2.webp",
-      "/images/real-events/inner-decor-2.webp",
-      "/images/gallery/mandap-glass-udaipur.jpg",
-      "/images/gallery/wedding-stage.jpg"
+      "/images/real-events/stage-decor-2.webp",
+      "/images/real-events/stage-decor-3.webp",
+      "/images/real-events/wedding-stage-floral-1.webp",
+      "/images/real-events/decor-showcase-1.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-wedding-decor.jpg",
+    "videoClip": "/videos/grand-mandap-production.mp4",
+    "videoPoster": "/videos/poster-grand-mandap.jpg",
     "videoTitle": "Grand Royal Wedding Setup & Mandap Production",
     "offerings": [
       {
@@ -110,17 +110,17 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Pre-Wedding Festivities",
     "shortDescription": "Vibrant traditional ceremonies featuring marigold floral canopies, bespoke bridal seating, artisanal mehendi lounges, and concert-grade sangeet stages with dazzling illumination.",
     "longDescription": "Pre-wedding functions set the emotional cadence for the celebration. Our Haldi, Mehndi, and Sangeet productions blend joyful cultural customs with sensational design. From bright yellow marigold cascades, urlis, and dholak troupes for Haldi, to fragrant Henna cabanas and high-tech LED concert dance floors for Sangeet, every detail radiates joy.",
-    "heroImage": "/images/gallery/haldi-marigold.jpg",
-    "cardImage": "/images/gallery/haldi-marigold.jpg",
+    "heroImage": "/images/real-events/haldi-decor-1.webp",
+    "cardImage": "/images/real-events/haldi-decor-1.webp",
     "galleryImages": [
-      "/images/services/mehendi-bridal.jpg",
-      "/images/gallery/mehendi-hands.jpg",
-      "/images/gallery/sangeet-dance.jpg",
-      "/images/real-events/decor-5.webp"
+      "/images/real-events/haldi-decor-2.webp",
+      "/images/real-events/haldi-decor-3.webp",
+      "/images/real-events/haldi-decor-4.webp",
+      "/images/real-events/haldi-decor-5.webp"
     ],
-    "videoClip": "/videos/sangeet-highlights.mov",
-    "videoPoster": "/videos/poster-sangeet.jpg",
-    "videoTitle": "Sangeet Stage, Concert Lights & Choreography",
+    "videoClip": "/videos/haldi-ceremony-reel.mp4",
+    "videoPoster": "/videos/poster-haldi-ceremony.jpg",
+    "videoTitle": "Vibrant Haldi Ceremony & Marigold Scenography",
     "offerings": [
       {
         "title": "Artisanal Haldi Decor & Floral Urlis",
@@ -184,6 +184,109 @@ export const SERVICES_DATA: ServiceItem[] = [
     "featured": true
   },
   {
+    "id": "srv-myra-bhaat",
+    "slug": "myra-bhaat-ceremony",
+    "title": "Myra / Bhaat Ceremony",
+    "tagline": "Authentic Marwari & Rajasthani Bhaat Rituals with Palatial Splendor",
+    "category": "Sacred Traditional Rituals",
+    "shortDescription": "Specialists in authentic Marwari and Rajasthani Myra / Bhaat traditions. Honoring the maternal family (Mayeka) with regal royal processions, embroidered chunari ceremonies, auspicious floral thalis, brass bands, and bespoke decor.",
+    "longDescription": "The Myra (also revered as Mayera or Bhaat) is one of the most emotional, auspicious, and sacred pre-wedding celebrations in Marwari and Rajasthani heritage. As the maternal uncles (Mamaji) and grandparents arrive bearing gifts, ancestral sweets, and ceremonial bridal attire, Saat Phere Events transforms this cherished occasion into an unforgettable royal spectacle. From royal vintage brass buggies and dhol entries to grand floral arches, handcrafted Chunari presentation trays, and emotional silver thali welcomes, our team ensures every ritual is conducted with profound cultural authenticity and palatial opulence.",
+    "heroImage": "/images/real-events/myra-bhaat-decor-1.webp",
+    "cardImage": "/images/real-events/myra-bhaat-decor-1.webp",
+    "galleryImages": [
+      "/images/real-events/myra-bhaat-2.webp",
+      "/images/real-events/myra-bhaat-3.webp",
+      "/images/real-events/myra-bhaat-4.webp",
+      "/images/real-events/myra-bhaat-5.webp",
+      "/images/real-events/myra-bhaat-6.webp",
+      "/images/real-events/myra-bhaat-7.webp"
+    ],
+    "videoClip": "/videos/myra-bhaat-decor.mp4",
+    "videoPoster": "/videos/poster-myra-bhaat.jpg",
+    "videoTitle": "Authentic Marwari Myra & Bhaat Ritual Production",
+    "offerings": [
+      {
+        "title": "Royal Mamaji Procession & Entry",
+        "description": "Grand dholak troupe, ceremonial umbrellas (chhatras), brass instruments, and vintage vehicle arrivals for the maternal family.",
+        "highlights": [
+          "Traditional dholak welcome",
+          "Royal floral chhatra",
+          "Procession choreography"
+        ]
+      },
+      {
+        "title": "Handcrafted Chunari & Thali Presentation",
+        "description": "Bespoke velvet and zardozi embroidered chunari canopies, dry fruit gifting boxes, and traditional silver thali arrangements.",
+        "highlights": [
+          "Custom zardozi chunari",
+          "Silver shagun thalis",
+          "Bespoke gift boxes"
+        ]
+      },
+      {
+        "title": "Traditional Rajasthani Scenography",
+        "description": "Vibrant Marwari color palettes, gota patti backdrops, traditional jhoola (swings), brass urlis, and marigold draping.",
+        "highlights": [
+          "Gota-patti artistry",
+          "Royal family diwans",
+          "Floral mandap styling"
+        ]
+      },
+      {
+        "title": "Ritual Coordination & Family Concierge",
+        "description": "Dedicated shadow coordinator ensuring each step of the Bhaat ceremony\u2014from Tika and Chunari draping to gift distribution\u2014flows smoothly.",
+        "highlights": [
+          "Ritual timeline management",
+          "Mayeka hospitality escort",
+          "Photography coordination"
+        ]
+      }
+    ],
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Customs Consultation",
+        "description": "Aligning on family-specific Marwari or Rajasthani rituals and songs."
+      },
+      {
+        "step": 2,
+        "title": "Stage & Seating Architecture",
+        "description": "Creating grand traditional seating and Chunari presentation podium."
+      },
+      {
+        "step": 3,
+        "title": "Procession Coordination",
+        "description": "Managing brass band, welcome petals, and maternal uncle entry."
+      },
+      {
+        "step": 4,
+        "title": "Ceremony Stage Management",
+        "description": "Cue-to-cue execution of Tika, Bhaat shagun, and family photography."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you specialize specifically in Marwari and Rajasthani Myra ceremonies?",
+        "answer": "Yes! We have deep heritage expertise in authentic Marwari, Maheshwari, Agarwal, and Rajasthani traditions, honoring all customs with reverence and luxury flair."
+      },
+      {
+        "question": "Can you arrange traditional Rajasthani folk singers and dhol players for Bhaat?",
+        "answer": "Absolutely. We curate authentic Rajasthani Maand singers, Manganiyar troupes, dholak artists, and Shehnai maestros to elevate the celebratory spirit."
+      }
+    ],
+    "startingBudgetGuide": "Custom Tailored Packages",
+    "popularLocations": [
+      "Patna",
+      "Katihar",
+      "Purnia",
+      "Kolkata",
+      "Jaipur",
+      "Udaipur",
+      "Bhagalpur"
+    ],
+    "featured": true
+  },
+  {
     "id": "srv-birthday-parties",
     "slug": "birthday-parties",
     "title": "Birthday Parties",
@@ -191,16 +294,17 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Milestone & Kids Celebrations",
     "shortDescription": "From magical 1st birthday fairytale wonderlands to lavish 50th golden jubilee galas. Custom balloon sculpting, themed backdrops, interactive dessert bars, and dynamic live entertainment.",
     "longDescription": "Birthdays mark personal history and family milestones. Saat Phere Events designs memorable birthday celebrations with imaginative decor and seamless hospitality. Whether it's an enchanting jungle safari or princess kingdom for little ones, or a glamorous black-tie retro gala for milestones, we create wonder for guests of all ages.",
-    "heroImage": "/images/real-events/decor-4.webp",
-    "cardImage": "/images/real-events/decor-4.webp",
+    "heroImage": "/images/real-events/birthday-celebration-1.webp",
+    "cardImage": "/images/real-events/birthday-celebration-1.webp",
     "galleryImages": [
-      "/images/real-events/decor-5.webp",
-      "/images/gallery/birthday-celebration.webp",
-      "/images/real-events/inner-decor-3.webp"
+      "/images/real-events/birthday-celebration-1.webp",
+      "/images/real-events/inner-decor-2.webp",
+      "/images/real-events/inner-decor-3.webp",
+      "/images/real-events/decor-showcase-4.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-wedding-decor.jpg",
-    "videoTitle": "Milestone Birthday Atmosphere & Thematic Decor",
+    "videoClip": "/videos/birthday-celebration-reel.mp4",
+    "videoPoster": "/videos/poster-birthday-celebration.jpg",
+    "videoTitle": "Grand Birthday Celebration & Theme Production",
     "offerings": [
       {
         "title": "Immersive Thematic Backdrops",
@@ -270,17 +374,17 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Post-Wedding Gala",
     "shortDescription": "Celebrate the newlywed couple in royal majesty with architectural floral backdrops, crystal chandelier installations, seamless VIP guest hospitality, and gourmet banquet coordination.",
     "longDescription": "The wedding reception is the grand formal debut of the newlyweds before family, dignitaries, and social circle. Saat Phere Events constructs palatial reception environments featuring panoramic floral stages, crystal chandelier cascades, royal diwan seating, and synchronized entrance pyrotechnics that leave every guest in awe.",
-    "heroImage": "/images/real-events/decor-3.webp",
-    "cardImage": "/images/real-events/decor-3.webp",
+    "heroImage": "/images/real-events/stage-decor-3.webp",
+    "cardImage": "/images/real-events/stage-decor-3.webp",
     "galleryImages": [
-      "/images/real-events/decor-6.webp",
-      "/images/services/reception-stage.jpg",
-      "/images/gallery/wedding-stage.jpg",
-      "/images/real-events/decor-7.webp"
+      "/images/real-events/stage-decor-4.webp",
+      "/images/real-events/stage-decor-5.webp",
+      "/images/real-events/outer-decor-1.webp",
+      "/images/real-events/wedding-stage-floral-2.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-mandap.jpg",
-    "videoTitle": "Palatial Reception Stage & Ballroom Walkthrough",
+    "videoClip": "/videos/sangeet-spectacle-reel.mp4",
+    "videoPoster": "/videos/poster-sangeet-spectacle.jpg",
+    "videoTitle": "Grand Reception Stage & Lighting Scenography",
     "offerings": [
       {
         "title": "Monumental Floral & Crystal Stages",
@@ -351,16 +455,17 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Corporate & Institutional",
     "shortDescription": "Delivering immaculate corporate summits, award evenings, product unveilings, dealer meets, and executive banquets across Bihar and major metro cities with flawless technical execution.",
     "longDescription": "Corporate events demand brand precision, technical excellence, and seamless protocol. Saat Phere Events delivers turnkey corporate event production for enterprise clients, banking institutions, and healthcare brands across Eastern India. From crisp high-definition LED screens and acoustic engineering to delegate registration kiosks and celebrity artist nights, we ensure brand distinction.",
-    "heroImage": "/images/services/corporate-meeting.jpg",
-    "cardImage": "/images/services/corporate-meeting.jpg",
+    "heroImage": "/images/real-events/corporate-bihar-business-connect.webp",
+    "cardImage": "/images/real-events/corporate-bihar-business-connect.webp",
     "galleryImages": [
-      "/images/services/corporate-meeting.jpg",
-      "/images/gallery/corporate-gala.webp",
-      "/images/gallery/umaid-bhawan-gardens.jpg"
+      "/images/real-events/corporate-bihar-business-connect.webp",
+      "/images/real-events/decor-showcase-6.webp",
+      "/images/real-events/decor-showcase-7.webp",
+      "/images/real-events/decor-5.webp"
     ],
-    "videoClip": "/videos/sangeet-highlights.mov",
-    "videoPoster": "/videos/poster-sangeet.jpg",
-    "videoTitle": "Corporate Gala Stage, Lighting & Spatial Setup",
+    "videoClip": "/videos/wedding-planning-reel.mp4",
+    "videoPoster": "/videos/poster-wedding-planning.jpg",
+    "videoTitle": "Executive Gala & Luxury Corporate Event Production",
     "offerings": [
       {
         "title": "High-Definition AV & LED Setup",
@@ -430,17 +535,20 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Bespoke Scenography",
     "shortDescription": "Transforming blank spaces into breathtaking sensory wonderlands. Vintage Royal Bihari, Rajasthani Palace, Bohemian Chic, Modern Contemporary, floral garden arches, and customized tunnel entrances.",
     "longDescription": "Theme decoration is the heartbeat of Saat Phere Events. Led by our seasoned creative directors and master florists, we craft transformative spatial experiences. From hand-crafted wooden jali screens and authentic brass artifacts to exotic imported flora and fairy light ceilings, we make dreams tangible.",
-    "heroImage": "/images/real-events/decor-7.webp",
-    "cardImage": "/images/real-events/decor-7.webp",
+    "heroImage": "/images/real-events/decor-showcase-3.webp",
+    "cardImage": "/images/real-events/decor-showcase-3.webp",
     "galleryImages": [
-      "/images/real-events/inner-decor-3.webp",
-      "/images/real-events/decor-2.webp",
-      "/images/real-events/decor-1.webp",
-      "/images/real-events/decor-3.webp"
+      "/images/real-events/decor-showcase-1.webp",
+      "/images/real-events/decor-showcase-2.webp",
+      "/images/real-events/decor-showcase-3.webp",
+      "/images/real-events/decor-showcase-4.webp",
+      "/images/real-events/decor-showcase-5.webp",
+      "/images/real-events/decor-showcase-6.webp",
+      "/images/real-events/decor-showcase-7.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-wedding-decor.jpg",
-    "videoTitle": "Artisanal Theme Decor Walkthrough",
+    "videoClip": "/videos/sangeet-grand-stage.mp4",
+    "videoPoster": "/videos/poster-sangeet-stage.jpg",
+    "videoTitle": "Bespoke Scenography & Custom Theme Decor",
     "offerings": [
       {
         "title": "Royal Heritage & Traditional Themes",
@@ -506,47 +614,58 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     "id": "srv-baby-shower",
     "slug": "baby-shower",
-    "title": "Baby Shower",
-    "tagline": "Heartwarming Godh Bharai Rituals & Whimsical Pastel Celebrations",
-    "category": "Family Milestones",
-    "shortDescription": "Honoring motherhood with elegant traditional Godh Bharai rituals and modern aesthetic baby showers. Cloud-themed pastels, floral swing cradles, customized return favors, and sweet family memories.",
-    "longDescription": "A baby shower is a tender celebration of new life and maternal love. Saat Phere Events blends respectful traditional Godh Bharai customs with delightful modern aesthetic touches. From fresh blossom cradle styling and photo arches to mommy-to-be thrones, guest guessing games, and customized favor hampers, we make the day unforgettable.",
-    "heroImage": "/images/real-events/inner-decor-2.webp",
-    "cardImage": "/images/real-events/inner-decor-2.webp",
+    "title": "Baby Shower / Jalwa Ceremony",
+    "tagline": "Auspicious Godh Bharai, Jalwa Poojan & Welcome Celebrations",
+    "category": "Maternity & Milestone Rituals",
+    "shortDescription": "Celebrating motherhood and the arrival of new life with timeless reverence. Specialized in both traditional Jalwa Poojan ceremonies and contemporary luxury Baby Showers with pastel floral scenography.",
+    "longDescription": "The journey into parenthood is a sacred milestone deserving of utmost elegance and joy. Saat Phere Events curates both traditional Vedic rituals like Godh Bharai and authentic Marwari Jalwa Ceremony (Jalwa Poojan / Kua Poojan), as well as contemporary bespoke Baby Showers. From hand-crafted cradle installations and sacred havan setups to whimsical pastel balloon sculptures and customized welcome backdrops, we orchestrate every detail so the mother-to-be and family can immerse in pure bliss.",
+    "heroImage": "/images/real-events/inner-decor-1.webp",
+    "cardImage": "/images/real-events/inner-decor-1.webp",
     "galleryImages": [
-      "/images/real-events/decor-5.webp",
-      "/images/gallery/haldi-marigold.jpg",
-      "/images/real-events/decor-4.webp"
+      "/images/real-events/inner-decor-1.webp",
+      "/images/real-events/jalwa-ceremony-decor-1.webp",
+      "/images/real-events/inner-decor-4.webp",
+      "/images/real-events/inner-decor-5.webp",
+      "/images/real-events/decor-showcase-2.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-wedding-decor.jpg",
-    "videoTitle": "Pastel Floral Baby Shower Setup",
+    "videoClip": "/videos/jalwa-ceremony-decor.mp4",
+    "videoPoster": "/videos/poster-jalwa-ceremony.jpg",
+    "videoTitle": "Grand Jalwa Ceremony & Baby Celebration Decor",
     "offerings": [
       {
-        "title": "Mommy-to-Be Throne & Floral Swing",
-        "description": "Comfortable luxury velvet seating nestled in a bespoke floral swing or balloon cloud arch.",
+        "title": "Traditional Jalwa Poojan & Godh Bharai",
+        "description": "Auspicious Kua Poojan arrangements, Vedic pandit curation, sacred havan setup, and brass kalash ritual decor.",
         "highlights": [
-          "Ergonomic plush seating",
-          "Delicate floral accents",
-          "Gorgeous photo backdrop"
+          "Traditional Kua/Jalwa poojan",
+          "Vedic rituals & pandit curation",
+          "Sacred brass kalash decor"
         ]
       },
       {
-        "title": "Traditional Godh Bharai Thali Styling",
-        "description": "Auspicious decorated thalis, dry fruit platters, silver ornaments, and ritual coordination.",
+        "title": "Whimsical Pastel Floral & Balloon Scenography",
+        "description": "Bespoke backdrops with customized neon name signage, teddy/carousel themes, and lush organic balloon arches.",
         "highlights": [
-          "Handcrafted puja thalis",
-          "Traditional sweets spread",
-          "Family blessing setup"
+          "Organic balloon styling",
+          "Customized neon letters",
+          "Pastel flower clouds"
         ]
       },
       {
-        "title": "Interactive Games & Custom Favors",
-        "description": "Fun baby shower trivia, wishes for baby memory book, customized sweet boxes, and scented candles.",
+        "title": "Artisanal Cradle & Jhoola Installations",
+        "description": "Exquisitely decorated floral swings (jhoola) and royal cradles for the mother-to-be and newborn.",
         "highlights": [
-          "Keepsake memory book",
-          "Curated favor hampers",
-          "Charming props"
+          "Floral baby cradle",
+          "Mommy-to-be throne",
+          "Photogenic photo booth"
+        ]
+      },
+      {
+        "title": "Interactive Family Moments & Gifting",
+        "description": "Customized sweet boxes, return gift hamper curations, mocktail stations, and photobooth experiences.",
+        "highlights": [
+          "Personalized favor hampers",
+          "Memory book guest station",
+          "Family celebration games"
         ]
       }
     ],
@@ -586,28 +705,28 @@ export const SERVICES_DATA: ServiceItem[] = [
     "id": "srv-wedding-rental-car",
     "slug": "wedding-rental-car",
     "title": "Wedding Rental Car",
-    "tagline": "Prestigious Vintage Classics, Luxury Fleets & Decorated Entries",
+    "tagline": "Prestigious Vintage Classics, ATV Quad Bikes & Decorated Royal Entries",
     "category": "Luxury Fleet Logistics",
-    "shortDescription": "Arrive like royalty with our premium bridal and groom fleet. Featuring antique vintage cars, open-top luxury convertibles, decorated Mercedes, Audi, BMW, and VIP family escort convoys.",
-    "longDescription": "The bridal arrival and royal groom baraat entry are iconic moments immortalized in photographs forever. Saat Phere Events provides an immaculate fleet of luxury and heritage vehicles across Bihar and regional circuits. Every vehicle arrives chauffeur-driven in formal attire, meticulously detailed, and exquisitely floral-dressed according to your wedding color theme.",
-    "heroImage": "/images/gallery/baraat-jaipur.jpg",
-    "cardImage": "/images/gallery/baraat-jaipur.jpg",
+    "shortDescription": "Arrive like royalty with our premium bridal and groom fleet. Featuring authentic antique vintage cars, high-energy ATV Quad Bikes, open-top luxury convertibles, and VIP family escort convoys.",
+    "longDescription": "The bridal arrival and royal groom baraat entry are iconic moments immortalized in photographs forever. Saat Phere Events provides an immaculate fleet of luxury vintage cars, thrilling ATV Quad Bikes for grand groom entries, and decorated sedans across Bihar and regional circuits. Every vehicle arrives chauffeur-driven in formal attire, meticulously detailed, and exquisitely floral-dressed according to your wedding color theme.",
+    "heroImage": "/images/real-events/vintage-car-procession.webp",
+    "cardImage": "/images/real-events/vintage-car-procession.webp",
     "galleryImages": [
-      "/images/gallery/baraat-horse.jpg",
-      "/images/hero/hero-palace-jaipur.jpg",
-      "/images/real-events/decor-1.webp"
+      "/images/real-events/vintage-car-procession.webp",
+      "/images/real-events/vintage-car-classic.webp",
+      "/images/real-events/atv-quad-bike.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-wedding-decor.jpg",
-    "videoTitle": "Royal Baraat Convoy & Luxury Vehicle Showcase",
+    "videoClip": "/videos/vintage-car-procession-reel.mp4",
+    "videoPoster": "/videos/poster-vintage-car.jpg",
+    "videoTitle": "Vintage Wedding Fleet & Royal Baraat Procession",
     "offerings": [
       {
-        "title": "Heritage Vintage & Open-Top Classics",
-        "description": "Authentic vintage roadsters and open-top convertible tourers for unforgettable baraat entries.",
+        "title": "Heritage Vintage Classics & ATV Quad Bikes",
+        "description": "Authentic vintage open-top roadsters and thrilling ATV Quad Bikes for unforgettable, high-energy baraat entries.",
         "highlights": [
           "Royal vintage styling",
-          "Chauffeur in ceremonial dress",
-          "Slow-drive escort"
+          "ATV Quad Bikes for groom arrival",
+          "Chauffeur in ceremonial dress"
         ]
       },
       {
@@ -669,16 +788,17 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Interactive Entertainment",
     "shortDescription": "Bring warmth, laughter, and camaraderie to daytime Sundowners, Haldi, and Mehendi carnivals with handcrafted giant wooden Jenga, Connect-4, Ring Toss, Cornhole, Croquet, and customized wedding trivia.",
     "longDescription": "Modern luxury weddings are defined by spontaneous joy and shared moments. Saat Phere Events introduces handcrafted artisanal wooden lawn games that turn pre-wedding afternoons and sundowners into cheerful social hubs. Perfect for breaking the ice between bride and groom families, our games are built from polished teak and rosewood, doubling as charming aesthetic photo props.",
-    "heroImage": "/images/real-events/decor-6.webp",
-    "cardImage": "/images/real-events/decor-6.webp",
+    "heroImage": "/images/real-events/wooden-games-1.webp",
+    "cardImage": "/images/real-events/wooden-games-1.webp",
     "galleryImages": [
-      "/images/real-events/decor-4.webp",
-      "/images/gallery/umaid-bhawan-gardens.jpg",
-      "/images/real-events/inner-decor-3.webp"
+      "/images/real-events/wooden-games-1.webp",
+      "/images/real-events/wooden-games-2.webp",
+      "/images/real-events/wooden-games-3.webp",
+      "/images/real-events/decor-6.webp"
     ],
-    "videoClip": "/videos/wedding-decor-reel.mov",
-    "videoPoster": "/videos/poster-wedding-decor.jpg",
-    "videoTitle": "Artisanal Wooden Lawn Games & Interactive Merriment",
+    "videoClip": "/videos/wooden-games-fun.mp4",
+    "videoPoster": "/videos/poster-wooden-games-1.jpg",
+    "videoTitle": "Artisanal Giant Wooden Lawn Games Showcase",
     "offerings": [
       {
         "title": "Giant Wooden Jenga & Connect 4",

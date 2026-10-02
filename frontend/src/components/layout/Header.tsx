@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X, Sparkles, Phone } from 'lucide-react';
@@ -15,6 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -23,6 +24,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   useEffect(() => {
@@ -94,98 +109,136 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                     />
                   </Link>
 
-                  {/* Mega Dropdown for 9 Services */}
+                  {/* Mega Dropdown for 10 Event Disciplines */}
                   {servicesDropdownOpen && (
                     <div
+                      ref={dropdownRef}
+                      className="services-mega-dropdown"
+                      role="menu"
+                      aria-label="Our 10 Event Disciplines"
                       style={{
                         position: 'absolute',
                         top: 'calc(100% + 6px)',
-                        left: '-20px',
-                        /* Fixed width so browser knows the container size BEFORE
-                           computing grid column widths — fixes the max-content overlap bug */
-                        width: '560px',
-                        maxWidth: 'calc(100vw - 40px)',
+                        left: 'clamp(-180px, -10vw, -10px)',
+                        width: '700px',
+                        maxWidth: 'calc(100vw - 32px)',
                         boxSizing: 'border-box',
-                        backgroundColor: 'rgba(22, 14, 18, 0.98)',
-                        border: '1px solid rgba(212, 175, 55, 0.35)',
-                        borderRadius: '10px',
-                        boxShadow: '0 20px 45px rgba(0, 0, 0, 0.7)',
-                        backdropFilter: 'blur(16px)',
-                        padding: '16px',
+                        backgroundColor: 'rgba(18, 10, 15, 0.98)',
+                        border: '1px solid rgba(212, 175, 55, 0.45)',
+                        borderRadius: '12px',
+                        boxShadow: '0 24px 60px rgba(0, 0, 0, 0.85), 0 0 20px rgba(212, 175, 55, 0.12)',
+                        backdropFilter: 'blur(24px)',
+                        padding: '16px 20px',
                         zIndex: 1001,
+                        whiteSpace: 'normal',
                       }}
                     >
-                      {/* Dropdown header */}
-                      <div style={{
-                        fontSize: '0.7rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.08em',
-                        color: 'var(--color-gold-light)',
-                        textTransform: 'uppercase',
-                        marginBottom: '12px',
-                        paddingBottom: '8px',
-                        borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
-                      }}>
-                        Our 9 Event Services
+                      {/* Dropdown Header */}
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          marginBottom: '10px',
+                          paddingBottom: '8px',
+                          borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
+                          whiteSpace: 'normal',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Sparkles size={14} color="var(--color-gold)" />
+                          <span
+                            style={{
+                              fontSize: '0.74rem',
+                              fontWeight: 800,
+                              letterSpacing: '0.08em',
+                              color: '#F8E5A7',
+                              textTransform: 'uppercase',
+                            }}
+                          >
+                            Our 10 Event Disciplines
+                          </span>
+                        </div>
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            fontWeight: 600,
+                            color: 'rgba(255, 255, 255, 0.65)',
+                            letterSpacing: '0.04em',
+                            background: 'rgba(212, 175, 55, 0.12)',
+                            padding: '2px 8px',
+                            borderRadius: '999px',
+                            border: '1px solid rgba(212, 175, 55, 0.25)',
+                          }}
+                        >
+                          Bespoke • In-House Production
+                        </span>
                       </div>
 
-                      {/* 2-column grid */}
-                      <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                        gap: '4px 16px',
-                        width: '100%',
-                        boxSizing: 'border-box',
-                      }}>
-                        {item.children.map((sub, idx) => {
-                          const isLast = idx === item.children!.length - 1;
-                          const isOdd = item.children!.length % 2 !== 0;
+                      {/* 2-column Grid with Full Word Wrapping */}
+                      <div
+                        style={{
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                          gap: '6px 16px',
+                          width: '100%',
+                          boxSizing: 'border-box',
+                          whiteSpace: 'normal',
+                        }}
+                      >
+                        {item.children.map((sub) => {
+                          const isCurrent = pathname === sub.href;
                           return (
                             <Link
                               key={sub.label}
                               href={sub.href}
+                              onClick={() => setServicesDropdownOpen(false)}
                               style={{
-                                padding: '8px 10px',
-                                borderRadius: '7px',
-                                transition: 'background-color 0.18s ease',
-                                backgroundColor: pathname === sub.href ? 'rgba(212, 175, 55, 0.15)' : 'transparent',
-                                gridColumn: (isLast && isOdd) ? '1 / -1' : undefined,
+                                padding: '7px 10px',
+                                borderRadius: '8px',
+                                transition: 'all 0.18s ease',
+                                backgroundColor: isCurrent ? 'rgba(212, 175, 55, 0.18)' : 'rgba(255, 255, 255, 0.02)',
                                 display: 'block',
                                 textDecoration: 'none',
-                                /* Critical: grid cells MUST have min-width:0 + overflow:hidden
-                                   to prevent content from escaping the column boundary */
                                 minWidth: 0,
-                                overflow: 'hidden',
                                 boxSizing: 'border-box',
+                                whiteSpace: 'normal',
+                                borderLeft: isCurrent ? '3px solid var(--color-gold)' : '3px solid transparent',
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = 'rgba(212, 175, 55, 0.12)';
+                                e.currentTarget.style.backgroundColor = 'rgba(212, 175, 55, 0.14)';
+                                e.currentTarget.style.borderLeftColor = 'var(--color-gold)';
                               }}
                               onMouseLeave={(e) => {
-                                if (pathname !== sub.href) e.currentTarget.style.backgroundColor = 'transparent';
+                                if (!isCurrent) {
+                                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
+                                  e.currentTarget.style.borderLeftColor = 'transparent';
+                                }
                               }}
                             >
                               <div
                                 style={{
-                                  fontSize: '0.84rem',
+                                  fontSize: '0.86rem',
                                   fontWeight: 700,
                                   color: '#FCE6A2',
                                   marginBottom: '2px',
                                   lineHeight: 1.3,
-                                  overflowWrap: 'break-word',
-                                  wordBreak: 'break-word',
+                                  whiteSpace: 'normal',
                                 }}
                               >
                                 {sub.label}
                               </div>
                               {sub.description && (
-                                <div style={{
-                                  fontSize: '0.72rem',
-                                  color: 'rgba(255, 255, 255, 0.65)',
-                                  lineHeight: 1.4,
-                                  overflowWrap: 'break-word',
-                                  wordBreak: 'break-word',
-                                }}>
+                                <div
+                                  style={{
+                                    fontSize: '0.74rem',
+                                    color: 'rgba(255, 255, 255, 0.72)',
+                                    lineHeight: 1.42,
+                                    whiteSpace: 'normal',
+                                    wordBreak: 'normal',
+                                    overflowWrap: 'break-word',
+                                  }}
+                                >
                                   {sub.description}
                                 </div>
                               )}
@@ -194,24 +247,46 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                         })}
                       </div>
 
-                      {/* Footer CTA */}
-                      <div style={{
-                        marginTop: '12px',
-                        paddingTop: '10px',
-                        borderTop: '1px solid rgba(212, 175, 55, 0.25)',
-                        textAlign: 'center',
-                      }}>
+                      {/* Footer CTA Bar */}
+                      <div
+                        style={{
+                          marginTop: '12px',
+                          paddingTop: '10px',
+                          borderTop: '1px solid rgba(212, 175, 55, 0.25)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          whiteSpace: 'normal',
+                        }}
+                      >
                         <Link
                           href="/services"
+                          onClick={() => setServicesDropdownOpen(false)}
                           style={{
-                            fontSize: '0.78rem',
-                            fontWeight: 600,
+                            fontSize: '0.8rem',
+                            fontWeight: 700,
                             color: 'var(--color-gold-light)',
                             textDecoration: 'none',
-                            letterSpacing: '0.04em',
+                            letterSpacing: '0.03em',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
                           }}
                         >
-                          View All Services →
+                          <span>Explore All 10 Disciplines & Portfolios</span>
+                          <span style={{ fontSize: '1rem', lineHeight: 1 }}>→</span>
+                        </Link>
+
+                        <Link
+                          href="/packages"
+                          onClick={() => setServicesDropdownOpen(false)}
+                          style={{
+                            fontSize: '0.74rem',
+                            color: 'rgba(255, 255, 255, 0.75)',
+                            textDecoration: 'underline',
+                          }}
+                        >
+                          Custom Quote Calculator →
                         </Link>
                       </div>
                     </div>
@@ -283,53 +358,194 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
         <div
           className="header-mobile-drawer"
           style={{
-            backgroundColor: 'rgba(20, 12, 16, 0.98)',
+            backgroundColor: 'rgba(18, 10, 15, 0.98)',
             borderTop: '1px solid rgba(212, 175, 55, 0.25)',
             borderBottom: '2px solid var(--color-gold)',
             padding: '20px',
-            maxHeight: '80vh',
+            maxHeight: '85vh',
             overflowY: 'auto',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <Link href="/" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2', textDecoration: 'none' }}
+            >
               Home
             </Link>
-            <Link href="/about" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
+            <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2', textDecoration: 'none' }}
+            >
               About Us
             </Link>
-            <div style={{ paddingLeft: '8px', borderLeft: '2px solid var(--color-gold)' }}>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-gold-light)', marginBottom: '8px' }}>
-                OUR 9 EVENT SERVICES:
-              </div>
-              {servicesNav?.children?.map((sub) => (
-                <Link
-                  key={sub.label}
-                  href={sub.href}
+
+            {/* Mobile Services Section with Full Descriptions */}
+            <div
+              style={{
+                padding: '12px 10px',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(212, 175, 55, 0.25)',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginBottom: '10px',
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Sparkles size={13} color="var(--color-gold)" />
+                  <span
+                    style={{
+                      fontSize: '0.8rem',
+                      fontWeight: 800,
+                      color: '#F8E5A7',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    Our 10 Event Disciplines:
+                  </span>
+                </div>
+                <span
                   style={{
-                    display: 'block',
-                    padding: '6px 0',
-                    fontSize: '0.9rem',
-                    color: 'rgba(255, 255, 255, 0.85)',
+                    fontSize: '0.66rem',
+                    color: 'rgba(212, 175, 55, 0.95)',
+                    background: 'rgba(212, 175, 55, 0.12)',
+                    padding: '2px 8px',
+                    borderRadius: '999px',
+                    border: '1px solid rgba(212, 175, 55, 0.3)',
                   }}
                 >
-                  • {sub.label}
-                </Link>
-              ))}
+                  All In-House
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {servicesNav?.children?.map((sub) => {
+                  const isCurrent = pathname === sub.href;
+                  return (
+                    <Link
+                      key={sub.label}
+                      href={sub.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: '8px 10px',
+                        borderRadius: '6px',
+                        backgroundColor: isCurrent ? 'rgba(212, 175, 55, 0.18)' : 'rgba(255, 255, 255, 0.03)',
+                        borderLeft: isCurrent ? '3px solid var(--color-gold)' : '2px solid rgba(212, 175, 55, 0.25)',
+                        textDecoration: 'none',
+                        transition: 'background-color 0.18s ease',
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: '0.88rem',
+                          fontWeight: 700,
+                          color: '#FCE6A2',
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {sub.label}
+                      </div>
+                      {sub.description && (
+                        <div
+                          style={{
+                            fontSize: '0.74rem',
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            lineHeight: 1.4,
+                            marginTop: '2px',
+                            whiteSpace: 'normal',
+                            wordBreak: 'normal',
+                            overflowWrap: 'break-word',
+                          }}
+                        >
+                          {sub.description}
+                        </div>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              <Link
+                href="/services"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  marginTop: '10px',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  color: 'var(--color-gold-light)',
+                  textDecoration: 'none',
+                }}
+              >
+                <span>Explore All 10 Disciplines & Portfolios</span>
+                <span>→</span>
+              </Link>
             </div>
-            <Link href="/portfolio" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
+
+            <Link
+              href="/portfolio"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2', textDecoration: 'none' }}
+            >
               Portfolio & Gallery
             </Link>
 
-            <Link href="/packages" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
+            <Link
+              href="/packages"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2', textDecoration: 'none' }}
+            >
               Packages & Custom Quote
             </Link>
-            <Link href="/contact" style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2' }}>
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ fontSize: '1rem', fontWeight: 600, color: '#FCE6A2', textDecoration: 'none' }}
+            >
               Contact & Inquiry
             </Link>
-            <Link href="/portal" style={{ fontSize: '1rem', fontWeight: 600, color: '#9CA3AF' }}>
+            <Link
+              href="/portal"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ fontSize: '1rem', fontWeight: 600, color: '#9CA3AF', textDecoration: 'none' }}
+            >
               Client Account Portal
             </Link>
+
+            {/* Quick Contact Action in Drawer */}
+            <div style={{ marginTop: '10px', paddingTop: '14px', borderTop: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <a
+                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
+                className="btn-primary"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  textDecoration: 'none',
+                  padding: '10px 16px',
+                  fontSize: '0.88rem',
+                  fontWeight: 700,
+                }}
+              >
+                <Phone size={14} />
+                <span>Call {SITE_CONFIG.contact.phone}</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

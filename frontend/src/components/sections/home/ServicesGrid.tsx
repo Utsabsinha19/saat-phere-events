@@ -16,9 +16,9 @@ export const ServicesGrid: React.FC = () => {
       <div className="container">
         {/* 3rd Look Section Heading */}
         <SectionHeading
-          subtitle="Our 9 Master Capabilities"
+          subtitle="Our 10 Master Capabilities"
           title="Our Services"
-          description="Explore our nine dedicated celebration disciplines. Each service is executed by specialized artisans and accompanied by our real-world photography and cinematic video reels."
+          description="Explore our ten dedicated celebration disciplines. Each service is executed by specialized artisans and accompanied by our real-world photography and cinematic video reels."
         />
 
         {/* 9 Services Grid — responsive: 1 col → 2 col (≥640px) → 3 col (≥1200px) */}
@@ -81,7 +81,7 @@ export const ServicesGrid: React.FC = () => {
                       fontWeight: 700,
                     }}
                   >
-                    0{index + 1} • {srv.category}
+                    {(index + 1).toString().padStart(2, '0')} • {srv.category}
                   </span>
                 </div>
 

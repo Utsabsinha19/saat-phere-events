@@ -59,11 +59,12 @@ export const GetAQuoteSection: React.FC = () => {
   const serviceOptions = [
     'Wedding Planning',
     'Haldi / Mehndi / Sangeet',
+    'Myra / Bhaat Ceremony',
     'Birthday Parties',
     'Reception',
     'Corporate Events',
     'Theme Decoration',
-    'Baby Shower',
+    'Baby Shower / Jalwa Ceremony',
     'Wedding Rental Car',
     'Wooden Games for Weddings',
   ];

@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: 9 Event Services */}
+          {/* Column 2: 10 Event Disciplines */}
           <div>
             <h4
               style={{

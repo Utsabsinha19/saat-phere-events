@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
           left: '-20px',
           right: '-20px',
           bottom: '-20px',
-          backgroundImage: 'url("/images/real-events/decor-1.webp")',
+          backgroundImage: 'url("/images/real-events/stage-decor-1.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'blur(10px) brightness(0.72) saturate(1.2)',
@@ -108,9 +108,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
           >
             <MapPin size={12} color="var(--color-gold)" style={{ flexShrink: 0 }} />
             {/* Full text on tablet+ */}
-            <span className="hero-badge-text-full">Proudly Rooted in Bihar • Crafting Royal Celebrations Across India</span>
+            <span className="hero-badge-text-full">Proudly Rooted in Bihar • Specialists in Marwari & Rajasthani Weddings</span>
             {/* Short text on phones */}
-            <span className="hero-badge-text-short">Rooted in Bihar • Pan-India Luxury Events</span>
+            <span className="hero-badge-text-short">Bihar Pioneer • Marwari & Rajasthani Weddings</span>
           </span>
         </div>
 
@@ -205,7 +205,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
             textShadow: '0 2px 12px rgba(0, 0, 0, 0.7)',
           }}
         >
-          Bihar’s premier luxury wedding planning and event management atelier. Born in Katihar, orchestrating monumental palatial weddings, sacred Vedic rituals, artisanal decor, and grand milestone celebrations across Bihar, Rajasthan, Goa, and pan-India destinations.
+          Bihar’s premier luxury wedding planning atelier &amp; specialists in authentic Marwari, Rajasthani, and cross-cultural weddings. Born in Katihar, orchestrating monumental palatial weddings, sacred Vedic rituals, artisanal decor, and grand milestone celebrations across Bihar, Rajasthan, Goa, and pan-India destinations.
         </p>
 
         {/* CTA Buttons - Requirement 6: "Get in Touch" instead of "Consultant" / "Book Your Event" */}

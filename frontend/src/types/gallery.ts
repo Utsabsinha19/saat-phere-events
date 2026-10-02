@@ -1,10 +1,14 @@
 export type GalleryCategory =
   | 'All'
-  | 'Mandap Designs'
   | 'Stage Decors'
+  | 'Mandap Designs'
+  | 'Myra / Bhaat'
+  | 'Haldi / Mehendi'
+  | 'Jalwa Ceremony'
+  | 'Vintage Procession'
+  | 'Wooden Games'
   | 'Floral Styling'
   | 'Destination Weddings'
-  | 'Haldi / Mehendi'
   | 'Corporate Events';
 
 export interface GalleryMediaItem {

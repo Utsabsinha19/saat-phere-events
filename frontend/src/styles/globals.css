@@ -441,6 +441,28 @@ img {
   transform: scaleX(1);
 }
 
+/* Services Mega Dropdown — Full visibility & wrap across all devices */
+.services-mega-dropdown,
+.services-mega-dropdown *,
+.services-mega-dropdown a,
+.services-mega-dropdown div,
+.services-mega-dropdown span,
+.services-mega-dropdown p {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  text-overflow: clip !important;
+}
+
+.services-mega-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
 /* Header Right Actions */
 .header-actions-group {
   display: flex;

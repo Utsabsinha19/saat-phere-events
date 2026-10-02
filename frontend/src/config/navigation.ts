@@ -22,6 +22,11 @@ export const MAIN_NAV: NavItem[] = [
         description: 'Vibrant marigold florals, live music & high-energy sangeet',
       },
       {
+        label: 'Myra / Bhaat Ceremony',
+        href: '/services/myra-bhaat-ceremony',
+        description: 'Authentic Marwari & Rajasthani Bhaat rituals, chunari & royal entry',
+      },
+      {
         label: 'Birthday Parties',
         href: '/services/birthday-parties',
         description: 'Custom theme decor, entertainment & milestone birthdays',
@@ -42,9 +47,9 @@ export const MAIN_NAV: NavItem[] = [
         description: 'Bespoke floral styling, arches & 3D spatial stage concepts',
       },
       {
-        label: 'Baby Shower',
+        label: 'Baby Shower / Jalwa Ceremony',
         href: '/services/baby-shower',
-        description: 'Pastel themes, Godh Bharai rituals & family warmth',
+        description: 'Pastel themes, Godh Bharai & traditional Jalwa Poojan rituals',
       },
       {
         label: 'Wedding Rental Car',
@@ -69,11 +74,12 @@ export const FOOTER_LINKS = {
   services: [
     { label: 'Wedding Planning', href: '/services/wedding-planning' },
     { label: 'Haldi / Mehndi / Sangeet', href: '/services/haldi-mehndi-sangeet' },
+    { label: 'Myra / Bhaat Ceremony', href: '/services/myra-bhaat-ceremony' },
     { label: 'Birthday Parties', href: '/services/birthday-parties' },
     { label: 'Reception & Decor', href: '/services/reception' },
     { label: 'Corporate Events', href: '/services/corporate-events' },
     { label: 'Theme Decoration', href: '/services/theme-decoration' },
-    { label: 'Baby Shower', href: '/services/baby-shower' },
+    { label: 'Baby Shower / Jalwa Ceremony', href: '/services/baby-shower' },
     { label: 'Wedding Rental Car', href: '/services/wedding-rental-car' },
     { label: 'Wooden Games', href: '/services/wooden-games-for-weddings' },
   ],
