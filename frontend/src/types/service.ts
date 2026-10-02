@@ -15,6 +15,13 @@ export interface ServiceFAQ {
   answer: string;
 }
 
+export interface ServiceVideoItem {
+  src: string;
+  poster?: string;
+  title?: string;
+  duration?: string;
+}
+
 export interface ServiceItem {
   id: string;
   slug: string;
@@ -35,4 +42,5 @@ export interface ServiceItem {
   videoClip?: string;
   videoPoster?: string;
   videoTitle?: string;
+  videos?: ServiceVideoItem[];
 }

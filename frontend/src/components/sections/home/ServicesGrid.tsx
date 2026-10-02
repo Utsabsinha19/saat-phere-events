@@ -16,7 +16,6 @@ export const ServicesGrid: React.FC = () => {
       <div className="container">
         {/* 3rd Look Section Heading */}
         <SectionHeading
-          subtitle="Our 10 Master Capabilities"
           title="Our Services"
           description="Explore our ten dedicated celebration disciplines. Each service is executed by specialized artisans and accompanied by our real-world photography and cinematic video reels."
         />

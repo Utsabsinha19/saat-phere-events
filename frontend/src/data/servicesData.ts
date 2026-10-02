@@ -793,12 +793,28 @@ export const SERVICES_DATA: ServiceItem[] = [
     "galleryImages": [
       "/images/real-events/wooden-games-1.webp",
       "/images/real-events/wooden-games-2.webp",
-      "/images/real-events/wooden-games-3.webp",
-      "/images/real-events/decor-6.webp"
+      "/images/real-events/wooden-games-3.webp"
     ],
     "videoClip": "/videos/wooden-games-fun.mp4",
     "videoPoster": "/videos/poster-wooden-games-1.jpg",
     "videoTitle": "Artisanal Giant Wooden Lawn Games Showcase",
+    "videos": [
+      {
+        "src": "/videos/wooden-games-fun.mp4",
+        "poster": "/videos/poster-wooden-games-1.jpg",
+        "title": "Tic Tac Game & Lawn Carnival Setup"
+      },
+      {
+        "src": "/videos/wooden-games-interactive.mp4",
+        "poster": "/videos/poster-wooden-games-2.jpg",
+        "title": "Interactive Ball Maze & Family Lawn Games"
+      },
+      {
+        "src": "/videos/wooden-games-jenga-reel.mp4",
+        "poster": "/videos/poster-wooden-games-3.jpg",
+        "title": "Handcrafted Giant Wooden Jenga Tower Reel"
+      }
+    ],
     "offerings": [
       {
         "title": "Giant Wooden Jenga & Connect 4",
