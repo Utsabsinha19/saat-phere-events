@@ -18,6 +18,18 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/grand-mandap-production.mp4",
     "videoPoster": "/videos/poster-grand-mandap.jpg",
     "videoTitle": "Grand Royal Wedding Setup & Mandap Production",
+    "videos": [
+      {
+        "src": "/videos/grand-mandap-production.mp4",
+        "poster": "/videos/poster-grand-mandap.jpg",
+        "title": "Grand Royal Wedding Setup & Mandap Production"
+      },
+      {
+        "src": "/videos/wedding-planning-reel.mp4",
+        "poster": "/videos/poster-wedding-planning.jpg",
+        "title": "Signature Wedding Execution & Architectural Floral Stages"
+      }
+    ],
     "offerings": [
       {
         "title": "Master Budgeting & Financial Control",
@@ -119,6 +131,23 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/haldi-ceremony-reel.mp4",
     "videoPoster": "/videos/poster-haldi-ceremony.jpg",
     "videoTitle": "Vibrant Haldi Ceremony & Marigold Scenography",
+    "videos": [
+      {
+        "src": "/videos/haldi-ceremony-reel.mp4",
+        "poster": "/videos/poster-haldi-ceremony.jpg",
+        "title": "Vibrant Haldi Ceremony & Marigold Scenography"
+      },
+      {
+        "src": "/videos/haldi-splash-celebration.mp4",
+        "poster": "/videos/poster-haldi-splash.jpg",
+        "title": "Phoolon Ki Holi & Joyous Celebration"
+      },
+      {
+        "src": "/videos/haldi-decor-cinematic.mp4",
+        "poster": "/videos/poster-haldi-cinematic.jpg",
+        "title": "Artisanal Haldi Decor & Floral Canopies"
+      }
+    ],
     "offerings": [
       {
         "title": "Artisanal Haldi Decor & Floral Urlis",
@@ -202,6 +231,18 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/myra-bhaat-decor.mp4",
     "videoPoster": "/videos/poster-myra-bhaat.jpg",
     "videoTitle": "Authentic Marwari Myra & Bhaat Ritual Production",
+    "videos": [
+      {
+        "src": "/videos/myra-bhaat-decor.mp4",
+        "poster": "/videos/poster-myra-bhaat.jpg",
+        "title": "Bespoke Royal Myra & Bhaat Setups"
+      },
+      {
+        "src": "/videos/myra-celebration-ceremony.mp4",
+        "poster": "/videos/poster-myra-celebration.jpg",
+        "title": "Traditional Myra Welcoming & Family Rituals"
+      }
+    ],
     "offerings": [
       {
         "title": "Royal Mamaji Procession & Entry",
@@ -303,6 +344,13 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/birthday-celebration-reel.mp4",
     "videoPoster": "/videos/poster-birthday-celebration.jpg",
     "videoTitle": "Grand Birthday Celebration & Theme Production",
+    "videos": [
+      {
+        "src": "/videos/birthday-celebration-reel.mp4",
+        "poster": "/videos/poster-birthday-celebration.jpg",
+        "title": "Grand Birthday Celebration & Theme Production"
+      }
+    ],
     "offerings": [
       {
         "title": "Immersive Thematic Backdrops",
@@ -383,6 +431,23 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/sangeet-spectacle-reel.mp4",
     "videoPoster": "/videos/poster-sangeet-spectacle.jpg",
     "videoTitle": "Grand Reception Stage & Lighting Scenography",
+    "videos": [
+      {
+        "src": "/videos/sangeet-spectacle-reel.mp4",
+        "poster": "/videos/poster-sangeet-spectacle.jpg",
+        "title": "Grand Reception & Stage Spectacle"
+      },
+      {
+        "src": "/videos/sangeet-grand-stage.mp4",
+        "poster": "/videos/poster-sangeet-stage.jpg",
+        "title": "Illuminated Royal Stage Production"
+      },
+      {
+        "src": "/videos/sangeet-dance-function.mp4",
+        "poster": "/videos/poster-sangeet-dance.jpg",
+        "title": "Gala Celebration & Grand Evening Function"
+      }
+    ],
     "offerings": [
       {
         "title": "Monumental Floral & Crystal Stages",
@@ -547,6 +612,18 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/sangeet-grand-stage.mp4",
     "videoPoster": "/videos/poster-sangeet-stage.jpg",
     "videoTitle": "Bespoke Scenography & Custom Theme Decor",
+    "videos": [
+      {
+        "src": "/videos/sangeet-grand-stage.mp4",
+        "poster": "/videos/poster-sangeet-stage.jpg",
+        "title": "Bespoke Scenography & Custom Theme Decor"
+      },
+      {
+        "src": "/videos/sangeet-spectacle-reel.mp4",
+        "poster": "/videos/poster-sangeet-spectacle.jpg",
+        "title": "Grand Entrance & Theme Illumination"
+      }
+    ],
     "offerings": [
       {
         "title": "Royal Heritage & Traditional Themes",
@@ -629,6 +706,13 @@ export const SERVICES_DATA: ServiceItem[] = [
     "videoClip": "/videos/jalwa-ceremony-decor.mp4",
     "videoPoster": "/videos/poster-jalwa-ceremony.jpg",
     "videoTitle": "Grand Jalwa Ceremony & Baby Celebration Decor",
+    "videos": [
+      {
+        "src": "/videos/jalwa-ceremony-decor.mp4",
+        "poster": "/videos/poster-jalwa-ceremony.jpg",
+        "title": "Grand Jalwa Ceremony & Baby Celebration Decor"
+      }
+    ],
     "offerings": [
       {
         "title": "Traditional Jalwa Poojan & Godh Bharai",
@@ -707,16 +791,23 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Luxury Fleet Logistics",
     "shortDescription": "Arrive like royalty with our premium bridal and groom fleet. Featuring authentic antique vintage cars, high-energy ATV Quad Bikes, open-top luxury convertibles, and VIP family escort convoys.",
     "longDescription": "The bridal arrival and royal groom baraat entry are iconic moments immortalized in photographs forever. Saat Phere Events provides an immaculate fleet of luxury vintage cars, thrilling ATV Quad Bikes for grand groom entries, and decorated sedans across Bihar and regional circuits. Every vehicle arrives chauffeur-driven in formal attire, meticulously detailed, and exquisitely floral-dressed according to your wedding color theme.",
-    "heroImage": "/images/real-events/vintage-car-procession.webp",
-    "cardImage": "/images/real-events/vintage-car-procession.webp",
+    "heroImage": "/images/real-events/vintage-car-classic.webp",
+    "cardImage": "/images/real-events/vintage-car-classic.webp",
     "galleryImages": [
-      "/images/real-events/vintage-car-procession.webp",
       "/images/real-events/vintage-car-classic.webp",
+      "/images/real-events/vintage-car-procession.webp",
       "/images/real-events/atv-quad-bike.webp"
     ],
     "videoClip": "/videos/vintage-car-procession-reel.mp4",
     "videoPoster": "/videos/poster-vintage-car.jpg",
     "videoTitle": "Vintage Wedding Fleet & Royal Baraat Procession",
+    "videos": [
+      {
+        "src": "/videos/vintage-car-procession-reel.mp4",
+        "poster": "/videos/poster-vintage-car.jpg",
+        "title": "Vintage Wedding Fleet & Royal Baraat Procession"
+      }
+    ],
     "offerings": [
       {
         "title": "Heritage Vintage Classics & ATV Quad Bikes",

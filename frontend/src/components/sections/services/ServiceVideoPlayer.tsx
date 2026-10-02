@@ -247,7 +247,7 @@ export const ServiceVideoPlayer: React.FC<ServiceVideoPlayerProps> = ({
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${videoList.length}, minmax(0, 1fr))`,
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
               gap: '12px',
             }}
           >

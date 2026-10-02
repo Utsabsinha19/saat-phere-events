@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { SERVICES_DATA } from '@/data/servicesData';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { GoldDivider } from '@/components/common/GoldDivider';
-import { ServiceItem } from '@/types/service';
+import { ServiceItem, ServiceVideoItem } from '@/types/service';
 import {
   Play,
   Sparkles,
@@ -18,6 +18,8 @@ import {
   Award,
   ShieldCheck,
   ChevronRight,
+  ChevronLeft,
+  Film,
 } from 'lucide-react';
 
 type FilterCategory =
@@ -27,10 +29,53 @@ type FilterCategory =
   | 'Milestones & Celebrations'
   | 'Logistics & Games';
 
+interface ActiveVideoModalState {
+  serviceTitle: string;
+  slug: string;
+  videos: ServiceVideoItem[];
+  currentIndex: number;
+}
+
 export default function ServicesPage() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('All');
-  const [activeVideo, setActiveVideo] = useState<{ src: string; title: string } | null>(null);
+  const [activeVideo, setActiveVideo] = useState<ActiveVideoModalState | null>(null);
   const [activePhoto, setActivePhoto] = useState<{ src: string; title: string } | null>(null);
+  const videoPlayerRef = React.useRef<HTMLVideoElement>(null);
+
+  const openServiceVideo = (srv: ServiceItem, startIndex: number = 0) => {
+    const list: ServiceVideoItem[] =
+      srv.videos && srv.videos.length > 0
+        ? srv.videos
+        : srv.videoClip
+        ? [
+            {
+              src: srv.videoClip,
+              poster: srv.videoPoster,
+              title: srv.videoTitle || `${srv.title} Video Reel`,
+            },
+          ]
+        : [];
+
+    if (list.length > 0) {
+      setActiveVideo({
+        serviceTitle: srv.title,
+        slug: srv.slug,
+        videos: list,
+        currentIndex: Math.min(startIndex, list.length - 1),
+      });
+    }
+  };
+
+  const handleSelectReel = (newIdx: number) => {
+    if (!activeVideo) return;
+    setActiveVideo({ ...activeVideo, currentIndex: newIdx });
+    setTimeout(() => {
+      if (videoPlayerRef.current) {
+        videoPlayerRef.current.currentTime = 0;
+        videoPlayerRef.current.play().catch(() => {});
+      }
+    }, 50);
+  };
 
   const filterTabs: { label: FilterCategory; count: number }[] = [
     { label: 'All', count: SERVICES_DATA.length },
@@ -326,15 +371,10 @@ export default function ServicesPage() {
                       </div>
 
                       {/* Video Reel Play Trigger */}
-                      {srv.videoClip && (
+                      {((srv.videos && srv.videos.length > 0) || srv.videoClip) && (
                         <button
                           type="button"
-                          onClick={() =>
-                            setActiveVideo({
-                              src: srv.videoClip!,
-                              title: srv.videoTitle || `${srv.title} Video Reel`,
-                            })
-                          }
+                          onClick={() => openServiceVideo(srv, 0)}
                           className="animate-pulse-glow"
                           title={`Watch ${srv.title} Video Reel`}
                           style={{
@@ -359,7 +399,11 @@ export default function ServicesPage() {
                           }}
                         >
                           <Play size={13} fill="#FFFFFF" />
-                          <span>Watch Reel</span>
+                          <span>
+                            {srv.videos && srv.videos.length > 1
+                              ? `Watch Reels (${srv.videos.length})`
+                              : 'Watch Reel'}
+                          </span>
                         </button>
                       )}
                     </div>
@@ -593,8 +637,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 3. Global Video Reel Modal */}
-      {activeVideo && (
+      {/* 3. Global Video Reel Modal with Multi-Video Support */}
+      {activeVideo && activeVideo.videos.length > 0 && (
         <div
           style={{
             position: 'fixed',
@@ -605,7 +649,7 @@ export default function ServicesPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '20px',
+            padding: '16px',
           }}
           onClick={() => setActiveVideo(null)}
         >
@@ -614,11 +658,12 @@ export default function ServicesPage() {
               position: 'relative',
               width: '100%',
               maxWidth: '820px',
-              backgroundColor: '#121212',
+              backgroundColor: '#120B0F',
               borderRadius: '16px',
               overflow: 'hidden',
               border: '2px solid var(--color-gold)',
-              boxShadow: '0 24px 60px rgba(0, 0, 0, 0.7)',
+              boxShadow: '0 24px 60px rgba(0, 0, 0, 0.9)',
+              color: '#FFFFFF',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -628,24 +673,42 @@ export default function ServicesPage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: '14px 20px',
+                padding: '14px 18px',
                 borderBottom: '1px solid rgba(212, 175, 55, 0.3)',
-                backgroundColor: 'rgba(128, 0, 32, 0.95)',
-                color: '#FFFFFF',
+                backgroundColor: '#1A0E15',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Play size={16} fill="var(--color-gold)" color="var(--color-gold)" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+                <Sparkles size={16} color="var(--color-gold)" style={{ flexShrink: 0 }} />
                 <h3
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '1.1rem',
-                    color: '#FFFFFF',
+                    fontSize: '1.05rem',
+                    color: 'var(--color-gold-light)',
                     margin: 0,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
                   }}
                 >
-                  {activeVideo.title}
+                  {activeVideo.videos[activeVideo.currentIndex]?.title || `${activeVideo.serviceTitle} Reel`}
                 </h3>
+                {activeVideo.videos.length > 1 && (
+                  <span
+                    style={{
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      color: 'var(--color-gold-light)',
+                      background: 'rgba(212, 175, 55, 0.15)',
+                      padding: '2px 8px',
+                      borderRadius: '999px',
+                      border: '1px solid rgba(212, 175, 55, 0.35)',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {activeVideo.currentIndex + 1} / {activeVideo.videos.length}
+                  </span>
+                )}
               </div>
               <button
                 type="button"
@@ -653,7 +716,7 @@ export default function ServicesPage() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#FFFFFF',
+                  color: '#9CA3AF',
                   cursor: 'pointer',
                   padding: '4px',
                   display: 'flex',
@@ -665,22 +728,197 @@ export default function ServicesPage() {
               </button>
             </div>
 
-            {/* Video Player */}
-            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, backgroundColor: '#000' }}>
+            {/* Video Player with Prev / Next Navigation */}
+            <div style={{ position: 'relative', width: '100%', maxHeight: '65vh', backgroundColor: '#000' }}>
               <video
-                src={activeVideo.src}
+                ref={videoPlayerRef}
+                key={activeVideo.videos[activeVideo.currentIndex]?.src}
+                src={activeVideo.videos[activeVideo.currentIndex]?.src}
+                poster={activeVideo.videos[activeVideo.currentIndex]?.poster}
                 controls
                 autoPlay
                 playsInline
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
+                onEnded={() => {
+                  if (activeVideo.videos.length > 1) {
+                    handleSelectReel((activeVideo.currentIndex + 1) % activeVideo.videos.length);
+                  }
                 }}
-              />
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '65vh',
+                  display: 'block',
+                }}
+              >
+                Your browser does not support video playback.
+              </video>
+
+              {activeVideo.videos.length > 1 && (
+                <>
+                  <button
+                    onClick={() =>
+                      handleSelectReel(
+                        (activeVideo.currentIndex - 1 + activeVideo.videos.length) % activeVideo.videos.length
+                      )
+                    }
+                    title="Previous Video Reel"
+                    aria-label="Previous Video Reel"
+                    style={{
+                      position: 'absolute',
+                      left: '10px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(18, 10, 15, 0.85)',
+                      border: '1px solid var(--color-gold)',
+                      color: 'var(--color-gold-light)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      zIndex: 4,
+                    }}
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={() =>
+                      handleSelectReel((activeVideo.currentIndex + 1) % activeVideo.videos.length)
+                    }
+                    title="Next Video Reel"
+                    aria-label="Next Video Reel"
+                    style={{
+                      position: 'absolute',
+                      right: '10px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(18, 10, 15, 0.85)',
+                      border: '1px solid var(--color-gold)',
+                      color: 'var(--color-gold-light)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      zIndex: 4,
+                    }}
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Playlist Strip If Multiple Videos */}
+            {activeVideo.videos.length > 1 && (
+              <div
+                style={{
+                  padding: '12px 18px',
+                  backgroundColor: '#160E14',
+                  borderTop: '1px solid rgba(212, 175, 55, 0.2)',
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: '8px',
+                    fontSize: '0.74rem',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                  }}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <Film size={12} color="var(--color-gold)" />
+                    <strong style={{ color: '#F8E5A7' }}>Available Reels ({activeVideo.videos.length}):</strong>
+                  </span>
+                  <span style={{ color: 'rgba(212, 175, 55, 0.8)' }}>Click reel to switch & play</span>
+                </div>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '8px',
+                    overflowX: 'auto',
+                    paddingBottom: '4px',
+                  }}
+                >
+                  {activeVideo.videos.map((vid, idx) => {
+                    const isCur = idx === activeVideo.currentIndex;
+                    return (
+                      <button
+                        key={vid.src}
+                        onClick={() => handleSelectReel(idx)}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          padding: '6px 12px',
+                          borderRadius: '8px',
+                          backgroundColor: isCur ? 'rgba(212, 175, 55, 0.22)' : 'rgba(255, 255, 255, 0.05)',
+                          border: isCur ? '1.5px solid var(--color-gold)' : '1px solid rgba(255, 255, 255, 0.15)',
+                          color: isCur ? '#FCE6A2' : '#D1D5DB',
+                          fontSize: '0.76rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          whiteSpace: 'nowrap',
+                          transition: 'all 0.2s ease',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Play size={11} fill={isCur ? 'var(--color-gold)' : '#D1D5DB'} />
+                        <span>
+                          Reel {idx + 1}: {vid.title || `Clip ${idx + 1}`}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Bottom Actions Bar */}
+            <div
+              style={{
+                padding: '12px 18px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '12px',
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                backgroundColor: '#1A0E15',
+              }}
+            >
+              <Link
+                href={`/services/${activeVideo.slug}`}
+                onClick={() => setActiveVideo(null)}
+                style={{
+                  color: 'var(--color-gold-light)',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <span>Explore Full Service Portfolio</span>
+                <ArrowRight size={14} />
+              </Link>
+
+              <Link
+                href="/contact"
+                onClick={() => setActiveVideo(null)}
+                className="btn-gold"
+                style={{ padding: '8px 20px', fontSize: '0.84rem', textDecoration: 'none' }}
+              >
+                Get in Touch for This Service
+              </Link>
             </div>
           </div>
         </div>
