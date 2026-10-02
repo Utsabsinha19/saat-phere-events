@@ -17,11 +17,12 @@ const EVENT_TYPE_OPTIONS: EventType[] = [
 ];
 
 const BUDGET_OPTIONS = [
+  '₹5 Lakhs – ₹10 Lakhs',
+  '₹10 Lakhs – ₹25 Lakhs',
   '₹25 Lakhs – ₹50 Lakhs',
   '₹50 Lakhs – ₹75 Lakhs',
   '₹75 Lakhs – ₹1.5 Cr',
   '₹1.5 Cr – ₹3 Cr',
-  '₹3 Cr – ₹5 Cr+',
   'Custom / Discuss with Concierge',
 ];
 
