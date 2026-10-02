@@ -221,11 +221,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     "cardImage": "/images/real-events/myra-bhaat-decor-1.webp",
     "galleryImages": [
       "/images/real-events/myra-bhaat-2.webp",
-      "/images/real-events/myra-bhaat-3.webp",
-      "/images/real-events/myra-bhaat-4.webp",
-      "/images/real-events/myra-bhaat-5.webp",
-      "/images/real-events/myra-bhaat-6.webp",
-      "/images/real-events/myra-bhaat-7.webp"
+      "/images/real-events/myra-bhaat-6.webp"
     ],
     "videoClip": "/videos/myra-bhaat-decor.mp4",
     "videoPoster": "/videos/poster-myra-bhaat.jpg",
