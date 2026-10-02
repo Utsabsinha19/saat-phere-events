@@ -686,14 +686,13 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Maternity & Milestone Rituals",
     "shortDescription": "Celebrating motherhood and the arrival of new life with timeless reverence. Specialized in both traditional Jalwa Poojan ceremonies and contemporary luxury Baby Showers with pastel floral scenography.",
     "longDescription": "The journey into parenthood is a sacred milestone deserving of utmost elegance and joy. Saat Phere Events curates both traditional Vedic rituals like Godh Bharai and authentic Marwari Jalwa Ceremony (Jalwa Poojan / Kua Poojan), as well as contemporary bespoke Baby Showers. From hand-crafted cradle installations and sacred havan setups to whimsical pastel balloon sculptures and customized welcome backdrops, we orchestrate every detail so the mother-to-be and family can immerse in pure bliss.",
-    "heroImage": "/images/real-events/inner-decor-1.webp",
-    "cardImage": "/images/real-events/inner-decor-1.webp",
+    "heroImage": "/images/real-events/jalwa-ceremony-decor-3.webp",
+    "cardImage": "/images/real-events/jalwa-ceremony-decor-2.webp",
     "galleryImages": [
-      "/images/real-events/inner-decor-1.webp",
       "/images/real-events/jalwa-ceremony-decor-1.webp",
-      "/images/real-events/inner-decor-4.webp",
-      "/images/real-events/inner-decor-5.webp",
-      "/images/real-events/decor-showcase-2.webp"
+      "/images/real-events/jalwa-ceremony-decor-2.webp",
+      "/images/real-events/jalwa-ceremony-decor-3.webp",
+      "/images/real-events/jalwa-ceremony-decor-4.webp"
     ],
     "videoClip": "/videos/jalwa-ceremony-decor.mp4",
     "videoPoster": "/videos/poster-jalwa-ceremony.jpg",

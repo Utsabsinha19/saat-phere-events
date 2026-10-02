@@ -18,6 +18,10 @@ function findService(slug: string) {
   );
 }
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+// Dynamic service details page with real-time showcase
 export async function generateStaticParams() {
   const baseParams = SERVICES_DATA.map((srv) => ({
     slug: srv.slug,

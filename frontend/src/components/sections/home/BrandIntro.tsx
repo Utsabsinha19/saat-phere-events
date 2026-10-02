@@ -27,7 +27,7 @@ export const BrandIntro: React.FC = () => {
       title: 'Bihar’s Luxury Event Pioneer',
       subtitle: 'Specialists in Marwari & Rajasthani Weddings',
       leadDescription:
-        'From authentic Marwari and Rajasthani traditions to celebrations across diverse cultures, we plan and manage every wedding with elegance, attention to detail, and deep respect for traditions.',
+        'From authentic Marwari and Rajasthani traditions to celebrations across diverse cultures and religions, we thoughtfully plan and manage every wedding with elegance, attention to detail, and respect for your traditions.',
       extendedDescription:
         'Born proudly in Katihar and orchestrating celebrations across Patna, Purnia, Bhagalpur, and premier palatial circuits across India.',
       hasReadMore: true,
