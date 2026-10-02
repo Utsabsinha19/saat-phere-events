@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import {
   Send,
   CheckCircle2,
@@ -674,7 +675,23 @@ export const GetAQuoteSection: React.FC = () => {
                     cursor: 'pointer',
                   }}
                 >
-                  I agree to the <span style={{ color: 'var(--color-gold-light)', textDecoration: 'underline' }}>Privacy Policy</span> and consent to Saat Phere Events contacting me with a tailored event proposal, quote estimate, and consultation details via phone/WhatsApp.
+                  I agree to the{' '}
+                  <Link
+                    href="/privacy-policy"
+                    target="_blank"
+                    style={{ color: 'var(--color-gold-light)', textDecoration: 'underline' }}
+                  >
+                    Privacy Policy
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    href="/terms-and-conditions"
+                    target="_blank"
+                    style={{ color: 'var(--color-gold-light)', textDecoration: 'underline' }}
+                  >
+                    Terms &amp; Conditions
+                  </Link>
+                  , and consent to Saat Phere Events contacting me with a tailored event proposal, quote estimate, and consultation details via phone/WhatsApp.
                 </label>
               </div>
 

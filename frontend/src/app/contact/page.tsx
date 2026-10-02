@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { ContactInquiryForm } from '@/components/forms/ContactInquiryForm';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { GoldDivider } from '@/components/common/GoldDivider';
@@ -237,6 +238,74 @@ export default function ContactPage() {
             {/* Right: The Official 9 Core Fields Form */}
             <div>
               <ContactInquiryForm />
+            </div>
+          </div>
+
+          {/* Privacy & Booking Terms Notice */}
+          <div
+            style={{
+              marginTop: '50px',
+              backgroundColor: '#FAF8F4',
+              borderRadius: '14px',
+              border: '1px solid rgba(212, 175, 55, 0.3)',
+              padding: '28px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '28px',
+            }}
+          >
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--color-maroon)' }}>
+                <ShieldCheck size={18} color="var(--color-gold)" />
+                <h4 style={{ margin: 0, fontSize: '1.05rem', fontFamily: 'var(--font-serif)', color: 'var(--color-maroon)' }}>
+                  Privacy Policy
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.88rem', color: '#4B5563', lineHeight: 1.6, margin: 0 }}>
+                At Saat Phere Events, we respect your privacy. Any information shared through our website, such as your name, contact details and event requirements, is used only to respond to your enquiry and provide our services.
+              </p>
+              <Link
+                href="/privacy-policy"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '0.82rem',
+                  color: 'var(--color-gold-dark)',
+                  fontWeight: 700,
+                  marginTop: '10px',
+                  textDecoration: 'none',
+                }}
+              >
+                Read Full Privacy Policy →
+              </Link>
+            </div>
+
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--color-maroon)' }}>
+                <ShieldCheck size={18} color="var(--color-gold)" />
+                <h4 style={{ margin: 0, fontSize: '1.05rem', fontFamily: 'var(--font-serif)', color: 'var(--color-maroon)' }}>
+                  Terms &amp; Conditions
+                </h4>
+              </div>
+              <p style={{ fontSize: '0.88rem', color: '#4B5563', lineHeight: 1.6, margin: 0 }}>
+                Website content, images and information are for general information purposes only. Submitting an enquiry does not confirm a booking. Final bookings are confirmed only after mutual agreement and applicable booking terms.
+              </p>
+              <Link
+                href="/terms-and-conditions"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '0.82rem',
+                  color: 'var(--color-gold-dark)',
+                  fontWeight: 700,
+                  marginTop: '10px',
+                  textDecoration: 'none',
+                }}
+              >
+                Read Terms &amp; Conditions →
+              </Link>
             </div>
           </div>
         </div>

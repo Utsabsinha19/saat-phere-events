@@ -90,7 +90,13 @@ export const FOOTER_LINKS = {
     { label: 'Artisan & Vendor Guild', href: '/vendors' },
     { label: 'Client Account Portal', href: '/portal' },
     { label: 'Get in Touch', href: '/contact' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms & Conditions', href: '/terms-and-conditions' },
     { label: 'Admin ERP Console', href: '/admin' },
+  ],
+  legal: [
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms & Conditions', href: '/terms-and-conditions' },
   ],
   destinations: [
     { label: 'Jaipur Heritage Weddings', href: '/services/destination-weddings' },

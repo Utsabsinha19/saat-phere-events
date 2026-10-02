@@ -267,11 +267,14 @@ export const Footer: React.FC = () => {
           </div>
           <div className="footer-bottom-links">
             <span>{SITE_CONFIG.domain}</span>
-            <Link href="/about" style={{ color: '#9CA3AF' }}>
-              Privacy &amp; Discretion
+            <Link href="/privacy-policy" style={{ color: '#9CA3AF', transition: 'color 0.2s' }}>
+              Privacy Policy
             </Link>
-            <Link href="/contact" style={{ color: '#9CA3AF' }}>
-              Emergency Inquiries
+            <Link href="/terms-and-conditions" style={{ color: '#9CA3AF', transition: 'color 0.2s' }}>
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/contact" style={{ color: '#9CA3AF', transition: 'color 0.2s' }}>
+              Contact
             </Link>
           </div>
         </div>
