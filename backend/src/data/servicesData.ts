@@ -12,10 +12,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     "heroImage": "/images/real-events/decor-1.webp",
     "cardImage": "/images/real-events/decor-1.webp",
     "galleryImages": [
-      "/images/real-events/decor-2.webp",
-      "/images/real-events/inner-decor-2.webp",
-      "/images/gallery/mandap-glass-udaipur.jpg",
-      "/images/gallery/wedding-stage.jpg"
+      "/images/real-events/stage-decor-2.webp",
+      "/images/real-events/decor-showcase-1.webp"
     ],
     "videoClip": "/videos/wedding-decor-reel.mov",
     "videoPoster": "/videos/poster-wedding-decor.jpg",

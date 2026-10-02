@@ -13,8 +13,6 @@ export const SERVICES_DATA: ServiceItem[] = [
     "cardImage": "/images/real-events/stage-decor-1.webp",
     "galleryImages": [
       "/images/real-events/stage-decor-2.webp",
-      "/images/real-events/stage-decor-3.webp",
-      "/images/real-events/wedding-stage-floral-1.webp",
       "/images/real-events/decor-showcase-1.webp"
     ],
     "videoClip": "/videos/grand-mandap-production.mp4",
