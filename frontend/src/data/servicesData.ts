@@ -125,7 +125,6 @@ export const SERVICES_DATA: ServiceItem[] = [
     "galleryImages": [
       "/images/real-events/haldi-decor-2.webp",
       "/images/real-events/haldi-decor-3.webp",
-      "/images/real-events/haldi-decor-4.webp",
       "/images/real-events/haldi-decor-5.webp"
     ],
     "videoClip": "/videos/haldi-ceremony-reel.mp4",
