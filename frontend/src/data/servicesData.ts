@@ -526,9 +526,6 @@ export const SERVICES_DATA: ServiceItem[] = [
       "/images/real-events/corporate-conference-hall.webp",
       "/images/real-events/corporate-annual-awards.webp"
     ],
-    "videoClip": "/videos/wedding-planning-reel.mp4",
-    "videoPoster": "/videos/poster-wedding-planning.jpg",
-    "videoTitle": "Executive Gala & Luxury Corporate Event Production",
     "offerings": [
       {
         "title": "High-Definition AV & LED Setup",
