@@ -1,6 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/portal',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/portal/:path*',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     const backendUrl =
       process.env.BACKEND_URL ||

@@ -12,7 +12,6 @@ import {
   Radio,
   Layers,
   ChevronRight,
-  ArrowRight,
   Users,
 } from 'lucide-react';
 import { LiveOrchestrator } from '@/components/enterprise/LiveOrchestrator';
@@ -126,24 +125,6 @@ export default function EnterpriseOperationsPage() {
                 }}
               >
                 <Sparkles size={16} /> 3D WebXR Studio
-              </Link>
-              <Link
-                href="/portal"
-                style={{
-                  padding: '10px 20px',
-                  fontSize: '0.85rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
-                  borderRadius: '30px',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontWeight: 600,
-                }}
-              >
-                Client Account Portal <ArrowRight size={14} />
               </Link>
             </div>
           </div>

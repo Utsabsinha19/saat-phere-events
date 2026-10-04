@@ -65,7 +65,6 @@ export const MAIN_NAV: NavItem[] = [
   },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Packages', href: '/packages' },
-  { label: 'Client Portal', href: '/portal' },
   { label: 'Vendors', href: '/vendors' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -88,7 +87,6 @@ export const FOOTER_LINKS = {
     { label: 'Portfolio Gallery', href: '/portfolio' },
     { label: 'Enterprise Operations OS', href: '/enterprise' },
     { label: 'Artisan & Vendor Guild', href: '/vendors' },
-    { label: 'Client Account Portal', href: '/portal' },
     { label: 'Get in Touch', href: '/contact' },
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms & Conditions', href: '/terms-and-conditions' },

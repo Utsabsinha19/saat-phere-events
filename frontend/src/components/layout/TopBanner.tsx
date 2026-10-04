@@ -61,7 +61,7 @@ export const TopBanner: React.FC = () => {
               textDecoration: 'underline',
             }}
           >
-            Admin Portal
+            Admin Console
           </Link>
         </div>
       </div>

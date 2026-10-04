@@ -394,7 +394,7 @@ Event Date:       ${lead.eventDate || 'Not specified'}
 Location / City:  ${lead.eventLocation || 'Not specified'}
 Expected Guests:  ${lead.guestCount || 'Not specified'}
 Target Budget:    ${lead.budgetRange || 'Not specified'}
-Source Portal:    ${lead.source || 'Website Inquiry Form'}
+Inquiry Source:   ${lead.source || 'Website Inquiry Form'}
 
 --- 3. CLIENT REQUIREMENTS & VISION ---
 ${lead.requirements || 'No additional custom requirements entered.'}

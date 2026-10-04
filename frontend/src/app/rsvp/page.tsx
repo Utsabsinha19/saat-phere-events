@@ -369,7 +369,7 @@ Concierge Helpline: ${SITE_CONFIG.contact.phone} (Saat Phere Guest Logistics)
 
 export default function RsvpPage() {
   return (
-    <Suspense fallback={<div style={{ padding: '80px', textAlign: 'center' }}>Loading RSVP Portal...</div>}>
+    <Suspense fallback={<div style={{ padding: '80px', textAlign: 'center' }}>Loading RSVP...</div>}>
       <RsvpContent />
     </Suspense>
   );

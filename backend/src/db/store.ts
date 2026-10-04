@@ -442,7 +442,7 @@ export const ClientPortalRepository = {
       sequenceType: 'Instant Digital Brochure Welcome',
       status: 'Delivered & Read',
       timestamp: new Date().toISOString(),
-      contentSnippet: `Your Saat Phere Client Portal login code is: ${otp}. Valid for 10 minutes.`,
+      contentSnippet: `Your Saat Phere login verification code is: ${otp}. Valid for 10 minutes.`,
       triggerSource: 'Automated Event Trigger',
     });
 

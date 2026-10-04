@@ -518,13 +518,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             >
               Contact & Inquiry
             </Link>
-            <Link
-              href="/portal"
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ fontSize: '1rem', fontWeight: 600, color: '#9CA3AF', textDecoration: 'none' }}
-            >
-              Client Account Portal
-            </Link>
 
             {/* Quick Contact Action in Drawer */}
             <div style={{ marginTop: '10px', paddingTop: '14px', borderTop: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', flexDirection: 'column', gap: '8px' }}>

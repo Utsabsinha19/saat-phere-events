@@ -386,7 +386,7 @@ export default async function ServiceDetailPage({
               Inquire For {service.title}
             </h2>
             <p style={{ color: '#4B5563', fontSize: '0.95rem', marginTop: '6px' }}>
-              Submissions are recorded in our secure Admin Lead Portal and dispatched instantly to our executive directors.
+              Submissions are recorded in our secure Admin CRM and dispatched instantly to our executive directors.
             </p>
           </div>
 

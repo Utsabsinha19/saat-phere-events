@@ -106,7 +106,7 @@ export const ContactInquiryForm: React.FC = () => {
       }}
     >
       <div style={{ marginBottom: '24px' }}>
-        <span className="badge-gold">Official Inquiry Portal • Katihar &amp; Patna HQ</span>
+        <span className="badge-gold">Official Inquiry Desk • Katihar &amp; Patna HQ</span>
         <h3
           style={{
             fontFamily: 'var(--font-serif)',

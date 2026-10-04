@@ -17,7 +17,6 @@ router.get('/', (req: Request, res: Response) => {
       galleryLightbox: 'active',
       adminCms: 'active',
       phase2PaymentsModule: 'ready',
-      phase2ClientPortal: 'ready',
       enterpriseOrchestrator: 'active',
     },
     contact: {

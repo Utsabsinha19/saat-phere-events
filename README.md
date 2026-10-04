@@ -34,7 +34,6 @@ saat_phere_events/
 │   │   │   ├── packages/page.tsx          # Interactive Quotation Engine
 │   │   │   ├── contact/page.tsx           # Official 9-Field Lead Engine & Google Maps
 │   │   │   ├── admin/                     # Admin CMS, Inquiries, CRM, Gallery, Testimonials
-│   │   │   ├── portal/                    # Phase 2 Client Account Portal & Invoicing
 │   │   │   ├── studio/                    # 3D Spatial Decor & Mandap Studio (Three.js)
 │   │   │   ├── rsvp/                      # VIP Wedding Guest RSVP & Digital Pass Generator
 │   │   │   ├── vendors/                   # Verified Luxury Vendor & RFP Network

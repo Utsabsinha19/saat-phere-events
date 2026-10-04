@@ -495,7 +495,7 @@ def build_pdf(filename="photo&video.pdf"):
             Paragraph("public/textures/<br/>public/hdr/", table_cell_style),
         ],
         [
-            Paragraph("VIP Guest RSVP & Passes<br/><code>/rsvp & /portal</code>", table_cell_bold),
+            Paragraph("VIP Guest RSVP & Passes<br/><code>/rsvp</code>", table_cell_bold),
             Paragraph("4 Graphic Stills<br/>(3:4 & 16:9)", table_cell_style),
             Paragraph("Royal invitation card with Mughal jaali gold borders; 3D SPE crest wax seal with alpha; Lake Pichola arrival dock map; Wooden contactless RFID keycard hamper mockup.", table_cell_style),
             Paragraph("public/images/rsvp/<br/>royal-invite-template.webp<br/>gold-wax-seal.png", table_cell_style),

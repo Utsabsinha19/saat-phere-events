@@ -48,8 +48,6 @@ saat_phere_events/
 │   │   │   ├── testimonials/page.tsx      # Reviews Approval Manager
 │   │   │   ├── layout.tsx                 # Dedicated Admin Layout & Sidebar
 │   │   │   └── page.tsx                   # Executive Dashboard & KPIs
-│   │   ├── portal/                        # Phase 2 Client Account Portal
-│   │   │   └── page.tsx                   # Couple Milestones, Moodboards & Invoices
 │   │   ├── api/                           # REST API Route Handlers
 │   │   │   ├── gallery/route.ts           # Media Catalog Endpoints
 │   │   │   ├── health/route.ts            # System Health & Uptime

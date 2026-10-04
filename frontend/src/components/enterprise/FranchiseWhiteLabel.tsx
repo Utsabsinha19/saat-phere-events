@@ -185,14 +185,14 @@ export const FranchiseWhiteLabel: React.FC = () => {
         )}
       </div>
 
-      {/* ================= SUB-AGENCY & HOTEL CONCIERGE REFERRAL PORTAL ================= */}
+      {/* ================= SUB-AGENCY & HOTEL CONCIERGE REFERRAL NETWORK ================= */}
       <div className="luxury-card" style={{ padding: '32px', backgroundColor: '#FFFFFF' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <span className="badge-gold">Sub-Agency & Concierge Guild</span>
             <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--color-maroon)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Hotel size={24} color="var(--color-gold)" />
-              5-Star Hotel Concierge & Boutique Planner Referral Portal
+              5-Star Hotel Concierge & Boutique Planner Referral Network
             </h3>
           </div>
 

@@ -34,7 +34,7 @@ export const INITIAL_WHATSAPP_LOGS: WhatsAppLogItem[] = [
     status: 'Delivered & Read',
     timestamp: '2026-09-26T14:10:00.000Z',
     contentSnippet:
-      'Dear Ananya & Siddharth, your updated 3D Lakeside Lotus Mandap render is live on your Client Account Portal. Please review and sign off on flower density.',
+      'Dear Ananya & Siddharth, your updated 3D Lakeside Lotus Mandap render is ready for your review. Please sign off on flower density.',
     triggerSource: 'Executive Manual Dispatch',
   },
   {
@@ -46,7 +46,7 @@ export const INITIAL_WHATSAPP_LOGS: WhatsAppLogItem[] = [
     status: 'Delivered',
     timestamp: '2026-09-28T10:00:00.000Z',
     contentSnippet:
-      'Production Update: Stage 2 load-in milestone escrow has been initiated with Acoustic Symphony & Light Systems. GST Invoice #SPE-INV-2026-8812 is available in portal.',
+      'Production Update: Stage 2 load-in milestone escrow has been initiated with Acoustic Symphony & Light Systems. GST Invoice #SPE-INV-2026-8812 is available upon request.',
     triggerSource: 'Automated Event Trigger',
   },
 ];

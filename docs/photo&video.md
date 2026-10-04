@@ -269,8 +269,8 @@ Categories:
 ---
 
 ### Section 7: VIP Guest RSVP & Digital Wedding Passes
-* **Component Path:** `frontend/src/app/rsvp/page.tsx` & `frontend/src/components/portal/RsvpManager.tsx`
-* **Route:** `/rsvp` and `/portal`
+* **Component Path:** `frontend/src/app/rsvp/page.tsx`
+* **Route:** `/rsvp`
 * **Objective:** Give guests a royal concierge boarding pass experience with printable badges and digital passes.
 
 | Deliverable | Qty | Aspect Ratio | Visual Subject | File Destination |
