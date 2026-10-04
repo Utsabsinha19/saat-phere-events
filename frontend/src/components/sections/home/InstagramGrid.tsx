@@ -8,28 +8,34 @@ import { SITE_CONFIG } from '@/config/site';
 export const InstagramGrid: React.FC = () => {
   const posts = [
     {
-      img: '/images/hero/hero-palace-udaipur.jpg',
-      caption: 'Lakeside vows under 20,000 blossoms at Jagmandir Island Palace. #SaatPhereMoments',
+      img: '/images/instagram/sangeet-stage-decor.webp',
+      title: 'Sangeet Stage Decor & LED Backdrop',
+      caption: 'Live Sangeet stage setup with automated beam heads, LED backdrop display, and luxury banquet guest seating. #SaatPhereEvents',
     },
     {
-      img: '/images/gallery/haldi-marigold.jpg',
-      caption: 'The sunny Haldi splash: Brass urlis and Phoolon ki Holi in the royal courtyard.',
+      img: '/images/instagram/royal-dining-canopy.webp',
+      title: 'Royal Dining Canopy & Illuminated Lanterns',
+      caption: 'Grand royal dining canopy setup featuring multi-hued ceiling drapes, illuminated orbs, and bespoke catering aisle. #SaatPhereEvents',
     },
     {
-      img: '/images/gallery/sangeet-dance.jpg',
-      caption: 'Concert-grade Sangeet night with automated moving heads & crystal chandeliers.',
+      img: '/images/instagram/production-crew-briefing.webp',
+      title: 'Behind-the-Scenes Production Crew Briefing',
+      caption: 'Behind-the-scenes: Production crew and on-ground event managers briefing before the grand guest arrival. #SaatPhereTeam',
     },
     {
-      img: '/images/gallery/wedding-stage.jpg',
-      caption: 'A 100-foot floral tunnel leading to the royal dining hall at Rambagh Palace.',
+      img: '/images/instagram/grand-stage-setup.webp',
+      title: 'Concert-Grade Truss Rigging & Stage Launch',
+      caption: 'Concert-grade overhead truss rigging, floral garlands, and celebratory balloon release ceremony. #SaatPhereProductions',
     },
     {
-      img: '/images/hero/hero-beach-goa.jpg',
-      caption: 'Barefoot luxury: Sunset coastal wedding setup overlooking the Arabian Sea.',
+      img: '/images/instagram/vip-lounge-setup.webp',
+      title: 'VIP Outdoor Lounge & Floral Centerpiece',
+      caption: 'VIP outdoor lounge setup: Plush leather seating, floral centerpieces, and traditional red carpet walkway. #SaatPhereEvents',
     },
     {
-      img: '/images/hero/hero-palace-jodhpur.jpg',
-      caption: 'Royal twilight: Golden sandstone heritage facade surrounded by 1,001 oil lamps.',
+      img: '/images/instagram/client-consultation.webp',
+      title: 'Client & Family Wedding Planning Walkthrough',
+      caption: 'Personalized event coordination: In-person planning and timeline walkthrough with the client family. #SaatPhereExperience',
     },
   ];
 
@@ -68,7 +74,8 @@ export const InstagramGrid: React.FC = () => {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={post.img}
-                alt="Instagram post"
+                alt={post.title}
+                loading="lazy"
                 style={{
                   width: '100%',
                   height: '100%',
