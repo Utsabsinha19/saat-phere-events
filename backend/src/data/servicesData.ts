@@ -517,11 +517,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     "cardImage": "/images/real-events/corporate-grand-opening-stage.webp",
     "galleryImages": [
       "/images/real-events/corporate-grand-opening-stage.webp",
-      "/images/real-events/corporate-inauguration-cake-replica.webp",
-      "/images/real-events/corporate-bihar-business-connect.webp",
-      "/images/real-events/corporate-summit-stage.webp",
-      "/images/real-events/corporate-conference-hall.webp",
-      "/images/real-events/corporate-annual-awards.webp"
+      "/images/real-events/corporate-inauguration-cake-replica.webp"
     ],
     "videoClip": "/videos/corporate-inauguration-ceremony.mp4",
     "videoPoster": "/videos/poster-corporate-inauguration.jpg",

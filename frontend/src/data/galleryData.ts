@@ -404,18 +404,6 @@ export const GALLERY_DATA: GalleryMediaItem[] = [
   },
   {
     id: 'gal-19',
-    title: 'Bihar Business Connect 2024 - Kolkata Investors Meet',
-    category: 'Corporate Events',
-    type: 'image',
-    imageUrl: '/images/real-events/corporate-bihar-business-connect.webp',
-    location: 'Taj Bengal, Kolkata & Bihar Industries Dept',
-    eventDate: 'Summit 2024',
-    aspectRatio: 'landscape',
-    featured: true,
-    description: 'High-profile government & enterprise investment summit featuring high-definition LED stage backdrops and executive dignitary protocol.',
-  },
-  {
-    id: 'gal-20',
     title: 'Corporate Grand Opening Stage & Balloon Release',
     category: 'Corporate Events',
     type: 'image',
@@ -427,7 +415,7 @@ export const GALLERY_DATA: GalleryMediaItem[] = [
     description: 'Grand corporate inauguration stage featuring branded backdrop, aluminum truss lighting, acoustic line arrays, marigold borders, and executive dignitary gathering.',
   },
   {
-    id: 'gal-21',
+    id: 'gal-20',
     title: 'Bespoke Corporate Replica Centerpiece & Inauguration Display',
     category: 'Corporate Events',
     type: 'image',
