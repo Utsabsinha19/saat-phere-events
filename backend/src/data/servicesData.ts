@@ -438,10 +438,25 @@ export const SERVICES_DATA: ServiceItem[] = [
       "/images/real-events/sangeet-grand-stage-1.webp",
       "/images/real-events/decor-showcase-6.webp"
     ],
-    "videoClip": "/videos/reception-varmala-ceremony.mp4",
-    "videoPoster": "/videos/poster-reception-varmala.jpg",
-    "videoTitle": "Grand Royal Varmala & Reception Stage Ceremony",
+    "videoClip": "/videos/sangeet-spectacle-reel.mp4",
+    "videoPoster": "/videos/poster-sangeet-spectacle.jpg",
+    "videoTitle": "Grand Reception Stage & Lighting Scenography",
     "videos": [
+      {
+        "src": "/videos/sangeet-spectacle-reel.mp4",
+        "poster": "/videos/poster-sangeet-spectacle.jpg",
+        "title": "Grand Reception & Stage Spectacle"
+      },
+      {
+        "src": "/videos/sangeet-grand-stage.mp4",
+        "poster": "/videos/poster-sangeet-stage.jpg",
+        "title": "Illuminated Royal Stage Production"
+      },
+      {
+        "src": "/videos/sangeet-dance-function.mp4",
+        "poster": "/videos/poster-sangeet-dance.jpg",
+        "title": "Gala Celebration & Grand Evening Function"
+      },
       {
         "src": "/videos/reception-varmala-ceremony.mp4",
         "poster": "/videos/poster-reception-varmala.jpg",
