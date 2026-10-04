@@ -351,6 +351,8 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .brand-logo-title {
@@ -365,12 +367,14 @@ img {
   line-height: 1.1;
   white-space: nowrap;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+  text-align: center;
 }
 
 .brand-logo-subtitle {
   font-family: var(--font-sans);
   font-size: 0.65rem;
   letter-spacing: 2.8px;
+  text-indent: 2.8px;
   text-transform: uppercase;
   color: #E8C360;
   font-weight: 700;
@@ -378,6 +382,8 @@ img {
   white-space: nowrap;
   line-height: 1;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  width: 100%;
 }
 
 /* Desktop Navigation */
@@ -603,6 +609,9 @@ img {
   .brand-logo-subtitle {
     font-size: 0.52rem;
     letter-spacing: 1.6px;
+    text-indent: 1.6px;
+    text-align: center;
+    width: 100%;
   }
   .header-consultation-btn {
     padding: 6px 8px;

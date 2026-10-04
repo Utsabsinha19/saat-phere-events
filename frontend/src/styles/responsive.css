@@ -194,6 +194,8 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .brand-logo-title {
@@ -208,12 +210,14 @@ p {
   line-height: 1.1;
   white-space: nowrap;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+  text-align: center;
 }
 
 .brand-logo-subtitle {
   font-family: var(--font-sans);
   font-size: clamp(0.5rem, 0.8vw, 0.65rem);
   letter-spacing: clamp(1.5px, 0.3vw, 2.8px);
+  text-indent: clamp(1.5px, 0.3vw, 2.8px);
   text-transform: uppercase;
   color: #E8C360;
   font-weight: 700;
@@ -221,6 +225,8 @@ p {
   white-space: nowrap;
   line-height: 1;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  width: 100%;
 }
 
 /* Desktop Navigation */
@@ -1686,6 +1692,9 @@ footer {
   .brand-logo-subtitle {
     font-size: 0.52rem !important;
     letter-spacing: 1.8px !important;
+    text-indent: 1.8px !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .header-consultation-btn {

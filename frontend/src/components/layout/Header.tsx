@@ -69,9 +69,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             alt="Saat Phere Events Official Royal Crest"
             className="brand-logo-emblem"
           />
-          <div className="brand-logo-text-block">
-            <span className="brand-logo-title">Saat Phere</span>
-            <span className="brand-logo-subtitle">Events</span>
+          <div className="brand-logo-text-block" style={{ textAlign: 'center', alignItems: 'center' }}>
+            <span className="brand-logo-title" style={{ textAlign: 'center' }}>Saat Phere</span>
+            <span className="brand-logo-subtitle" style={{ textAlign: 'center', width: '100%', display: 'block' }}>Events</span>
           </div>
         </Link>
 
