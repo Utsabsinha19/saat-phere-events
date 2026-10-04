@@ -418,10 +418,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     "heroImage": "/images/real-events/stage-decor-3.webp",
     "cardImage": "/images/real-events/stage-decor-3.webp",
     "galleryImages": [
-      "/images/real-events/stage-decor-4.webp",
-      "/images/real-events/stage-decor-5.webp",
-      "/images/real-events/outer-decor-1.webp",
-      "/images/real-events/wedding-stage-floral-2.webp"
+      "/images/real-events/decor-showcase-7.webp",
+      "/images/real-events/decor-showcase-5.webp",
+      "/images/real-events/sangeet-grand-stage-1.webp",
+      "/images/real-events/decor-showcase-6.webp"
     ],
     "videoClip": "/videos/sangeet-spectacle-reel.mp4",
     "videoPoster": "/videos/poster-sangeet-spectacle.jpg",
