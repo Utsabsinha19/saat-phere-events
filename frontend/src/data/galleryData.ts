@@ -181,7 +181,7 @@ export const GALLERY_DATA: GalleryMediaItem[] = [
     location: 'Corporate Venue, Bihar',
     eventDate: 'Production Showcase',
     aspectRatio: 'portrait',
-    featured: false,
+    featured: true,
     description: 'Behind-the-scenes engineering and heavy-duty aluminum sound and light truss rigging by the Saat Phere Events technical crew.',
   },
 

@@ -12,7 +12,7 @@ export const ShowcasePreview: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedImage, setSelectedImage] = useState<GalleryMediaItem | null>(null);
 
-  const categories = ['All', 'Mandap Designs', 'Destination Weddings', 'Haldi / Mehendi', 'Stage Decors'];
+  const categories = ['All', 'Mandap Designs', 'Destination Weddings', 'Haldi / Mehendi', 'Stage Decors', 'Corporate Events'];
 
   const filteredItems =
     activeCategory === 'All'
