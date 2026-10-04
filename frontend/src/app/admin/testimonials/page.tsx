@@ -17,7 +17,7 @@ export default function TestimonialsManagerPage() {
     weddingLocation: 'Udaipur, Rajasthan',
     reviewText: '',
     rating: 5,
-    avatarUrl: '/images/testimonials/avatar-ananya-siddharth.jpg',
+    avatarUrl: '/images/testimonials/avatar-ishika-agarwal.jpg',
     featured: true,
   });
 
@@ -57,7 +57,7 @@ export default function TestimonialsManagerPage() {
           weddingLocation: 'Udaipur, Rajasthan',
           reviewText: '',
           rating: 5,
-          avatarUrl: '/images/testimonials/avatar-ananya-siddharth.jpg',
+          avatarUrl: '/images/testimonials/avatar-ishika-agarwal.jpg',
           featured: true,
         });
         loadTestimonials();

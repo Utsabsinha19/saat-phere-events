@@ -97,7 +97,7 @@ export const TestimonialsCarousel: React.FC = () => {
                   }}
                 >
                   <CheckCircle2 size={13} color="#059669" />
-                  Verified Destination Client
+                  Verified Client Review
                 </span>
               </div>
             </div>
@@ -167,7 +167,7 @@ export const TestimonialsCarousel: React.FC = () => {
                       justifyContent: 'center',
                       border: '2px solid #FFFFFF',
                     }}
-                    title="Verified Real Couple"
+                    title="Verified Client"
                   >
                     <CheckCircle2 size={11} color="#FFFFFF" />
                   </div>

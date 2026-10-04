@@ -124,7 +124,7 @@ if (!db.checkpoints) {
 }
 
 // Refresh testimonials, gallery, and services to authentic real Indian photos
-if (!db.testimonials || db.testimonials[0]?.avatarUrl?.includes('unsplash.com')) {
+if (!db.testimonials || db.testimonials[0]?.avatarUrl?.includes('unsplash.com') || db.testimonials[0]?.clientNames?.includes('Ananya') || db.testimonials.length < 5) {
   db.testimonials = [...TESTIMONIALS_DATA];
 }
 if (!db.gallery || db.gallery[0]?.imageUrl?.includes('unsplash.com') || db.gallery.some((g) => g.type === 'video')) {
