@@ -4,6 +4,8 @@ import { QuotationEstimateBreakdown } from '@/types/quotation';
 import { InquiryRepository } from '@/db/store';
 import { EventType } from '@/types/inquiry';
 
+import { sendAdminLeadNotification } from '@/email/adminNotification';
+
 const router = Router();
 
 router.post('/', async (req: Request, res: Response) => {
@@ -63,7 +65,7 @@ router.post('/', async (req: Request, res: Response) => {
     };
 
     // Store as lead in system
-    await InquiryRepository.create({
+    const newLead = await InquiryRepository.create({
       fullName: data.fullName,
       phone: data.phone,
       email: data.email,
@@ -74,6 +76,13 @@ router.post('/', async (req: Request, res: Response) => {
       budgetRange: data.budgetRange,
       requirements: `[Interactive Quotation Engine: ${quotationId}]\nVenue: ${data.venueType}\nTier: ${estimatedTier}\nServices: ${data.selectedServices.join(', ')}\nNotes: ${data.customRequirements || 'None'}`,
     });
+
+    const skipEmail = req.headers['x-email-dispatched'] === 'true';
+    if (!skipEmail) {
+      sendAdminLeadNotification(newLead).catch((err) => {
+        console.error('Background quote email dispatch warning:', err);
+      });
+    }
 
     return res.json({
       success: true,

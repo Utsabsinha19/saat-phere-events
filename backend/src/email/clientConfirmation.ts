@@ -1,6 +1,7 @@
 import { InquiryCreateInput } from '@/types/inquiry';
 import { SITE_CONFIG } from '@/config/site';
 import { EmailDispatchResult } from './adminNotification';
+import { getBackendMailTransporter } from './mailer';
 
 export async function sendClientInquiryConfirmation(lead: InquiryCreateInput & { id: string }): Promise<EmailDispatchResult> {
   const recipient = lead.email;
@@ -27,14 +28,50 @@ WhatsApp: https://wa.me/${SITE_CONFIG.contact.whatsappRaw}
 Website: ${SITE_CONFIG.url}
 `;
 
-  console.log(`[SMTP SIMULATION] Confirmation sent to client ${recipient}`);
-  console.log(emailBody);
+  const transporter = getBackendMailTransporter();
 
-  return {
-    success: true,
-    messageId: `conf_${Date.now()}_${Math.random().toString(36).substring(7)}`,
-    recipient,
-    subject,
-    dispatchedAt: new Date().toISOString(),
-  };
+  if (!transporter) {
+    return {
+      success: true,
+      messageId: `conf_${Date.now()}_${Math.random().toString(36).substring(7)}`,
+      recipient,
+      subject,
+      dispatchedAt: new Date().toISOString(),
+      isSimulated: true,
+    };
+  }
+
+  try {
+    const sender =
+      process.env.EMAIL_FROM ||
+      `"Saat Phere Events" <${process.env.GMAIL_USER || process.env.SMTP_USER || 'saatpherektr@gmail.com'}>`;
+
+    const info = await transporter.sendMail({
+      from: sender,
+      to: recipient,
+      subject,
+      text: emailBody,
+    });
+
+    return {
+      success: true,
+      messageId: info.messageId,
+      recipient,
+      subject,
+      dispatchedAt: new Date().toISOString(),
+      isSimulated: false,
+    };
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : String(error);
+    console.error(`[BACKEND CLIENT CONFIRMATION ERROR] Failed to send email to ${recipient}:`, errorMsg);
+
+    return {
+      success: false,
+      messageId: `err_conf_${Date.now()}`,
+      recipient,
+      subject,
+      dispatchedAt: new Date().toISOString(),
+      error: errorMsg,
+    };
+  }
 }

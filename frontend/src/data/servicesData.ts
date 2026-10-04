@@ -513,13 +513,35 @@ export const SERVICES_DATA: ServiceItem[] = [
     "category": "Corporate & Institutional",
     "shortDescription": "Delivering immaculate corporate summits, award evenings, product unveilings, dealer meets, and executive banquets across Bihar and major metro cities with flawless technical execution.",
     "longDescription": "Corporate events demand brand precision, technical excellence, and seamless protocol. Saat Phere Events delivers turnkey corporate event production for enterprise clients, banking institutions, and healthcare brands across Eastern India. From crisp high-definition LED screens and acoustic engineering to delegate registration kiosks and celebrity artist nights, we ensure brand distinction.",
-    "heroImage": "/images/real-events/corporate-bihar-business-connect.webp",
-    "cardImage": "/images/real-events/corporate-bihar-business-connect.webp",
+    "heroImage": "/images/real-events/corporate-grand-opening-stage.webp",
+    "cardImage": "/images/real-events/corporate-grand-opening-stage.webp",
     "galleryImages": [
+      "/images/real-events/corporate-grand-opening-stage.webp",
+      "/images/real-events/corporate-inauguration-cake-replica.webp",
       "/images/real-events/corporate-bihar-business-connect.webp",
       "/images/real-events/corporate-summit-stage.webp",
       "/images/real-events/corporate-conference-hall.webp",
       "/images/real-events/corporate-annual-awards.webp"
+    ],
+    "videoClip": "/videos/corporate-inauguration-ceremony.mp4",
+    "videoPoster": "/videos/poster-corporate-inauguration.jpg",
+    "videoTitle": "Corporate Grand Inauguration & Dignitary Ceremony",
+    "videos": [
+      {
+        "src": "/videos/corporate-inauguration-ceremony.mp4",
+        "poster": "/videos/poster-corporate-inauguration.jpg",
+        "title": "Corporate Grand Opening & VIP Dignitary Welcome"
+      },
+      {
+        "src": "/videos/corporate-stage-production.mp4",
+        "poster": "/videos/poster-corporate-stage-production.jpg",
+        "title": "Executive Stage Setup, Ribbon Cutting & Balloon Release"
+      },
+      {
+        "src": "/videos/corporate-event-highlights.mp4",
+        "poster": "/videos/poster-corporate-event-highlights.jpg",
+        "title": "Technical Production, Sound Truss & Line Array Rigging"
+      }
     ],
     "offerings": [
       {

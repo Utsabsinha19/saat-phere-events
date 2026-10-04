@@ -91,12 +91,15 @@ router.post('/', async (req: Request, res: Response) => {
     const newLead = await InquiryRepository.create(validatedData as unknown as InquiryCreateInput);
 
     // Automated Pipeline per PRD Section 4.1:
-    Promise.allSettled([
-      sendAdminLeadNotification(newLead),
-      sendClientInquiryConfirmation(newLead),
-    ]).catch((err) => {
-      console.error('Background email dispatch warning:', err);
-    });
+    const skipEmail = req.headers['x-email-dispatched'] === 'true';
+    if (!skipEmail) {
+      Promise.allSettled([
+        sendAdminLeadNotification(newLead),
+        sendClientInquiryConfirmation(newLead),
+      ]).catch((err) => {
+        console.error('Background email dispatch warning:', err);
+      });
+    }
 
     return res.status(201).json({
       success: true,
