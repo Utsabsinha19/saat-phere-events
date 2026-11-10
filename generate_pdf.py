@@ -12,7 +12,7 @@ from reportlab.platypus import (
     TableStyle,
     PageBreak,
     KeepTogether,
-    HRFlowable,
+    HRFlowable, 
 )
 from reportlab.pdfgen import canvas
 
@@ -25,7 +25,7 @@ class NumberedCanvas(canvas.Canvas):
         self._saved_page_states.append(dict(self.__dict__))
         self._startPage()
 
-    def save(self):
+    def save(self):  
         num_pages = len(self._saved_page_states)
         for state in self._saved_page_states:
             self.__dict__.update(state)

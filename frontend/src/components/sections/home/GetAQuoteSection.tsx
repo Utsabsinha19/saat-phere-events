@@ -337,7 +337,6 @@ export const GetAQuoteSection: React.FC = () => {
                     required
                     value={formData.brideGroomName}
                     onChange={(e) => setFormData({ ...formData, brideGroomName: e.target.value })}
-                    placeholder="e.g. Pooja & Rohan (or Aditya Verma)"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -372,7 +371,6 @@ export const GetAQuoteSection: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="name@domain.com"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -407,7 +405,6 @@ export const GetAQuoteSection: React.FC = () => {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 72091 27697"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -481,7 +478,6 @@ export const GetAQuoteSection: React.FC = () => {
                     required
                     value={formData.venue}
                     onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
-                    placeholder="e.g. Patna / Katihar / Udaipur / Purnia"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -624,7 +620,6 @@ export const GetAQuoteSection: React.FC = () => {
                   rows={3}
                   value={formData.specialNotes}
                   onChange={(e) => setFormData({ ...formData, specialNotes: e.target.value })}
-                  placeholder="Share details such as estimated guest count, theme preferences, floral palette, or specific rituals..."
                   style={{
                     width: '100%',
                     padding: '12px 16px',
