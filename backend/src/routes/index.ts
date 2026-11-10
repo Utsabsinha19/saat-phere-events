@@ -10,6 +10,7 @@ import branchesRouter from './branches';
 import rsvpsRouter from './rsvps';
 import crmRouter from './crm';
 import paymentsRouter from './payments';
+import uploadRouter from './upload';
 import v1ClientRouter from './v1/client';
 import v1EnterpriseRouter from './v1/enterprise';
 
@@ -26,6 +27,7 @@ router.use('/branches', branchesRouter);
 router.use('/rsvps', rsvpsRouter);
 router.use('/crm', crmRouter);
 router.use('/payments', paymentsRouter);
+router.use('/upload', uploadRouter);
 router.use('/v1/client', v1ClientRouter);
 router.use('/v1/enterprise', v1EnterpriseRouter);
 

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { AdminHeader } from '@/components/admin/AdminHeader';
 import { GalleryMediaItem, GalleryCategory } from '@/types/gallery';
-import { Plus, Trash2, Sparkles, MapPin, Play, Image as ImageIcon, X } from 'lucide-react';
+import { Plus, Trash2, Sparkles, MapPin, Play, Image as ImageIcon, X, UploadCloud, Loader2, Check } from 'lucide-react';
 
 const CATEGORIES: GalleryCategory[] = [
   'Mandap Designs',
@@ -19,6 +19,8 @@ export default function GalleryManagerPage() {
   const [loading, setLoading] = useState(true);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [uploadingFile, setUploadingFile] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const [newItem, setNewItem] = useState({
     title: '',
@@ -29,6 +31,40 @@ export default function GalleryManagerPage() {
     location: '',
     description: '',
   });
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingFile(true);
+    setUploadError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('folder', 'saat-phere-events/gallery');
+
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const json = await res.json();
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || 'Failed to upload image to Cloudinary');
+      }
+
+      setNewItem((prev) => ({
+        ...prev,
+        imageUrl: json.data.url,
+      }));
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Upload failed';
+      setUploadError(msg);
+    } finally {
+      setUploadingFile(false);
+    }
+  };
 
   const loadGallery = async () => {
     try {
@@ -270,12 +306,102 @@ export default function GalleryManagerPage() {
               </div>
 
               <div className="form-group">
-                <label className="form-label">Image URL / High-Res Asset *</label>
+                <label className="form-label">Upload Image to Cloudinary CDN *</label>
+
+                {/* Cloudinary File Upload Box */}
+                <div
+                  style={{
+                    border: '2px dashed #D4AF37',
+                    borderRadius: '8px',
+                    padding: '20px',
+                    backgroundColor: '#FDFBF7',
+                    textAlign: 'center',
+                    marginBottom: '12px',
+                    position: 'relative',
+                  }}
+                >
+                  {uploadingFile ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', color: 'var(--color-maroon)' }}>
+                      <Loader2 size={28} className="animate-spin" />
+                      <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Uploading &amp; Optimizing with Cloudinary...</span>
+                    </div>
+                  ) : newItem.imageUrl ? (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', textAlign: 'left' }}>
+                      <img
+                        src={newItem.imageUrl}
+                        alt="Preview"
+                        style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '6px', border: '1px solid #D4AF37' }}
+                      />
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#059669', fontSize: '0.85rem', fontWeight: 600 }}>
+                          <Check size={16} /> Hosted on Cloudinary CDN
+                        </div>
+                        <p style={{ margin: '4px 0 0 0', fontSize: '0.78rem', color: '#6B7280', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          {newItem.imageUrl}
+                        </p>
+                        <label
+                          htmlFor="cloudinary-file-replace"
+                          style={{
+                            display: 'inline-block',
+                            marginTop: '8px',
+                            fontSize: '0.8rem',
+                            color: '#800020',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            textDecoration: 'underline',
+                          }}
+                        >
+                          Change Photo
+                        </label>
+                        <input
+                          id="cloudinary-file-replace"
+                          type="file"
+                          accept="image/*"
+                          style={{ display: 'none' }}
+                          onChange={handleFileUpload}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <UploadCloud size={32} color="#D4AF37" style={{ margin: '0 auto 8px auto' }} />
+                      <p style={{ margin: '0 0 4px 0', fontSize: '0.92rem', fontWeight: 600, color: '#1F2937' }}>
+                        Click to select image or drag &amp; drop here
+                      </p>
+                      <p style={{ margin: 0, fontSize: '0.78rem', color: '#6B7280' }}>
+                        PNG, JPG, WEBP up to 10MB • Auto-compressed via Cloudinary
+                      </p>
+                      <input
+                        id="cloudinary-file-input"
+                        type="file"
+                        accept="image/*"
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          opacity: 0,
+                          cursor: 'pointer',
+                        }}
+                        onChange={handleFileUpload}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {uploadError && (
+                  <p style={{ color: '#DC2626', fontSize: '0.8rem', margin: '-4px 0 8px 0' }}>
+                    ⚠ {uploadError}
+                  </p>
+                )}
+
+                {/* Direct / Fallback Image URL input */}
                 <input
-                  type="url"
+                  type="text"
                   required
                   className="form-input"
-                  placeholder="/images/gallery/... or https://..."
+                  placeholder="Or paste external image URL (https://res.cloudinary.com/...)"
                   value={newItem.imageUrl}
                   onChange={(e) => setNewItem({ ...newItem, imageUrl: e.target.value })}
                 />
