@@ -116,7 +116,10 @@ export async function sendAdminLeadNotification(lead: InquiryCreateInput & { id:
     SITE_CONFIG.contact.email ||
     'saatpherektr@gmail.com';
 
-  const subject = `[URGENT LEAD] New Event Inquiry: ${lead.fullName} (${lead.eventType}) - #${lead.id}`;
+  const isQuote = lead.source?.toLowerCase().includes('quote') || (lead.id && lead.id.includes('QUOTE'));
+  const subject = isQuote
+    ? `🚨 [NEW QUOTE REQUEST] ${lead.fullName} (${lead.eventType} • ${lead.eventLocation}) - #${lead.id}`
+    : `[URGENT LEAD] New Event Inquiry: ${lead.fullName} (${lead.eventType}) - #${lead.id}`;
 
   const emailBody = `
 =====================================================

@@ -40,6 +40,9 @@ export const inquirySchema = z.object({
     .string()
     .max(2000, { message: 'Requirements cannot exceed 2000 characters' })
     .optional(),
+  source: z
+    .string()
+    .optional(),
 });
 
 export type InquiryFormValues = z.infer<typeof inquirySchema>;

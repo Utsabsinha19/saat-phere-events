@@ -9,7 +9,7 @@ export function getBackendMailTransporter(): Transporter | null {
   const port = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : undefined;
   const secure = process.env.SMTP_SECURE === 'true' || port === 465;
 
-  const user = process.env.GMAIL_USER || process.env.SMTP_USER;
+  const user = process.env.GMAIL_USER || process.env.SMTP_USER || 'saatpherektr@gmail.com';
   const pass = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS || process.env.SMTP_PASSWORD;
 
   // Custom SMTP

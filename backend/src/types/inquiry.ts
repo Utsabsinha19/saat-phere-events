@@ -40,6 +40,7 @@ export interface InquiryCreateInput {
   guestCount: number | string;
   budgetRange: string;
   requirements?: string;
+  source?: string;
 }
 
 export interface InquiryMetrics {

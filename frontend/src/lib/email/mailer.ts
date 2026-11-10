@@ -22,7 +22,7 @@ export function getMailTransporter(): Transporter | null {
   const port = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : undefined;
   const secure = process.env.SMTP_SECURE === 'true' || port === 465;
 
-  const user = process.env.GMAIL_USER || process.env.SMTP_USER;
+  const user = process.env.GMAIL_USER || process.env.SMTP_USER || 'saatpherektr@gmail.com';
   const pass = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS || process.env.SMTP_PASSWORD;
 
   // 1. Explicit Custom SMTP Host (SendGrid, Brevo, AWS SES, Resend, or custom mail server)
@@ -38,7 +38,7 @@ export function getMailTransporter(): Transporter | null {
     });
   }
 
-  // 2. Direct Gmail / Google Workspace SMTP
+  // 2. Direct Gmail / Google Workspace SMTP (uses smtp.gmail.com port 465 SSL)
   if (user && pass) {
     return nodemailer.createTransport({
       service: 'gmail',
@@ -86,13 +86,21 @@ export function generateAdminEmailHtml(lead: Partial<InquiryLead>): string {
     timeStyle: 'medium',
   });
 
+  const isQuote = lead.source?.toLowerCase().includes('quote') || (lead.id && lead.id.includes('QUOTE'));
+  const headerSubtitle = isQuote
+    ? 'New Custom Quote Request • Executive Notification'
+    : 'New Client Lead Dispatch • Executive Notification';
+  const alertHeadline = isQuote
+    ? `🚨 NEW GET A QUOTE REQUEST • Reference ID: <strong>#${lead.id || 'NEW-QUOTE'}</strong>`
+    : `🚨 URGENT LEAD NOTIFICATION • Reference ID: <strong>#${lead.id || 'NEW-LEAD'}</strong>`;
+
   return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Event Inquiry - Saat Phere Events</title>
+  <title>${isQuote ? 'New Quote Request' : 'New Event Inquiry'} - Saat Phere Events</title>
   <style>
     body {
       margin: 0;
@@ -247,12 +255,12 @@ export function generateAdminEmailHtml(lead: Partial<InquiryLead>): string {
       <div class="header">
         <div style="color: #D4AF37; font-size: 20px; margin-bottom: 6px;">✦ ✦ ✦</div>
         <h1 class="brand-title">Saat Phere Events</h1>
-        <p class="brand-subtitle">New Client Lead Dispatch • Executive Notification</p>
+        <p class="brand-subtitle">${headerSubtitle}</p>
       </div>
 
       <!-- Priority Alert Banner -->
       <div class="alert-banner">
-        <p>🚨 URGENT LEAD NOTIFICATION • Reference ID: <strong>#${lead.id || 'NEW-LEAD'}</strong></p>
+        <p>${alertHeadline}</p>
         <p style="font-weight: 400; font-size: 12px; margin-top: 4px; color: #78350F;">
           Received on: ${istTime}
         </p>
@@ -492,7 +500,10 @@ export async function sendInquiryNotificationToAdmin(
     SITE_CONFIG.contact.email ||
     'saatpherektr@gmail.com';
 
-  const subject = `🚨 [NEW EVENT INQUIRY] ${lead.fullName || 'Prospective Client'} • ${lead.eventType || 'Event'} (${lead.eventLocation || 'City'}) - #${lead.id}`;
+  const isQuote = lead.source?.toLowerCase().includes('quote') || (lead.id && lead.id.includes('QUOTE'));
+  const subject = isQuote
+    ? `🚨 [GET A QUOTE REQUEST] ${lead.fullName || 'Client'} • ${lead.eventType || 'Celebration'} (${lead.eventLocation || 'Location'}) - #${lead.id}`
+    : `🚨 [NEW EVENT INQUIRY] ${lead.fullName || 'Prospective Client'} • ${lead.eventType || 'Event'} (${lead.eventLocation || 'City'}) - #${lead.id}`;
   const html = generateAdminEmailHtml(lead);
   const text = generateAdminEmailText(lead);
 

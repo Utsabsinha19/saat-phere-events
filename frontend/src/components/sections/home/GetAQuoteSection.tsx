@@ -36,6 +36,17 @@ export const GetAQuoteSection: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [submittedQuote, setSubmittedQuote] = useState<{
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    service: string;
+    venue: string;
+    budget: string;
+    date: string;
+    notes: string;
+  } | null>(null);
 
   const budgetOptions = [
     '₹5 Lakhs – ₹15 Lakhs (Intimate Celebration)',
@@ -93,6 +104,7 @@ export const GetAQuoteSection: React.FC = () => {
         eventType: formData.eventType,
         eventDate: formData.eventDate || new Date().toISOString().split('T')[0],
         requirements: `Nationality: ${formData.nationality} | Venue: ${formData.venue} | Decor Budget: ${formData.decorBudget}. Notes: ${formData.specialNotes || 'None'}`,
+        source: 'Get a Quote Section',
       };
 
       const res = await fetch('/api/inquiries', {
@@ -101,10 +113,28 @@ export const GetAQuoteSection: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
-      const json = await res.json().catch(() => ({ success: true, data: { id: `SPE-${Date.now().toString().slice(-4)}` } }));
+      const json = await res.json().catch(() => ({ success: true, data: { id: `SPE-QUOTE-${Date.now().toString().slice(-4)}` } }));
+
+      if (!res.ok) {
+        throw new Error(json.error || 'Failed to submit quote inquiry. Please try again.');
+      }
+
+      const quoteId = json.data?.id || `SPE-QUOTE-${Date.now().toString().slice(-4)}`;
+
+      setSubmittedQuote({
+        id: quoteId,
+        name: formData.brideGroomName,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.eventType,
+        venue: formData.venue,
+        budget: formData.decorBudget,
+        date: formData.eventDate || new Date().toISOString().split('T')[0],
+        notes: formData.specialNotes,
+      });
 
       setSuccess(
-        `Thank you, ${formData.brideGroomName}! Your custom quote request (#${json.data?.id || 'SPE-' + Math.floor(1000 + Math.random() * 9000)}) has been registered with our Senior Creative Director. We will reach out within 4 to 6 business hours.`
+        `Thank you, ${formData.brideGroomName}! Your custom quote request (#${quoteId}) has been dispatched to our official executive inbox at saatpherektr@gmail.com and our Senior Creative Director. We will reach out within 4 to 6 business hours.`
       );
 
       setFormData({
@@ -119,11 +149,9 @@ export const GetAQuoteSection: React.FC = () => {
         specialNotes: '',
         agreedToPrivacy: false,
       });
-    } catch {
-      // Graceful fallback for offline / mock resilience
-      setSuccess(
-        `Thank you, ${formData.brideGroomName}! Your quotation request has been received. Our concierge team from Katihar & Patna headquarters will contact you via WhatsApp/Phone promptly.`
-      );
+    } catch (err: unknown) {
+      const errorMsg = err instanceof Error ? err.message : 'Your quotation request could not be processed. Please reach out to our concierge via WhatsApp or phone.';
+      setError(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -256,30 +284,83 @@ export const GetAQuoteSection: React.FC = () => {
                   marginBottom: '14px',
                 }}
               >
-                Quote Request Received
+                Quote Request Received &amp; Dispatched
               </h3>
 
-              <p style={{ color: '#E5E7EB', fontSize: '1.05rem', maxWidth: '620px', margin: '0 auto 28px auto', lineHeight: 1.7 }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                  border: '1px solid rgba(212, 175, 55, 0.3)',
+                  padding: '6px 16px',
+                  borderRadius: '20px',
+                  color: 'var(--color-gold-light)',
+                  fontSize: '0.85rem',
+                  marginBottom: '20px',
+                }}
+              >
+                <Mail size={14} color="var(--color-gold)" />
+                <span>Routed to: <strong>saatpherektr@gmail.com</strong></span>
+              </div>
+
+              <p style={{ color: '#E5E7EB', fontSize: '1.02rem', maxWidth: '640px', margin: '0 auto 28px auto', lineHeight: 1.7 }}>
                 {success}
               </p>
 
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
                 <a
                   href={`https://wa.me/${SITE_CONFIG.contact.whatsappRaw}?text=${encodeURIComponent(
-                    `Namaste Saat Phere Events, I just requested a quote on your website for my upcoming celebration.`
+                    `Namaste Saat Phere Events, I just requested a quote on your website (#${submittedQuote?.id || 'QUOTE'}) for my upcoming celebration.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-gold"
-                  style={{ textDecoration: 'none', padding: '14px 28px' }}
+                  style={{ textDecoration: 'none', padding: '14px 26px' }}
                 >
                   Connect on WhatsApp Directly
                 </a>
 
+                {submittedQuote && (
+                  <a
+                    href={`mailto:saatpherektr@gmail.com?subject=${encodeURIComponent(
+                      `[Custom Quote #${submittedQuote.id}] ${submittedQuote.name} - ${submittedQuote.service}`
+                    )}&body=${encodeURIComponent(
+                      `Namaste Saat Phere Events Team,\n\nI have requested a custom quote on your website. Here are my celebration details:\n\n` +
+                      `• Client Name: ${submittedQuote.name}\n` +
+                      `• Phone / WhatsApp: ${submittedQuote.phone}\n` +
+                      `• Email: ${submittedQuote.email}\n` +
+                      `• Event / Service: ${submittedQuote.service}\n` +
+                      `• Event Date: ${submittedQuote.date}\n` +
+                      `• Destination/Venue: ${submittedQuote.venue}\n` +
+                      `• Budget: ${submittedQuote.budget}\n` +
+                      `• Special Notes: ${submittedQuote.notes || 'None'}\n\n` +
+                      `Looking forward to receiving your creative proposal.\n\nWarm regards,\n${submittedQuote.name}`
+                    )}`}
+                    className="btn-outline"
+                    style={{
+                      color: 'var(--color-gold-light)',
+                      borderColor: 'rgba(212, 175, 55, 0.5)',
+                      padding: '14px 24px',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                    }}
+                  >
+                    <Mail size={16} color="var(--color-gold)" />
+                    Open in Gmail / Email App
+                  </a>
+                )}
+
                 <button
-                  onClick={() => setSuccess(null)}
+                  onClick={() => {
+                    setSuccess(null);
+                    setSubmittedQuote(null);
+                  }}
                   className="btn-outline"
-                  style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.4)', padding: '14px 26px' }}
+                  style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.4)', padding: '14px 22px' }}
                 >
                   Submit Another Inquiry
                 </button>

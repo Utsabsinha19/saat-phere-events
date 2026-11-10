@@ -18,7 +18,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const id = `SPE-LEAD-${Date.now().toString().slice(-5)}${Math.floor(10 + Math.random() * 90)}`;
+    const isQuoteSource = body.source?.toLowerCase().includes('quote') || !!body.nationality || !!body.decorBudget;
+    const prefix = isQuoteSource ? 'SPE-QUOTE-' : 'SPE-LEAD-';
+    const id = `${prefix}${Date.now().toString().slice(-5)}${Math.floor(10 + Math.random() * 90)}`;
     
     const newLead: InquiryLead = {
       id,
@@ -33,7 +35,7 @@ export async function POST(req: Request) {
       requirements: body.requirements || body.specialNotes || 'None specified',
       status: 'New',
       createdAt: new Date().toISOString(),
-      source: body.source || (body.nationality ? 'Website Quote Engine' : 'Website Official Inquiry Form'),
+      source: body.source || (isQuoteSource ? 'Get a Quote Section' : 'Website Official Inquiry Form'),
     };
 
     // 1. Dispatch real email with inquiry details to registered email: saatpherektr@gmail.com
