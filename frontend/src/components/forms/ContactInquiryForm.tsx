@@ -180,7 +180,6 @@ export const ContactInquiryForm: React.FC = () => {
               type="text"
               required
               className="form-input"
-              placeholder="e.g. Maharani Gayatri Devi / Vikram Singhania"
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
             />
@@ -196,7 +195,6 @@ export const ContactInquiryForm: React.FC = () => {
               type="tel"
               required
               className="form-input"
-              placeholder="+91 72091 27697"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
@@ -212,7 +210,6 @@ export const ContactInquiryForm: React.FC = () => {
               type="email"
               required
               className="form-input"
-              placeholder="name@company.com / couple@gmail.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
@@ -262,7 +259,6 @@ export const ContactInquiryForm: React.FC = () => {
               type="text"
               required
               className="form-input"
-              placeholder="e.g. Udaipur, Jaipur, Goa, Dubai, Delhi"
               value={formData.eventLocation}
               onChange={(e) => setFormData({ ...formData, eventLocation: e.target.value })}
             />
@@ -316,7 +312,6 @@ export const ContactInquiryForm: React.FC = () => {
             id="requirements"
             rows={4}
             className="form-textarea"
-            placeholder="Share special requests such as preferred heritage properties (e.g. City Palace, Rambagh), multi-day ceremony themes, guest flight coordination, celebrity artist preferences, or traditional rituals."
             value={formData.requirements}
             onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
           />
