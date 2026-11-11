@@ -11,14 +11,17 @@ import {
   Sparkles,
   Settings,
   ExternalLink,
-  Crown,
   Briefcase,
   Building2,
   Smartphone,
+  LogOut,
+  ShieldCheck,
 } from 'lucide-react';
+import { useAdminAuth } from './AdminAuthGuard';
 
 export const AdminSidebar: React.FC = () => {
   const pathname = usePathname();
+  const { user, logout } = useAdminAuth();
 
   const navItems = [
     { label: 'Executive Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -71,7 +74,106 @@ export const AdminSidebar: React.FC = () => {
         })}
       </nav>
 
-      <div style={{ padding: '16px 20px', borderTop: '1px solid #1F2A37' }}>
+      {/* User Info & Actions */}
+      <div
+        style={{
+          padding: '16px 20px',
+          borderTop: '1px solid #1F2A37',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            padding: '8px 10px',
+            backgroundColor: 'rgba(212, 175, 55, 0.08)',
+            border: '1px solid rgba(212, 175, 55, 0.2)',
+            borderRadius: '8px',
+          }}
+        >
+          <div
+            style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #D4AF37, #B8860B)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#1A0B2E',
+              fontSize: '0.75rem',
+              fontWeight: 800,
+              flexShrink: 0,
+            }}
+          >
+            SP
+          </div>
+          <div style={{ overflow: 'hidden', flex: 1 }}>
+            <div
+              style={{
+                fontSize: '0.74rem',
+                fontWeight: 600,
+                color: '#F9FAFB',
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+              }}
+              title={user?.email || 'saatpherektr@gmail.com'}
+            >
+              {user?.email || 'saatpherektr@gmail.com'}
+            </div>
+            <div
+              style={{
+                fontSize: '0.66rem',
+                color: '#D4AF37',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              <ShieldCheck size={11} />
+              Authorized Administrator
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={() => logout()}
+          type="button"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            width: '100%',
+            padding: '9px 12px',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            border: '1px solid rgba(239, 68, 68, 0.3)',
+            borderRadius: '6px',
+            color: '#FCA5A5',
+            fontSize: '0.82rem',
+            fontWeight: 500,
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.2)';
+            e.currentTarget.style.color = '#FFFFFF';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+            e.currentTarget.style.color = '#FCA5A5';
+          }}
+          title="Sign out of Admin Console"
+        >
+          <LogOut size={14} />
+          Sign Out
+        </button>
+
         <Link
           href="/"
           target="_blank"
@@ -80,8 +182,9 @@ export const AdminSidebar: React.FC = () => {
             alignItems: 'center',
             gap: '8px',
             color: 'var(--color-gold)',
-            fontSize: '0.85rem',
+            fontSize: '0.82rem',
             textDecoration: 'none',
+            paddingTop: '4px',
           }}
         >
           <ExternalLink size={14} />

@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import '@/styles/admin.css';
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
+import { AdminAuthGuard } from '@/components/admin/AdminAuthGuard';
 
 export default function AdminLayout({
   children,
@@ -8,11 +11,13 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="admin-layout">
-      <AdminSidebar />
-      <div className="admin-main">
-        {children}
+    <AdminAuthGuard>
+      <div className="admin-layout">
+        <AdminSidebar />
+        <div className="admin-main">
+          {children}
+        </div>
       </div>
-    </div>
+    </AdminAuthGuard>
   );
 }
