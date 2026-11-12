@@ -216,7 +216,7 @@ export const AdminSignIn: React.FC<AdminSignInProps> = ({ onSuccess }) => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="saatpherektr@gmail.com"
+                placeholder="Enter authorized email"
                 style={{
                   width: '100%',
                   padding: '13px 14px 13px 44px',
@@ -344,7 +344,7 @@ export const AdminSignIn: React.FC<AdminSignInProps> = ({ onSuccess }) => {
           }}
         >
           <p style={{ fontSize: '0.74rem', color: '#6B7280', margin: '0 0 14px 0', lineHeight: 1.5 }}>
-            Access is strictly restricted to <strong>saatpherektr@gmail.com</strong>.
+            Access is restricted to authorized personnel only.
             All unauthorized login attempts are recorded and monitored.
           </p>
 
@@ -367,3 +367,4 @@ export const AdminSignIn: React.FC<AdminSignInProps> = ({ onSuccess }) => {
     </div>
   );
 };
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Phone, Mail, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, Clock, ShieldCheck, Lock } from 'lucide-react';
 import { SITE_CONFIG } from '@/config/site';
 
 export const TopBanner: React.FC = () => {
@@ -56,15 +56,27 @@ export const TopBanner: React.FC = () => {
           <Link
             href="/admin"
             style={{
-              fontSize: '0.75rem',
-              color: 'rgba(255,255,255,0.6)',
-              textDecoration: 'underline',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '5px',
+              fontSize: '0.74rem',
+              color: '#F3F4F6',
+              backgroundColor: 'rgba(212, 175, 55, 0.15)',
+              border: '1px solid rgba(212, 175, 55, 0.45)',
+              padding: '2px 9px',
+              borderRadius: '12px',
+              textDecoration: 'none',
+              fontWeight: 500,
+              transition: 'all 0.2s ease',
             }}
+            title="Administrator Sign In"
           >
-            Admin Console
+            <Lock size={11} color="var(--color-gold)" />
+            <span>Sign In</span>
           </Link>
         </div>
       </div>
     </div>
   );
 };
+

@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Access Denied: Only the authorized email (saatpherektr@gmail.com) is permitted to access the Admin Console.',
+          error: 'Access Denied: Invalid administrator credentials. Please check your details and try again.',
         },
         { status: 401 }
       );
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Access Denied: Invalid administrator password. Please check your credentials and try again.',
+          error: 'Access Denied: Invalid administrator credentials. Please check your details and try again.',
         },
         { status: 401 }
       );
@@ -143,3 +143,4 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ authenticated: false }, { status: 401 });
   }
 }
+
