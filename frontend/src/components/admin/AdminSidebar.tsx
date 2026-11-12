@@ -115,16 +115,15 @@ export const AdminSidebar: React.FC = () => {
           <div style={{ overflow: 'hidden', flex: 1 }}>
             <div
               style={{
-                fontSize: '0.74rem',
+                fontSize: '0.78rem',
                 fontWeight: 600,
                 color: '#F9FAFB',
                 whiteSpace: 'nowrap',
                 textOverflow: 'ellipsis',
                 overflow: 'hidden',
               }}
-              title={user?.email || 'saatpherektr@gmail.com'}
             >
-              {user?.email || 'saatpherektr@gmail.com'}
+              Executive Director
             </div>
             <div
               style={{
@@ -136,7 +135,7 @@ export const AdminSidebar: React.FC = () => {
               }}
             >
               <ShieldCheck size={11} />
-              Authorized Administrator
+              Admin Portal Active
             </div>
           </div>
         </div>

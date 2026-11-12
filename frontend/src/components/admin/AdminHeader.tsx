@@ -64,7 +64,7 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({ title, subtitle }) => 
           </div>
           <div>
             <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#1F2937' }}>Lead Concierge</div>
-            <div style={{ fontSize: '0.72rem', color: '#9CA3AF' }}>{SITE_CONFIG.contact.email}</div>
+            <div style={{ fontSize: '0.72rem', color: '#9CA3AF' }}>Super Administrator</div>
           </div>
         </div>
       </div>
